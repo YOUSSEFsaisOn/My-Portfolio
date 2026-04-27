@@ -123,3 +123,14 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Gradient text animation */
+@keyframes gradient-shift {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+/* Hide default cursor in hero */
+.cursor-none { cursor: none; }
+.cursor-none * { cursor: none; }
