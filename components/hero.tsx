@@ -6,6 +6,7 @@ import Link from 'next/link'
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false)
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
+  const [glowPos, setGlowPos] = useState({ x: 0, y: 0 })
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -15,10 +16,13 @@ export default function Hero() {
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
     if (!sectionRef.current) return
     const rect = sectionRef.current.getBoundingClientRect()
-    setMousePos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    })
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    setMousePos({ x, y })
+    
+    setTimeout(() => {
+      setGlowPos({ x, y })
+    }, 80)
   }, [])
 
   return (
@@ -27,18 +31,35 @@ export default function Hero() {
       onMouseMove={handleMouseMove}
       className="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden cursor-none"
     >
-      {/* Mouse-following glow */}
+      {/* Mouse-following glow - slightly behind & below */}
       <div
-        className="pointer-events-none absolute z-[1] transition-opacity duration-300"
+        className="pointer-events-none absolute z-[1]"
         style={{
-          left: mousePos.x - 200,
-          top: mousePos.y - 200,
+          left: glowPos.x - 200 + 25,
+          top: glowPos.y - 200 + 35,
           width: 400,
           height: 400,
-          background: 'radial-gradient(circle, rgba(34,211,238,0.12) 0%, rgba(59,130,246,0.06) 40%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(34,211,238,0.10) 0%, rgba(59,130,246,0.05) 40%, transparent 70%)',
           borderRadius: '50%',
-          filter: 'blur(10px)',
-          opacity: mousePos.x === 0 && mousePos.y === 0 ? 0 : 1,
+          filter: 'blur(12px)',
+          opacity: mousePos.x === 0 && mousePos.y === 0 ? 0 : 0.8,
+          transition: 'left 0.4s ease-out, top 0.4s ease-out, opacity 0.3s ease',
+        }}
+      />
+
+      {/* Secondary subtle glow (more behind) */}
+      <div
+        className="pointer-events-none absolute z-[0]"
+        style={{
+          left: glowPos.x - 150 + 45,
+          top: glowPos.y - 150 + 55,
+          width: 300,
+          height: 300,
+          background: 'radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 60%)',
+          borderRadius: '50%',
+          filter: 'blur(20px)',
+          opacity: mousePos.x === 0 && mousePos.y === 0 ? 0 : 0.6,
+          transition: 'left 0.6s ease-out, top 0.6s ease-out',
         }}
       />
 
@@ -86,6 +107,7 @@ export default function Hero() {
         }}
       />
 
+      {/* Content */}
       <div className={`relative z-10 max-w-4xl mx-auto text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="mb-6 inline-block px-5 py-2.5 bg-gradient-to-r from-blue-500/15 to-cyan-500/15 border border-blue-400/20 rounded-full text-blue-300 text-sm font-medium backdrop-blur-sm">
           👋 Welcome to my portfolio
@@ -141,12 +163,12 @@ export default function Hero() {
             Cairo, Egypt
           </div>
         </div>
+      </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-cyan-400/30 rounded-full flex items-start justify-center p-2">
-            <div className="w-1 h-2 bg-cyan-400 rounded-full animate-bounce" />
-          </div>
+      {/* Scroll Indicator - bara el-content w taht shwai */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+        <div className="w-6 h-10 border-2 border-cyan-400/30 rounded-full flex items-start justify-center p-2">
+          <div className="w-1 h-2 bg-cyan-400 rounded-full animate-bounce" />
         </div>
       </div>
     </section>
