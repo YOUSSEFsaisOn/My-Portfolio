@@ -8,14 +8,16 @@ import Navigation from '@/components/navigation'
 
 export default function Home() {
   return (
-    <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white min-h-screen">
+    <div className="bg-black text-white min-h-screen selection:bg-white/20">
       <Navigation />
-      <Hero />
-      <About />
-      <Experience />
-      <Projects />
-      <Skills />
-      <Contact />
+      <main>
+        <Hero />
+        <About />
+        <Projects />
+        <Experience />
+        <Skills />
+        <Contact />
+      </main>
     </div>
   )
 }
