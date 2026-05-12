@@ -1,80 +1,31 @@
 'use client'
 
-import { useEffect, useState, useRef, useCallback } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import MouseTrail from './framer/mouse-trail'
+import TextVideoMask from './framer/text-video-mask'
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false)
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
-  const [glowPos, setGlowPos] = useState({ x: 0, y: 0 })
-  const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     setIsVisible(true)
   }, [])
 
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
-    if (!sectionRef.current) return
-    const rect = sectionRef.current.getBoundingClientRect()
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
-    setMousePos({ x, y })
-    
-    setTimeout(() => {
-      setGlowPos({ x, y })
-    }, 80)
-  }, [])
-
   return (
     <section
-      ref={sectionRef}
-      onMouseMove={handleMouseMove}
-      className="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden cursor-none"
+      className="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden"
     >
-      {/* Mouse-following glow - slightly behind & below */}
-      <div
-        className="pointer-events-none absolute z-[1]"
-        style={{
-          left: glowPos.x - 200 + 25,
-          top: glowPos.y - 200 + 35,
-          width: 400,
-          height: 400,
-          background: 'radial-gradient(circle, rgba(34,211,238,0.10) 0%, rgba(59,130,246,0.05) 40%, transparent 70%)',
-          borderRadius: '50%',
-          filter: 'blur(12px)',
-          opacity: mousePos.x === 0 && mousePos.y === 0 ? 0 : 0.8,
-          transition: 'left 0.4s ease-out, top 0.4s ease-out, opacity 0.3s ease',
-        }}
-      />
-
-      {/* Secondary subtle glow (more behind) */}
-      <div
-        className="pointer-events-none absolute z-[0]"
-        style={{
-          left: glowPos.x - 150 + 45,
-          top: glowPos.y - 150 + 55,
-          width: 300,
-          height: 300,
-          background: 'radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 60%)',
-          borderRadius: '50%',
-          filter: 'blur(20px)',
-          opacity: mousePos.x === 0 && mousePos.y === 0 ? 0 : 0.6,
-          transition: 'left 0.6s ease-out, top 0.6s ease-out',
-        }}
-      />
-
-      {/* Custom cursor dot */}
-      <div
-        className="pointer-events-none absolute z-[2] transition-transform duration-100 ease-out"
-        style={{
-          left: mousePos.x,
-          top: mousePos.y,
-          transform: 'translate(-50%, -50%)',
-          position: 'absolute',
-        }}
-      >
-        <div className="w-3 h-3 bg-cyan-400 rounded-full opacity-70 shadow-[0_0_15px_rgba(34,211,238,0.4)]" />
-        <div className="absolute inset-[-6px] border border-cyan-400/20 rounded-full animate-ping" style={{ animationDuration: '2.5s' }} />
+      {/* Mouse Trail */}
+      <div className="absolute inset-0 z-[1] pointer-events-none">
+        <MouseTrail
+          variant="particles"
+          trailColor="#22d3ee"
+          trailColorEnd="#3b82f6"
+          fillType="gradient"
+          particleCount={8}
+          particleSize={4}
+        />
       </div>
 
       {/* Animated Background */}
@@ -82,17 +33,15 @@ export default function Hero() {
         <div
           className="absolute w-72 h-72 bg-blue-500/20 rounded-full blur-3xl animate-pulse"
           style={{
-            top: 80 + (mousePos.y * 0.02),
-            left: 40 + (mousePos.x * 0.02),
-            transition: 'top 0.8s ease-out, left 0.8s ease-out',
+            top: '10%',
+            left: '10%',
           }}
         />
         <div
           className="absolute w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl animate-pulse"
           style={{
-            bottom: 40 + (mousePos.y * -0.015),
-            right: 40 + (mousePos.x * -0.015),
-            transition: 'bottom 0.8s ease-out, right 0.8s ease-out',
+            bottom: '10%',
+            right: '10%',
           }}
         />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-slate-500/10 rounded-full blur-3xl" />
@@ -113,9 +62,13 @@ export default function Hero() {
           👋 Welcome to my portfolio
         </div>
 
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-[gradient-shift_4s_ease_infinite]">
-          Yousef Mohamed
-        </h1>
+        <div className="h-32 md:h-48 mb-6 flex items-center justify-center">
+          <TextVideoMask
+            text="YOUSEF"
+            fontSize="clamp(60px, 15vw, 180px)"
+            fontWeight={900}
+          />
+        </div>
 
         <p className="text-xl md:text-2xl text-gray-300 mb-4 font-medium">
           Frontend Developer | React.js & Next.js Specialist
