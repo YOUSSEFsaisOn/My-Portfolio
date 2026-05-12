@@ -7,6 +7,8 @@ import TextVideoMask from './framer/text-video-mask'
 import { CONTACT } from '@/lib/constants'
 
 export default function Hero() {
+  const phoneNoSpaces = CONTACT.PHONE.split(' ').join('')
+
   return (
     <section
       className="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden"
@@ -105,7 +107,7 @@ export default function Hero() {
             {CONTACT.EMAIL}
           </a>
           <a
-            href={`tel:${CONTACT.PHONE.split(' ').join('')}`}
+            href={`tel:${phoneNoSpaces}`}
             className="flex items-center gap-2 hover:text-cyan-400 transition-colors duration-300 group"
           >
             <span className="w-2 h-2 bg-cyan-400 rounded-full group-hover:scale-150 transition-transform duration-300" />

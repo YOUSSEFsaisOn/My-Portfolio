@@ -37,21 +37,47 @@ export default function TextVideoMask(props: TextVideoMaskProps) {
   const id = useId()
   const maskId = `mask-${id.split(':').join('')}`
 
+  const containerStyle: React.CSSProperties = {
+    position: "relative",
+    width: "100%",
+    height: "100%",
+    backgroundColor,
+    overflow: "hidden",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+  }
+
+  const svgStyle: React.CSSProperties = {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%"
+  }
+
+  const textStyle: React.CSSProperties = {
+    fontSize,
+    fontFamily,
+    fontWeight,
+    fontStyle,
+    letterSpacing
+  }
+
+  const videoStyle: React.CSSProperties = {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    mask: `url(#${maskId})`,
+    WebkitMask: `url(#${maskId})`
+  }
+
   return (
-    <div
-      className={className}
-      style={{
-        position: "relative",
-        width: "100%",
-        height: "100%",
-        backgroundColor,
-        overflow: "hidden",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center"
-      }}
-    >
-      <svg style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}>
+    <div className={className} style={containerStyle}>
+      <svg style={svgStyle}>
         <defs>
           <mask id={maskId}>
             <rect width="100%" height="100%" fill="black" />
@@ -61,13 +87,7 @@ export default function TextVideoMask(props: TextVideoMaskProps) {
               textAnchor="middle"
               dominantBaseline="middle"
               fill="white"
-              style={{
-                fontSize,
-                fontFamily,
-                fontWeight,
-                fontStyle,
-                letterSpacing
-              }}
+              style={textStyle}
             >
               {text}
             </text>
@@ -80,16 +100,7 @@ export default function TextVideoMask(props: TextVideoMaskProps) {
         loop={loop}
         muted={muted}
         playsInline
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          mask: `url(#${maskId})`,
-          WebkitMask: `url(#${maskId})`
-        }}
+        style={videoStyle}
       />
     </div>
   )

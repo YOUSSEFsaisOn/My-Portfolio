@@ -2,25 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import { useInView } from 'framer-motion'
-
-// --- Helpers ---
-function parseColor(col: string) {
-  if (col.startsWith('#')) {
-    let hex = col.slice(1)
-    if (hex.length === 3) {
-      hex = hex.split('').map(c => c + c).join('')
-    }
-    return {
-      r: parseInt(hex.substring(0, 2), 16),
-      g: parseInt(hex.substring(2, 4), 16),
-      b: parseInt(hex.substring(4, 6), 16)
-    }
-  } else if (col.startsWith('rgb')) {
-    const m = col.match(/\d+/g)
-    return m ? { r: Number(m[0]), g: Number(m[1]), b: Number(m[2]) } : { r: 0, g: 0, b: 0 }
-  }
-  return { r: 0, g: 0, b: 0 }
-}
+import { parseColor, getAnimationRandom } from '@/lib/trail-utils'
 
 interface Particle {
   x: number
@@ -147,15 +129,15 @@ export default function MouseTrail(props: MouseTrailProps) {
           const angle = Math.atan2(dy, dx)
           const spread = spreadAngle * Math.PI / 180
           for (let i = 0; i < particleCount; i++) {
-            const a = angle + (Math.random() - 0.5) * spread
-            const v = speed * 0.1 + Math.random() * 2
+            const a = angle + (getAnimationRandom() - 0.5) * spread
+            const v = speed * 0.1 + getAnimationRandom() * 2
             particlesRef.current.push({
               x: sx,
               y: sy,
               vx: Math.cos(a) * v,
               vy: Math.sin(a) * v,
-              life: 0.8 + Math.random() * 0.4,
-              size: particleSize + Math.random() * 1.5
+              life: 0.8 + getAnimationRandom() * 0.4,
+              size: particleSize + getAnimationRandom() * 1.5
             })
           }
         }
@@ -200,9 +182,9 @@ export default function MouseTrail(props: MouseTrailProps) {
 
       const rgbStart = parseColor(trailColor)
       const rgbEnd = parseColor(trailColorEnd)
-
       const points = trailPointsRef.current
 
+      // Update lives
       if (autoFade && points.length) {
         const decay = dt / Math.max(0.001, fadeDuration)
         for (let i = points.length - 1; i >= 0; i--) {
@@ -211,6 +193,7 @@ export default function MouseTrail(props: MouseTrailProps) {
         }
       }
 
+      // Draw particles
       const particles = particlesRef.current
       if (particles.length) {
         const damping = Math.pow(0.98, dt * 60)
@@ -236,24 +219,20 @@ export default function MouseTrail(props: MouseTrailProps) {
         }
       }
 
+      // Draw main trail
       if (points.length >= 1) {
-        for (let i = 0; i < points.length; i++) {
-          const pt = points[i]
+        points.forEach((pt, i) => {
           const n = points.length
-          let a = fadeOut ? 0 : 1
-          if (fadeOut) {
-            const tVal = n <= 1 ? 1 : i / (n - 1)
-            a = 1 - (1 - tVal) * (1 - tVal)
-          }
+          const tVal = n <= 1 ? 1 : i / (n - 1)
+          const a = fadeOut ? 1 - (1 - tVal) * (1 - tVal) : 1
           const alpha = a * (autoFade ? pt.life : 1)
           const finalAlpha = Math.max(0, Math.min(1, alpha))
-          const t = i / (points.length - 1 || 1)
 
           let colorString = `rgba(${rgbStart.r}, ${rgbStart.g}, ${rgbStart.b}, ${finalAlpha})`
           if (fillType === 'gradient') {
-            const r = Math.floor(rgbStart.r + (rgbEnd.r - rgbStart.r) * t)
-            const g = Math.floor(rgbStart.g + (rgbEnd.g - rgbStart.g) * t)
-            const b = Math.floor(rgbStart.b + (rgbEnd.b - rgbStart.b) * t)
+            const r = Math.floor(rgbStart.r + (rgbEnd.r - rgbStart.r) * tVal)
+            const g = Math.floor(rgbStart.g + (rgbEnd.g - rgbStart.g) * tVal)
+            const b = Math.floor(rgbStart.b + (rgbEnd.b - rgbStart.b) * tVal)
             colorString = `rgba(${r}, ${g}, ${b}, ${finalAlpha})`
           }
 
@@ -269,34 +248,22 @@ export default function MouseTrail(props: MouseTrailProps) {
             const s = pixelSize * (fadeOut ? 0.6 + 0.4 * finalAlpha : 1)
             ctx.fillStyle = colorString
             ctx.fillRect(x - s / 2, y - s / 2, s, s)
-          } else if (variant === 'particles') {
-            if (i > 0) {
-              const p1 = points[i - 1]
-              ctx.strokeStyle = colorString
-              ctx.lineWidth = Math.max(1, lineWidth * 0.5 * finalAlpha)
-              ctx.beginPath()
-              ctx.moveTo(p1.x, p1.y)
-              ctx.lineTo(pt.x, pt.y)
-              ctx.stroke()
-            }
-          } else {
-            if (i > 0) {
-              const p1 = points[i - 1]
-              const widthScale = fadeOut ? 0.3 + 0.7 * finalAlpha : 1
-              ctx.strokeStyle = colorString
-              ctx.lineWidth = Math.max(1, lineWidth * widthScale)
-              ctx.beginPath()
-              ctx.moveTo(p1.x, p1.y)
-              ctx.lineTo(pt.x, pt.y)
-              ctx.stroke()
-            } else if (points.length === 1) {
-              ctx.fillStyle = colorString
-              ctx.beginPath()
-              ctx.arc(pt.x, pt.y, Math.max(1, lineWidth / 2), 0, Math.PI * 2)
-              ctx.fill()
-            }
+          } else if (i > 0) {
+            const p1 = points[i - 1]
+            ctx.strokeStyle = colorString
+            const widthScale = (variant === 'particles') ? 0.5 * finalAlpha : (fadeOut ? 0.3 + 0.7 * finalAlpha : 1)
+            ctx.lineWidth = Math.max(1, lineWidth * widthScale)
+            ctx.beginPath()
+            ctx.moveTo(p1.x, p1.y)
+            ctx.lineTo(pt.x, pt.y)
+            ctx.stroke()
+          } else if (points.length === 1 && variant === 'line') {
+            ctx.fillStyle = colorString
+            ctx.beginPath()
+            ctx.arc(pt.x, pt.y, Math.max(1, lineWidth / 2), 0, Math.PI * 2)
+            ctx.fill()
           }
-        }
+        })
       }
 
       rafRef.current = requestAnimationFrame(animate)
