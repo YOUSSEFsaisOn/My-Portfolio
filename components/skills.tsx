@@ -1,5 +1,7 @@
 'use client'
 
+import { motion } from 'framer-motion'
+
 export default function Skills() {
   const skillCategories = [
     {
@@ -47,98 +49,68 @@ export default function Skills() {
         { name: 'Git & GitHub', level: 90 },
         { name: 'Docker', level: 75 },
         { name: 'CI/CD', level: 80 },
-        { name: 'Vercel Deployment', level: 90 },
+        { name: 'Vercel', level: 90 },
       ]
     },
     {
-      category: 'Testing & Quality',
+      category: 'Testing',
       icon: '✅',
       skills: [
         { name: 'Jest', level: 85 },
         { name: 'Unit Testing', level: 85 },
-        { name: 'Performance Optimization', level: 88 },
-        { name: 'Code Review', level: 85 },
+        { name: 'Optimization', level: 88 },
       ]
     },
   ]
 
   return (
-    <section id="skills" className="py-20 px-6 relative">
+    <section id="skills" className="py-24 px-6 relative">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-            Skills & Expertise
-          </h2>
-          <p className="text-gray-400 text-lg">Technologies I work with</p>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="mb-16 text-center"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">Skills & Expertise</h2>
+          <p className="text-white/40 text-lg">Technologies I work with</p>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group relative"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="glass p-8 rounded-[2.5rem] hover:bg-white/[0.05] transition-colors"
             >
-              {/* Animated Background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-all duration-500" />
-
-              {/* Card */}
-              <div className="relative bg-slate-800/60 rounded-2xl p-8 border border-slate-700/50 group-hover:border-slate-600 transition-all duration-300">
-                <div className="flex items-center gap-4 mb-8">
-                  <span className="text-4xl group-hover:scale-125 group-hover:rotate-12 transition-all duration-300">
-                    {category.icon}
-                  </span>
-                  <h3 className="text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 group-hover:bg-clip-text transition-all duration-300">
-                    {category.category}
-                  </h3>
-                </div>
-
-                <div className="space-y-6">
-                  {category.skills.map((skill, i) => (
-                    <div key={i} className="space-y-2">
-                      <div className="flex justify-between items-center">
-                        <span className="text-gray-300 font-medium group-hover:text-cyan-300 transition-colors duration-300">
-                          {skill.name}
-                        </span>
-                        <span className="text-sm text-gray-400 group-hover:text-cyan-400 transition-colors duration-300">
-                          {skill.level}%
-                        </span>
-                      </div>
-                      <div className="w-full bg-slate-700/50 rounded-full h-2 overflow-hidden group-hover:bg-slate-700 transition-colors duration-300">
-                        <div
-                          className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full transition-all duration-500 group-hover:from-blue-400 group-hover:to-cyan-400 group-hover:shadow-lg group-hover:shadow-cyan-500/50"
-                          style={{ width: `${skill.level}%` }}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Hover accent */}
-                <div className="absolute top-0 right-0 w-1 h-0 bg-gradient-to-b from-blue-400 to-cyan-400 rounded-full group-hover:h-2/3 transition-all duration-500" />
+              <div className="flex items-center gap-4 mb-8">
+                <span className="text-3xl">{category.icon}</span>
+                <h3 className="text-xl font-bold text-white">{category.category}</h3>
               </div>
-            </div>
-          ))}
-        </div>
 
-        {/* Additional Info */}
-        <div className="grid md:grid-cols-4 gap-6 mt-12">
-          {[
-            { label: 'Projects Completed', value: '15+' },
-            { label: 'Years Experience', value: '2+' },
-            { label: 'Technologies', value: '20+' },
-            { label: 'Certifications', value: '3+' },
-          ].map((stat, index) => (
-            <div
-              key={index}
-              className="group text-center p-6 bg-slate-800/40 rounded-xl border border-slate-700/50 hover:border-cyan-400/30 hover:bg-slate-800/60 transition-all duration-300 hover:scale-105"
-            >
-              <p className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2">
-                {stat.value}
-              </p>
-              <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                {stat.label}
-              </p>
-            </div>
+              <div className="space-y-6">
+                {category.skills.map((skill, i) => (
+                  <div key={i} className="space-y-2">
+                    <div className="flex justify-between items-center text-sm">
+                      <span className="text-white/70">{skill.name}</span>
+                      <span className="text-white/40">{skill.level}%</span>
+                    </div>
+                    <div className="w-full bg-white/5 rounded-full h-1.5 overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 1, delay: 0.5 + (i * 0.1) }}
+                        className="h-full bg-white rounded-full"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>

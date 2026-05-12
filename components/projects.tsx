@@ -1,115 +1,86 @@
 'use client'
 
-import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 export default function Projects() {
   const projects = [
     {
       title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce application with payment integration, product filtering, and responsive design. Implemented using Next.js, React Query, and Paymob payment gateway.',
-      tags: ['Next.js', 'React Query', 'Paymob', 'Tailwind CSS', '.NET Backend'],
-      gradient: 'from-blue-500 to-purple-500',
+      description: 'Full-stack application with payment integration, product filtering, and responsive design.',
+      tags: ['Next.js', 'Paymob', 'React Query'],
+      className: 'md:col-span-2 md:row-span-2',
       icon: '🛍️'
     },
     {
-      title: 'Notes Management App',
-      description: 'Full-stack notes application with CRUD operations, JWT authentication, and real-time synchronization. Built with Next.js frontend and .NET Web API backend.',
-      tags: ['Next.js', 'TypeScript', '.NET API', 'JWT Auth', 'Real-time Sync'],
-      gradient: 'from-cyan-500 to-blue-500',
+      title: 'Notes App',
+      description: 'Management system with JWT auth and real-time sync.',
+      tags: ['Next.js', '.NET', 'TypeScript'],
+      className: 'md:col-span-1 md:row-span-1',
       icon: '📝'
     },
     {
-      title: 'Secure Video Platform',
-      description: 'Video streaming application with secure content protection and Bunny.net integration. Implemented authentication, protected routes, and optimized video delivery.',
-      tags: ['Next.js', 'Bunny.net', 'Authentication', 'Security', 'Performance'],
-      gradient: 'from-emerald-500 to-cyan-500',
+      title: 'Video Platform',
+      description: 'Secure streaming with Bunny.net and content protection.',
+      tags: ['Security', 'Bunny.net', 'Next.js'],
+      className: 'md:col-span-1 md:row-span-1',
       icon: '🎥'
     },
     {
-      title: 'Firebase Authentication System',
-      description: 'Secure authentication application with Google Sign-In and Email/Password login. Implemented using Firebase Authentication with modern React patterns.',
-      tags: ['React.js', 'Firebase', 'OAuth', 'Authentication', 'Security'],
-      gradient: 'from-orange-500 to-red-500',
-      icon: '🔐'
-    },
-    {
-      title: 'Course Learning Platform',
-      description: 'Production-ready learning platform with course management, video streaming, and payment integration. Fully deployed on MonsterASP.NET with scalable architecture.',
-      tags: ['Next.js', 'TypeScript', 'Course Management', 'Video Streaming', 'Scalable Architecture'],
-      gradient: 'from-pink-500 to-rose-500',
+      title: 'Course Platform',
+      description: 'Scalable learning management system with course management.',
+      tags: ['TypeScript', 'Auth', 'Next.js'],
+      className: 'md:col-span-1 md:row-span-2',
       icon: '📚'
     },
     {
-      title: 'Responsive Dashboard',
-      description: 'Modern dashboard application with real-time data visualization, responsive design, and optimized performance. Built with React.js and custom CSS animations.',
-      tags: ['React.js', 'Data Visualization', 'Responsive Design', 'Animations', 'Performance'],
-      gradient: 'from-indigo-500 to-purple-500',
+      title: 'Dashboard',
+      description: 'Real-time data visualization and performance optimization.',
+      tags: ['React', 'Charts', 'Tailwind'],
+      className: 'md:col-span-2 md:row-span-1',
       icon: '📊'
     },
   ]
 
   return (
-    <section id="projects" className="py-20 px-6 bg-slate-800/40 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute top-20 -right-40 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl" />
+    <section id="projects" className="py-24 px-6 bg-black/20">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          className="mb-16 text-center"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">Selected Projects</h2>
+          <p className="text-white/40 text-lg">A showcase of my work</p>
+        </motion.div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-            Featured Projects
-          </h2>
-          <p className="text-gray-400 text-lg">Showcase of my best work</p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group relative h-full"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              whileHover={{ y: -5 }}
+              className={`glass p-8 rounded-[2.5rem] flex flex-col justify-between group cursor-pointer hover:bg-white/[0.05] transition-all duration-500 ${project.className}`}
             >
-              {/* Animated Border */}
-              <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} rounded-2xl opacity-0 group-hover:opacity-100 blur transition-all duration-500 group-hover:blur-lg`} />
-              
-              {/* Card */}
-              <div className="relative bg-slate-900/80 backdrop-blur rounded-2xl p-8 h-full border border-slate-700/50 group-hover:border-slate-600 transition-all duration-300 flex flex-col">
-                {/* Icon */}
-                <div className="text-5xl mb-6 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+              <div>
+                <div className="text-4xl mb-6 glass w-16 h-16 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-500">
                   {project.icon}
                 </div>
-
-                {/* Content */}
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 group-hover:bg-clip-text transition-all duration-300">
-                  {project.title}
-                </h3>
-                
-                <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
-                  {project.description}
-                </p>
-
-                {/* Tags */}
-                <div className="space-y-4">
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.slice(0, 3).map((tag, i) => (
-                      <span
-                        key={i}
-                        className="px-3 py-1 bg-slate-800/50 text-cyan-300 text-xs rounded-full border border-slate-600/50 group-hover:bg-slate-700 group-hover:border-cyan-400/50 transition-all duration-300 hover:scale-110 hover:bg-slate-700"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Hover Button */}
-                  <button className="w-full px-4 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-lg opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/50">
-                    View Details
-                  </button>
-                </div>
-
-                {/* Glowing effect on hover */}
-                <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-0 group-hover:opacity-20 rounded-2xl blur-2xl transition-all duration-500 -z-10`} />
+                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">{project.title}</h3>
+                <p className="text-white/50 text-sm leading-relaxed mb-6">{project.description}</p>
               </div>
-            </div>
+
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag, i) => (
+                  <span key={i} className="px-3 py-1 glass rounded-full text-xs text-white/40 group-hover:text-white transition-colors">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
