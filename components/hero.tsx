@@ -1,145 +1,129 @@
-"use client";
+'use client'
 
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { ArrowRight, Github, Mail } from "lucide-react";
+import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import MouseTrail from './framer/mouse-trail'
+import TextVideoMask from './framer/text-video-mask'
 
 export default function Hero() {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden">
-      {/* Knotch-style Animated Background */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 grid-background animate-slow-pan opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-950/50 to-slate-950" />
+  const [isVisible, setIsVisible] = useState(false)
 
-        {/* Animated Orbs */}
-        <motion.div
-          animate={{
-            x: [0, 100, 0],
-            y: [0, 50, 0],
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-600/20 rounded-full blur-[120px]"
-        />
-        <motion.div
-          animate={{
-            x: [0, -100, 0],
-            y: [0, -50, 0],
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-1/4 -right-20 w-96 h-96 bg-cyan-600/10 rounded-full blur-[120px]"
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+
+  return (
+    <section
+      className="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden"
+    >
+      {/* Mouse Trail */}
+      <div className="absolute inset-0 z-[1] pointer-events-none">
+        <MouseTrail 
+          variant="particles"
+          trailColor="#22d3ee"
+          trailColorEnd="#3b82f6"
+          fillType="gradient"
+          particleCount={8}
+          particleSize={4}
         />
       </div>
+
+      {/* Animated Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div
+          className="absolute w-72 h-72 bg-blue-500/20 rounded-full blur-3xl animate-pulse"
+          style={{
+            top: '10%',
+            left: '10%',
+          }}
+        />
+        <div
+          className="absolute w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl animate-pulse"
+          style={{
+            bottom: '10%',
+            right: '10%',
+          }}
+        />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-slate-500/10 rounded-full blur-3xl" />
+      </div>
+
+      {/* Grid pattern overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        style={{
+          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px',
+        }}
+      />
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-blue-400 text-xs font-bold uppercase tracking-widest mb-8 backdrop-blur-sm"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-          </span>
-          Available for new projects
-        </motion.div>
+      <div className={`relative z-10 max-w-4xl mx-auto text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className="mb-6 inline-block px-5 py-2.5 bg-gradient-to-r from-blue-500/15 to-cyan-500/15 border border-blue-400/20 rounded-full text-blue-300 text-sm font-medium backdrop-blur-sm">
+          👋 Welcome to my portfolio
+        </div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-5xl md:text-8xl font-black tracking-tight mb-8"
-        >
-          Building modern and scalable <br />
-          <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-500 bg-clip-text text-transparent">
-            web applications.
-          </span>
-        </motion.h1>
+        <div className="h-32 md:h-48 mb-6 flex items-center justify-center">
+          <TextVideoMask 
+            text="YOUSEF"
+            fontSize="clamp(60px, 15vw, 180px)"
+            fontWeight={900}
+          />
+        </div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
-        >
-          I&apos;m{" "}
-          <span className="text-white font-semibold">Yousef Mohamed</span>,
-          Frontend Developer specializing in React.js, Next.js, and TypeScript
-          with experience building responsive applications, integrating secure
-          APIs, and optimizing performance for real-world projects.
-        </motion.p>
+        <p className="text-xl md:text-2xl text-gray-300 mb-4 font-medium">
+          Frontend Developer | React.js & Next.js Specialist
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
+        <p className="text-gray-400 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
+          Crafting responsive, interactive, and user-friendly web applications with modern JavaScript frameworks. Passionate about clean code, performance optimization, and creating seamless digital experiences.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <Link
-            href="#projects"
-            className="group px-8 py-4 bg-white text-black font-bold rounded-full flex items-center gap-2 hover:bg-blue-500 hover:text-white transition-all duration-300"
+            href="#contact"
+            className="px-8 py-3.5 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-xl hover:shadow-[0_8px_30px_rgba(59,130,246,0.4)] hover:scale-105 transition-all duration-300 group"
           >
-            View My Work
-            <ArrowRight
-              size={18}
-              className="group-hover:translate-x-1 transition-transform"
-            />
+            Get In Touch
+            <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
           </Link>
+          <a
+            href="https://github.com/YOUSSEFsaisOn"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-3.5 border border-cyan-400/30 text-cyan-300 font-semibold rounded-xl hover:bg-cyan-400/10 hover:border-cyan-400/60 hover:shadow-[0_8px_30px_rgba(34,211,238,0.15)] hover:scale-105 transition-all duration-300 backdrop-blur-sm"
+          >
+            View GitHub
+          </a>
+        </div>
 
-          <div className="flex items-center gap-2">
-            <a
-              href="https://github.com/YOUSSEFsaisOn"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-4 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 transition-colors"
-            >
-              <Github size={20} />
-            </a>
-            <a
-              href="mailto:1234yusid@gmail.com"
-              className="p-4 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 transition-colors"
-            >
-              <Mail size={20} />
-            </a>
+        <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
+          <a
+            href="mailto:1234yusid@gmail.com"
+            className="flex items-center gap-2 hover:text-cyan-400 transition-colors duration-300 group"
+          >
+            <span className="w-2 h-2 bg-cyan-400 rounded-full group-hover:scale-150 transition-transform duration-300" />
+            1234yusid@gmail.com
+          </a>
+          <a
+            href="tel:+201107361400"
+            className="flex items-center gap-2 hover:text-cyan-400 transition-colors duration-300 group"
+          >
+            <span className="w-2 h-2 bg-cyan-400 rounded-full group-hover:scale-150 transition-transform duration-300" />
+            +20 110 736 1400
+          </a>
+          <div className="flex items-center gap-2 text-gray-400">
+            <span className="w-2 h-2 bg-cyan-400 rounded-full" />
+            Cairo, Egypt
           </div>
-        </motion.div>
-
-        {/* Stats/Features area inspired by Knotch */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 pt-10 border-t border-white/5"
-        >
-          {[
-            { label: "Years Experience", value: "4+" },
-            { label: "Projects Completed", value: "40+" },
-            { label: "Happy Clients", value: "25+" },
-            { label: "Core Technologies", value: "12+" },
-          ].map((stat, i) => (
-            <div key={i} className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-white mb-1">
-                {stat.value}
-              </div>
-              <div className="text-xs text-gray-500 uppercase tracking-wider">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </motion.div>
+        </div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:block"
-      >
-        <div className="w-px h-20 bg-gradient-to-b from-blue-500 to-transparent" />
-      </motion.div>
+      {/* Scroll Indicator - bara el-content w taht shwai */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 animate-bounce">
+        <div className="w-6 h-10 border-2 border-cyan-400/30 rounded-full flex items-start justify-center p-2">
+          <div className="w-1 h-2 bg-cyan-400 rounded-full animate-bounce" />
+        </div>
+      </div>
     </section>
-  );
+  )
 }
