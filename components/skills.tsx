@@ -2,6 +2,24 @@
 
 import { motion } from 'framer-motion'
 
+const SkillItem = ({ name, level, index }: { name: string; level: number; index: number }) => (
+  <div className="space-y-2">
+    <div className="flex justify-between items-center text-sm">
+      <span className="text-white/70">{name}</span>
+      <span className="text-white/40">{level}%</span>
+    </div>
+    <div className="w-full bg-white/5 rounded-full h-1.5 overflow-hidden">
+      <motion.div
+        initial={{ width: 0 }}
+        whileInView={{ width: `${level}%` }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 1, delay: 0.5 + (index * 0.1) }}
+        className="h-full bg-white rounded-full"
+      />
+    </div>
+  </div>
+);
+
 export default function Skills() {
   const skillCategories = [
     {
@@ -93,21 +111,7 @@ export default function Skills() {
 
               <div className="space-y-6">
                 {category.skills.map((skill, i) => (
-                  <div key={i} className="space-y-2">
-                    <div className="flex justify-between items-center text-sm">
-                      <span className="text-white/70">{skill.name}</span>
-                      <span className="text-white/40">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-white/5 rounded-full h-1.5 overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 1, delay: 0.5 + (i * 0.1) }}
-                        className="h-full bg-white rounded-full"
-                      />
-                    </div>
-                  </div>
+                  <SkillItem key={i} name={skill.name} level={skill.level} index={i} />
                 ))}
               </div>
             </motion.div>

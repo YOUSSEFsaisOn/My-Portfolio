@@ -3,6 +3,43 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
+interface FormFieldProps {
+  label: string;
+  name: string;
+  type?: string;
+  placeholder: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  isTextArea?: boolean;
+}
+
+const FormField = ({ label, name, type = "text", placeholder, value, onChange, isTextArea = false }: FormFieldProps) => (
+  <div className="space-y-2">
+    <label className="text-sm font-medium text-white/60 ml-2">{label}</label>
+    {isTextArea ? (
+      <textarea
+        name={name}
+        value={value}
+        onChange={onChange}
+        required
+        rows={4}
+        className="w-full px-6 py-4 glass rounded-2xl text-white focus:outline-none focus:ring-2 focus:ring-white/20 transition-all resize-none"
+        placeholder={placeholder}
+      />
+    ) : (
+      <input
+        name={name}
+        type={type}
+        value={value}
+        onChange={onChange}
+        required
+        className="w-full px-6 py-4 glass rounded-2xl text-white focus:outline-none focus:ring-2 focus:ring-white/20 transition-all"
+        placeholder={placeholder}
+      />
+    )}
+  </div>
+);
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -102,53 +139,37 @@ export default function Contact() {
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-white/60 ml-2">Name</label>
-                  <input
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-6 py-4 glass rounded-2xl text-white focus:outline-none focus:ring-2 focus:ring-white/20 transition-all"
-                    placeholder="John Doe"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-white/60 ml-2">Email</label>
-                  <input
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-6 py-4 glass rounded-2xl text-white focus:outline-none focus:ring-2 focus:ring-white/20 transition-all"
-                    placeholder="john@example.com"
-                  />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-white/60 ml-2">Subject</label>
-                <input
-                  name="subject"
-                  value={formData.subject}
+                <FormField
+                  label="Name"
+                  name="name"
+                  value={formData.name}
                   onChange={handleChange}
-                  required
-                  className="w-full px-6 py-4 glass rounded-2xl text-white focus:outline-none focus:ring-2 focus:ring-white/20 transition-all"
-                  placeholder="Project Inquiry"
+                  placeholder="John Doe"
+                />
+                <FormField
+                  label="Email"
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="john@example.com"
                 />
               </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-white/60 ml-2">Message</label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={4}
-                  className="w-full px-6 py-4 glass rounded-2xl text-white focus:outline-none focus:ring-2 focus:ring-white/20 transition-all resize-none"
-                  placeholder="Tell me about your project..."
-                />
-              </div>
+              <FormField
+                label="Subject"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                placeholder="Project Inquiry"
+              />
+              <FormField
+                label="Message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                isTextArea
+                placeholder="Tell me about your project..."
+              />
 
               <button
                 type="submit"

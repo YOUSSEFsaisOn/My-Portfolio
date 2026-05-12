@@ -2,6 +2,41 @@
 
 import { motion } from 'framer-motion'
 
+interface Project {
+  title: string;
+  description: string;
+  tags: string[];
+  className: string;
+  icon: string;
+}
+
+const ProjectCard = ({ project, index }: { project: Project; index: number }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ delay: index * 0.1 }}
+    viewport={{ once: true, amount: 0.3 }}
+    whileHover={{ y: -5 }}
+    className={`glass p-8 rounded-[2.5rem] flex flex-col justify-between group cursor-pointer hover:bg-white/[0.05] transition-all duration-500 ${project.className}`}
+  >
+    <div>
+      <div className="text-4xl mb-6 glass w-16 h-16 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-500">
+        {project.icon}
+      </div>
+      <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">{project.title}</h3>
+      <p className="text-white/50 text-sm leading-relaxed mb-6">{project.description}</p>
+    </div>
+
+    <div className="flex flex-wrap gap-2">
+      {project.tags.map((tag: string, i: number) => (
+        <span key={i} className="px-3 py-1 glass rounded-full text-xs text-white/40 group-hover:text-white transition-colors">
+          {tag}
+        </span>
+      ))}
+    </div>
+  </motion.div>
+);
+
 export default function Projects() {
   const projects = [
     {
@@ -56,31 +91,7 @@ export default function Projects() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true, amount: 0.3 }}
-              whileHover={{ y: -5 }}
-              className={`glass p-8 rounded-[2.5rem] flex flex-col justify-between group cursor-pointer hover:bg-white/[0.05] transition-all duration-500 ${project.className}`}
-            >
-              <div>
-                <div className="text-4xl mb-6 glass w-16 h-16 rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-500">
-                  {project.icon}
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">{project.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed mb-6">{project.description}</p>
-              </div>
-
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag, i) => (
-                  <span key={i} className="px-3 py-1 glass rounded-full text-xs text-white/40 group-hover:text-white transition-colors">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
+            <ProjectCard key={index} project={project} index={index} />
           ))}
         </div>
       </div>
