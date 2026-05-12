@@ -1,6 +1,8 @@
 'use client'
 
 import Link from 'next/link'
+import FluidCardStack from './framer/fluid-card-stack'
+import { ShoppingBag, StickyNote, Video, Lock, BookOpen, Layout } from 'lucide-react'
 
 export default function Projects() {
   const projects = [
@@ -48,6 +50,41 @@ export default function Projects() {
     },
   ]
 
+  const cardData = [
+    {
+      id: '1',
+      title: 'E-Commerce',
+      description: 'Full-stack e-commerce application with payment integration, product filtering, and responsive design.',
+      icon: <ShoppingBag className="text-white" size={24} />,
+      color: '#3b82f6',
+      buttonText: 'View Project'
+    },
+    {
+      id: '2',
+      title: 'Notes App',
+      description: 'Full-stack notes application with CRUD operations, JWT authentication, and real-time synchronization.',
+      icon: <StickyNote className="text-white" size={24} />,
+      color: '#10b981',
+      buttonText: 'View Project'
+    },
+    {
+      id: '3',
+      title: 'Video Platform',
+      description: 'Video streaming application with secure content protection and Bunny.net integration.',
+      icon: <Video className="text-white" size={24} />,
+      color: '#a855f7',
+      buttonText: 'View Project'
+    },
+    {
+      id: '4',
+      title: 'Security',
+      description: 'Secure authentication application with Google Sign-In and Email/Password login.',
+      icon: <Lock className="text-white" size={24} />,
+      color: '#f59e0b',
+      buttonText: 'View Project'
+    }
+  ]
+
   return (
     <section id="projects" className="py-20 px-6 bg-slate-800/40 relative overflow-hidden">
       {/* Background Elements */}
@@ -60,6 +97,10 @@ export default function Projects() {
             Featured Projects
           </h2>
           <p className="text-gray-400 text-lg">Showcase of my best work</p>
+        </div>
+
+        <div className="mb-12">
+          <FluidCardStack cards={cardData} />
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
