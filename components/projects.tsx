@@ -1,89 +1,87 @@
 'use client'
 
-import Link from 'next/link'
 import FluidCardStack from './framer/fluid-card-stack'
-import { ShoppingBag, StickyNote, Video, Lock, BookOpen, Layout } from 'lucide-react'
+import { ShoppingBag, StickyNote, Video, Lock, BookOpen } from 'lucide-react'
+
+const ALL_PROJECTS = [
+  {
+    id: '1',
+    title: 'E-Commerce Platform',
+    shortTitle: 'E-Commerce',
+    description: 'Full-stack e-commerce application with payment integration, product filtering, and responsive design. Implemented using Next.js, React Query, and Paymob payment gateway.',
+    shortDescription: 'Full-stack e-commerce application with payment integration, product filtering, and responsive design.',
+    tags: ['Next.js', 'React Query', 'Paymob', 'Tailwind CSS', '.NET Backend'],
+    gradient: 'from-blue-500 to-purple-500',
+    color: '#3b82f6',
+    icon: <ShoppingBag className="text-white" size={24} />,
+    emoji: '🛍️'
+  },
+  {
+    id: '2',
+    title: 'Notes Management App',
+    shortTitle: 'Notes App',
+    description: 'Full-stack notes application with CRUD operations, JWT authentication, and real-time synchronization. Built with Next.js frontend and .NET Web API backend.',
+    shortDescription: 'Full-stack notes application with CRUD operations, JWT authentication, and real-time synchronization.',
+    tags: ['Next.js', 'TypeScript', '.NET API', 'JWT Auth', 'Real-time Sync'],
+    gradient: 'from-cyan-500 to-blue-500',
+    color: '#10b981',
+    icon: <StickyNote className="text-white" size={24} />,
+    emoji: '📝'
+  },
+  {
+    id: '3',
+    title: 'Secure Video Platform',
+    shortTitle: 'Video Platform',
+    description: 'Video streaming application with secure content protection and Bunny.net integration. Implemented authentication, protected routes, and optimized video delivery.',
+    shortDescription: 'Video streaming application with secure content protection and Bunny.net integration.',
+    tags: ['Next.js', 'Bunny.net', 'Authentication', 'Security', 'Performance'],
+    gradient: 'from-emerald-500 to-cyan-500',
+    color: '#a855f7',
+    icon: <Video className="text-white" size={24} />,
+    emoji: '🎥'
+  },
+  {
+    id: '4',
+    title: 'Firebase Auth System',
+    shortTitle: 'Security',
+    description: 'Secure authentication application with Google Sign-In and Email/Password login. Implemented using Firebase Authentication with modern React patterns.',
+    shortDescription: 'Secure authentication application with Google Sign-In and Email/Password login.',
+    tags: ['React.js', 'Firebase', 'OAuth', 'Authentication', 'Security'],
+    gradient: 'from-orange-500 to-red-500',
+    color: '#f59e0b',
+    icon: <Lock className="text-white" size={24} />,
+    emoji: '🔐'
+  },
+  {
+    id: '5',
+    title: 'Course Learning Platform',
+    description: 'Production-ready learning platform with course management, video streaming, and payment integration. Fully deployed on MonsterASP.NET with scalable architecture.',
+    tags: ['Next.js', 'TypeScript', 'Course Management', 'Video Streaming', 'Scalable Architecture'],
+    gradient: 'from-pink-500 to-rose-500',
+    emoji: '📚'
+  },
+  {
+    id: '6',
+    title: 'Responsive Dashboard',
+    description: 'Modern dashboard application with real-time data visualization, responsive design, and optimized performance. Built with React.js and custom CSS animations.',
+    tags: ['React.js', 'Data Visualization', 'Responsive Design', 'Animations', 'Performance'],
+    gradient: 'from-indigo-500 to-purple-500',
+    emoji: '📊'
+  },
+]
 
 export default function Projects() {
-  const projects = [
-    {
-      title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce application with payment integration, product filtering, and responsive design. Implemented using Next.js, React Query, and Paymob payment gateway.',
-      tags: ['Next.js', 'React Query', 'Paymob', 'Tailwind CSS', '.NET Backend'],
-      gradient: 'from-blue-500 to-purple-500',
-      icon: '🛍️'
-    },
-    {
-      title: 'Notes Management App',
-      description: 'Full-stack notes application with CRUD operations, JWT authentication, and real-time synchronization. Built with Next.js frontend and .NET Web API backend.',
-      tags: ['Next.js', 'TypeScript', '.NET API', 'JWT Auth', 'Real-time Sync'],
-      gradient: 'from-cyan-500 to-blue-500',
-      icon: '📝'
-    },
-    {
-      title: 'Secure Video Platform',
-      description: 'Video streaming application with secure content protection and Bunny.net integration. Implemented authentication, protected routes, and optimized video delivery.',
-      tags: ['Next.js', 'Bunny.net', 'Authentication', 'Security', 'Performance'],
-      gradient: 'from-emerald-500 to-cyan-500',
-      icon: '🎥'
-    },
-    {
-      title: 'Firebase Authentication System',
-      description: 'Secure authentication application with Google Sign-In and Email/Password login. Implemented using Firebase Authentication with modern React patterns.',
-      tags: ['React.js', 'Firebase', 'OAuth', 'Authentication', 'Security'],
-      gradient: 'from-orange-500 to-red-500',
-      icon: '🔐'
-    },
-    {
-      title: 'Course Learning Platform',
-      description: 'Production-ready learning platform with course management, video streaming, and payment integration. Fully deployed on MonsterASP.NET with scalable architecture.',
-      tags: ['Next.js', 'TypeScript', 'Course Management', 'Video Streaming', 'Scalable Architecture'],
-      gradient: 'from-pink-500 to-rose-500',
-      icon: '📚'
-    },
-    {
-      title: 'Responsive Dashboard',
-      description: 'Modern dashboard application with real-time data visualization, responsive design, and optimized performance. Built with React.js and custom CSS animations.',
-      tags: ['React.js', 'Data Visualization', 'Responsive Design', 'Animations', 'Performance'],
-      gradient: 'from-indigo-500 to-purple-500',
-      icon: '📊'
-    },
-  ]
-
-  const cardData = [
-    {
-      id: '1',
-      title: 'E-Commerce',
-      description: 'Full-stack e-commerce application with payment integration, product filtering, and responsive design.',
-      icon: <ShoppingBag className="text-white" size={24} />,
-      color: '#3b82f6',
+  const featuredProjectIds = ['1', '2', '3', '4']
+  const cardData = ALL_PROJECTS
+    .filter(p => featuredProjectIds.includes(p.id))
+    .map(p => ({
+      id: p.id,
+      title: p.shortTitle || p.title,
+      description: p.shortDescription || p.description,
+      icon: p.icon || <BookOpen size={24} />,
+      color: p.color || '#3b82f6',
       buttonText: 'View Project'
-    },
-    {
-      id: '2',
-      title: 'Notes App',
-      description: 'Full-stack notes application with CRUD operations, JWT authentication, and real-time synchronization.',
-      icon: <StickyNote className="text-white" size={24} />,
-      color: '#10b981',
-      buttonText: 'View Project'
-    },
-    {
-      id: '3',
-      title: 'Video Platform',
-      description: 'Video streaming application with secure content protection and Bunny.net integration.',
-      icon: <Video className="text-white" size={24} />,
-      color: '#a855f7',
-      buttonText: 'View Project'
-    },
-    {
-      id: '4',
-      title: 'Security',
-      description: 'Secure authentication application with Google Sign-In and Email/Password login.',
-      icon: <Lock className="text-white" size={24} />,
-      color: '#f59e0b',
-      buttonText: 'View Project'
-    }
-  ]
+    }))
 
   return (
     <section id="projects" className="py-20 px-6 bg-slate-800/40 relative overflow-hidden">
@@ -104,9 +102,9 @@ export default function Projects() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
+          {ALL_PROJECTS.map((project) => (
             <div
-              key={index}
+              key={project.id}
               className="group relative h-full"
             >
               {/* Animated Border */}
@@ -116,7 +114,7 @@ export default function Projects() {
               <div className="relative bg-slate-900/80 backdrop-blur rounded-2xl p-8 h-full border border-slate-700/50 group-hover:border-slate-600 transition-all duration-300 flex flex-col">
                 {/* Icon */}
                 <div className="text-5xl mb-6 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
-                  {project.icon}
+                  {project.emoji}
                 </div>
 
                 {/* Content */}

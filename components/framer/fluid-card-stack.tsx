@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { LucideIcon } from 'lucide-react'
 
 interface CardData {
   id: string

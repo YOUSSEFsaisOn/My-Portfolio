@@ -1,17 +1,11 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import MouseTrail from './framer/mouse-trail'
 import TextVideoMask from './framer/text-video-mask'
 
 export default function Hero() {
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    setIsVisible(true)
-  }, [])
-
   return (
     <section
       className="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden"
@@ -57,7 +51,12 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className={`relative z-10 max-w-4xl mx-auto text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="relative z-10 max-w-4xl mx-auto text-center"
+      >
         <div className="mb-6 inline-block px-5 py-2.5 bg-gradient-to-r from-blue-500/15 to-cyan-500/15 border border-blue-400/20 rounded-full text-blue-300 text-sm font-medium backdrop-blur-sm">
           👋 Welcome to my portfolio
         </div>
@@ -116,7 +115,7 @@ export default function Hero() {
             Cairo, Egypt
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Scroll Indicator - bara el-content w taht shwai */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 animate-bounce">

@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useId } from 'react'
 
 interface TextVideoMaskProps {
   videoUrl?: string
@@ -33,7 +33,8 @@ export default function TextVideoMask(props: TextVideoMaskProps) {
     className
   } = props
 
-  const maskId = React.useId().replace(/:/g, '')
+  const id = useId()
+  const maskId = `mask-${id.replace(/:/g, '')}`
 
   return (
     <div
