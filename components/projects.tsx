@@ -1,117 +1,142 @@
 'use client'
 
-import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { ExternalLink, Github } from 'lucide-react'
 
 export default function Projects() {
   const projects = [
     {
       title: 'E-Commerce Platform',
       description: 'Full-stack e-commerce application with payment integration, product filtering, and responsive design. Implemented using Next.js, React Query, and Paymob payment gateway.',
-      tags: ['Next.js', 'React Query', 'Paymob', 'Tailwind CSS', '.NET Backend'],
-      gradient: 'from-blue-500 to-purple-500',
-      icon: '🛍️'
+      tags: ['Next.js', 'React Query', 'Paymob'],
+      image: '🛍️'
     },
     {
       title: 'Notes Management App',
       description: 'Full-stack notes application with CRUD operations, JWT authentication, and real-time synchronization. Built with Next.js frontend and .NET Web API backend.',
-      tags: ['Next.js', 'TypeScript', '.NET API', 'JWT Auth', 'Real-time Sync'],
-      gradient: 'from-cyan-500 to-blue-500',
-      icon: '📝'
+      tags: ['Next.js', 'TypeScript', '.NET API'],
+      image: '📝'
     },
     {
       title: 'Secure Video Platform',
       description: 'Video streaming application with secure content protection and Bunny.net integration. Implemented authentication, protected routes, and optimized video delivery.',
-      tags: ['Next.js', 'Bunny.net', 'Authentication', 'Security', 'Performance'],
-      gradient: 'from-emerald-500 to-cyan-500',
-      icon: '🎥'
+      tags: ['Next.js', 'Bunny.net', 'Security'],
+      image: '🎥'
     },
     {
-      title: 'Firebase Authentication System',
+      title: 'Firebase Auth System',
       description: 'Secure authentication application with Google Sign-In and Email/Password login. Implemented using Firebase Authentication with modern React patterns.',
-      tags: ['React.js', 'Firebase', 'OAuth', 'Authentication', 'Security'],
-      gradient: 'from-orange-500 to-red-500',
-      icon: '🔐'
+      tags: ['React.js', 'Firebase', 'OAuth'],
+      image: '🔐'
     },
     {
       title: 'Course Learning Platform',
       description: 'Production-ready learning platform with course management, video streaming, and payment integration. Fully deployed on MonsterASP.NET with scalable architecture.',
-      tags: ['Next.js', 'TypeScript', 'Course Management', 'Video Streaming', 'Scalable Architecture'],
-      gradient: 'from-pink-500 to-rose-500',
-      icon: '📚'
+      tags: ['Next.js', 'TypeScript', 'Course Management'],
+      image: '📚'
     },
     {
       title: 'Responsive Dashboard',
       description: 'Modern dashboard application with real-time data visualization, responsive design, and optimized performance. Built with React.js and custom CSS animations.',
-      tags: ['React.js', 'Data Visualization', 'Responsive Design', 'Animations', 'Performance'],
-      gradient: 'from-indigo-500 to-purple-500',
-      icon: '📊'
+      tags: ['React.js', 'Data Vis', 'Animations'],
+      image: '📊'
     },
   ]
 
   return (
-    <section id="projects" className="py-20 px-6 bg-slate-800/40 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute top-20 -right-40 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl" />
-
-      <div className="max-w-6xl mx-auto relative z-10">
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-            Featured Projects
-          </h2>
-          <p className="text-gray-400 text-lg">Showcase of my best work</p>
+    <section id="projects" className="py-32 px-6 bg-slate-950">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+          <div className="max-w-xl">
+            <motion.h2 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              className="text-4xl md:text-5xl font-black mb-4"
+            >
+              Selected <span className="text-blue-500 underline decoration-blue-500/30 underline-offset-8">Projects</span>
+            </motion.h2>
+            <p className="text-gray-400 text-lg">
+              A collection of technical solutions and creative builds that showcase my focus on performance and UX.
+            </p>
+          </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="flex gap-4"
+          >
+            <div className="flex -space-x-3">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="w-10 h-10 rounded-full border-2 border-slate-950 bg-slate-800" />
+              ))}
+            </div>
+            <p className="text-sm text-gray-500">Trusted by 20+ clients</p>
+          </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group relative h-full"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="group relative"
             >
-              {/* Animated Border */}
-              <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} rounded-2xl opacity-0 group-hover:opacity-100 blur transition-all duration-500 group-hover:blur-lg`} />
-              
-              {/* Card */}
-              <div className="relative bg-slate-900/80 backdrop-blur rounded-2xl p-8 h-full border border-slate-700/50 group-hover:border-slate-600 transition-all duration-300 flex flex-col">
-                {/* Icon */}
-                <div className="text-5xl mb-6 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
-                  {project.icon}
+              <div className="relative h-full glass rounded-3xl p-8 transition-all duration-500 hover:bg-white/10 overflow-hidden">
+                {/* Background Decor */}
+                <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                  <span className="text-9xl">{project.image}</span>
                 </div>
-
-                {/* Content */}
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 group-hover:bg-clip-text transition-all duration-300">
-                  {project.title}
-                </h3>
                 
-                <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
-                  {project.description}
-                </p>
+                <div className="relative z-10">
+                  <div className="flex justify-between items-start mb-12">
+                    <div className="w-12 h-12 rounded-2xl bg-blue-500/20 flex items-center justify-center text-2xl">
+                      {project.image}
+                    </div>
+                    <div className="flex gap-2">
+                      <button className="p-2 rounded-full border border-white/10 hover:bg-white hover:text-black transition-all">
+                        <Github size={18} />
+                      </button>
+                      <button className="p-2 rounded-full border border-white/10 hover:bg-white hover:text-black transition-all">
+                        <ExternalLink size={18} />
+                      </button>
+                    </div>
+                  </div>
 
-                {/* Tags */}
-                <div className="space-y-4">
+                  <h3 className="text-2xl font-bold mb-4 group-hover:text-blue-400 transition-colors">
+                    {project.title}
+                  </h3>
+                  
+                  <p className="text-gray-400 text-sm leading-relaxed mb-8">
+                    {project.description}
+                  </p>
+
                   <div className="flex flex-wrap gap-2">
-                    {project.tags.slice(0, 3).map((tag, i) => (
+                    {project.tags.map((tag, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1 bg-slate-800/50 text-cyan-300 text-xs rounded-full border border-slate-600/50 group-hover:bg-slate-700 group-hover:border-cyan-400/50 transition-all duration-300 hover:scale-110 hover:bg-slate-700"
+                        className="text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-400"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
-
-                  {/* Hover Button */}
-                  <button className="w-full px-4 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-lg opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/50">
-                    View Details
-                  </button>
                 </div>
-
-                {/* Glowing effect on hover */}
-                <div className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-0 group-hover:opacity-20 rounded-2xl blur-2xl transition-all duration-500 -z-10`} />
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
+        
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          className="mt-20 text-center"
+        >
+          <a href="#" className="inline-flex items-center gap-2 text-blue-500 font-bold hover:gap-4 transition-all">
+            Explore all projects on GitHub <ExternalLink size={16} />
+          </a>
+        </motion.div>
       </div>
     </section>
   )
