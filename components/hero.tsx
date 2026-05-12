@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import MouseTrail from './framer/mouse-trail'
 import TextVideoMask from './framer/text-video-mask'
+import { CONTACT } from '@/lib/constants'
 
 export default function Hero() {
   return (
@@ -86,7 +87,7 @@ export default function Hero() {
             <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
           </Link>
           <a
-            href="https://github.com/YOUSSEFsaisOn"
+            href={CONTACT.GITHUB}
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-3.5 border border-cyan-400/30 text-cyan-300 font-semibold rounded-xl hover:bg-cyan-400/10 hover:border-cyan-400/60 hover:shadow-[0_8px_30px_rgba(34,211,238,0.15)] hover:scale-105 transition-all duration-300 backdrop-blur-sm"
@@ -97,22 +98,22 @@ export default function Hero() {
 
         <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
           <a
-            href="mailto:1234yusid@gmail.com"
+            href={`mailto:${CONTACT.EMAIL}`}
             className="flex items-center gap-2 hover:text-cyan-400 transition-colors duration-300 group"
           >
             <span className="w-2 h-2 bg-cyan-400 rounded-full group-hover:scale-150 transition-transform duration-300" />
-            1234yusid@gmail.com
+            {CONTACT.EMAIL}
           </a>
           <a
-            href="tel:+201107361400"
+            href={`tel:${CONTACT.PHONE.split(' ').join('')}`}
             className="flex items-center gap-2 hover:text-cyan-400 transition-colors duration-300 group"
           >
             <span className="w-2 h-2 bg-cyan-400 rounded-full group-hover:scale-150 transition-transform duration-300" />
-            +20 110 736 1400
+            {CONTACT.PHONE}
           </a>
           <div className="flex items-center gap-2 text-gray-400">
             <span className="w-2 h-2 bg-cyan-400 rounded-full" />
-            Cairo, Egypt
+            {CONTACT.LOCATION}
           </div>
         </div>
       </motion.div>

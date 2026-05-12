@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useId } from 'react'
+import { ASSETS } from '@/lib/constants'
 
 interface TextVideoMaskProps {
   videoUrl?: string
@@ -19,7 +20,7 @@ interface TextVideoMaskProps {
 
 export default function TextVideoMask(props: TextVideoMaskProps) {
   const {
-    videoUrl = "https://framerusercontent.com/assets/MLWPbW1dUQawJLhhun3dBwpgJak.mp4",
+    videoUrl = ASSETS.HERO_VIDEO,
     text = "VIDEO",
     fontSize = "120px",
     fontFamily = "Inter, sans-serif",
@@ -34,7 +35,7 @@ export default function TextVideoMask(props: TextVideoMaskProps) {
   } = props
 
   const id = useId()
-  const maskId = `mask-${id.replace(/:/g, '')}`
+  const maskId = `mask-${id.split(':').join('')}`
 
   return (
     <div
