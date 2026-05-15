@@ -6,34 +6,42 @@ import { Briefcase } from 'lucide-react'
 export default function Experience() {
   const experiences = [
     {
-      company: 'The DevHouse',
-      position: 'Frontend Developer',
-      period: '03/2025 – Present',
-      description: 'Building and maintaining responsive web apps using React.js, Next.js, and modern UI tools with Tailwind CSS. Improving UX design and optimizing performance through cross-functional team collaboration.',
-      highlights: ['React.js', 'Next.js', 'Tailwind CSS', '.NET Integration', 'UI/UX Optimization'],
-      color: 'from-blue-500 to-cyan-500'
-    },
-    {
-      company: 'Freelance / Self-Employed',
+      company: 'Freelance / compass.college',
       position: 'Full Stack Developer',
-      period: 'Jan 2026 – Feb 2026',
-      description: 'Developed a production-ready web application using Next.js with scalable architecture. Implemented payment integration with Paymob and secure video streaming with Bunny.net.',
+      period: '06/2026 – 07/2026',
+      description: 'Architected a full-stack e-learning platform (courses, books, exams, homework, materials, instructors, pricing) with student site and admin dashboard Engineered role-based auth system with JWT, protected routes, and scoped content access for students and adminsBuilt course content logic with video lessons, exams, and homework all scoped per course and enrollment statusIntegrated Paymob checkout with order and payment state logic supporting free and paid coursesSecured video delivery via Bunny.net⁠ with token-based streaming preventing direct URL accessBuilt with Next.js (App Router), TypeScript, React Query, and .NET backend APIs — deployed to MonsterASP.NET⁠.',
       highlights: ['Next.js', 'TypeScript', 'React Query', 'Paymob', 'Bunny.net', 'JWT', '.NET APIs'],
       color: 'from-cyan-500 to-blue-500'
     },
     {
-      company: 'Cyparta',
+      company: 'Freelance / etengineeringacademy.com⁠',
       position: 'Front End Developer',
       period: '09/2023 – 12/2024',
       description: 'Built and optimized e-commerce applications with payment integration and product filtering. Collaborated with cross-functional teams and conducted code reviews for quality assurance.',
       highlights: ['React.js', 'Next.js', 'Redux Toolkit', 'Jest', 'Payment', '.NET Backend'],
       color: 'from-blue-500 to-indigo-500'
     },
+     {
+      company: 'The DevHouse ',
+      position: 'Frontend Developer',
+      period: '02/2026 – 03/2025',
+      description: 'Built and maintained responsive web apps using React.js Next.js and modern Ul tools with Tailwind CSS Improved UX design and optimized performance through cross-functional team collaboration Integrated.NET backend services and secure APIs for seamless full-stack functionality.',
+      highlights: ['React.js', 'Next.js', 'Tailwind CSS', '.NET Integration', 'UI/UX Optimization'],
+      color: 'from-blue-500 to-cyan-500'
+    },
+     {
+      company: 'Cyparta ',
+      position: 'Front End Developer',
+      period: '09/2023 – 12/2024',
+      description: '•Built and optimized e-commerce applications with features like payment integration and product filtering using React.js and Next.js •Collaborated with cross-functional teams to deliver responsive and accessible web applications with.NET backend integration •Focused on clean code performance optimization, and SEO improvements through modern development practices Integrated third-party APIs and conducted code reviews for quality assurance Wrote unit tests with Jest and used Redux Toolkit for efficient state management ',
+      highlights: ['React.js', 'Next.js', 'Tailwind CSS', '.NET Integration', 'UI/UX Optimization'],
+      color: 'from-blue-500 to-cyan-500'
+    },
     {
       company: 'Route Company',
       position: 'Frontend Developer',
-      period: '02/2023 – 08/2023',
-      description: 'Built and maintained responsive user interfaces using React.js and Next.js. Collaborated with backend team to integrate REST APIs and ensure smooth data flow.',
+      period: 'Jan 2026 – Feb 2026',
+      description: '•Built and maintained responsive user interfaces using React.js Next.js and JavaScript •Collaborated with the backend team to integrate REST APIs and ensure smooth dataflow with .NET services⁠',
       highlights: ['React.js', 'Next.js', 'REST APIs', '.NET Services', 'Responsive Design'],
       color: 'from-indigo-500 to-blue-500'
     },

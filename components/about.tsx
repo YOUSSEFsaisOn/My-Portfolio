@@ -5,10 +5,11 @@ import { CheckCircle2 } from 'lucide-react'
 
 export default function About() {
   const highlights = [
-    "5+ projects delivered with production-ready code",
-    "Full-stack development experience with React & .NET",
-    "Payment integration expertise (Paymob)",
-    "Video streaming implementation (Bunny.net)"
+    "7+ projects delivered including 2 full production e-learning platforms",
+    "Full-stack development with React.js, Next.js, and .NET backend APIs",
+    "Payment integration expertise (Paymob) with complete checkout and order flow",
+    "Secure video streaming implementation (Bunny.net) with token-based protection",
+    "Role-based auth systems with JWT, protected routes, and admin dashboards",
   ]
 
   return (
@@ -39,11 +40,10 @@ export default function About() {
             className="space-y-6"
           >
             <p className="text-gray-300 text-lg leading-relaxed">
-              I&apos;m a motivated Frontend Developer with a passion for building responsive, interactive, and user-friendly web applications. With experience in React.js, Next.js, and modern JavaScript frameworks, I specialize in creating seamless digital experiences.
-            </p>
+              I'm a Frontend Developer with experience delivering production-ready full-stack applications. I've built complete e-learning platforms with role-based auth, secure video streaming, payment integration, and admin dashboards — all as freelance solutions following clean architecture best practices.            </p>
             
             <p className="text-gray-300 text-lg leading-relaxed">
-              My expertise spans across modern web technologies including TypeScript, Tailwind CSS, and state management solutions. I&apos;m committed to writing clean, maintainable code and optimizing performance in every project.
+              My expertise spans React.js, Next.js (App Router), TypeScript, React Query, Paymob, Bunny.net, and .NET backend APIs. I'm committed to writing clean, maintainable code and building secure, scalable systems.
             </p>
 
             <div className="pt-6 space-y-4">

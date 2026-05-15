@@ -71,12 +71,10 @@ export default function Hero() {
         </div>
 
         <p className="text-xl md:text-2xl text-gray-300 mb-4 font-medium">
-          Frontend Developer | React.js & Next.js Specialist
-        </p>
+          Frontend Developer | React.js & Next.js Specialist </p>
 
         <p className="text-gray-400 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
-          Crafting responsive, interactive, and user-friendly web applications with modern JavaScript frameworks. Passionate about clean code, performance optimization, and creating seamless digital experiences.
-        </p>
+          Motivated Frontend Developer with hands-on experience building full-stack e-learning platforms, e-commerce apps, and production-ready web applications. Specialized in React.js, Next.js, TypeScript, and .NET backend integration with a strong focus on performance, security, and clean architecture.        </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <Link
