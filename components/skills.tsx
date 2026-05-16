@@ -40,22 +40,22 @@ export default function Skills() {
   return (
     <section id="skills" className="py-32 px-6 bg-[#0C0C0C]">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 md:mb-20">
           <motion.h2 
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
             viewport={commonWhileInView}
-            className="text-4xl md:text-5xl font-black mb-6"
+            className="text-4xl md:text-5xl font-black mb-6 px-4"
           >
             Technical <span className="text-blue-500">Stack</span>
           </motion.h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto px-6">
             A comprehensive overview of the technologies and tools I leverage to build production-grade applications.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {skillCategories.map((category, index) => (
             <motion.div
               key={index}
@@ -63,9 +63,9 @@ export default function Skills() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={commonWhileInView}
               transition={{ delay: index * 0.05 }}
-              className="glass p-8 rounded-3xl group hover:border-blue-500/50 transition-all duration-500"
+              className="glass p-6 md:p-8 rounded-3xl group hover:border-blue-500/50 transition-all duration-500"
             >
-              <div className="flex items-center gap-4 mb-6">
+              <div className="flex items-center gap-4 mb-4 md:mb-6">
                 <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
                   {category.icon}
                 </div>

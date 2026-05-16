@@ -66,11 +66,11 @@ export default function Experience() {
           </p>
         </motion.div>
 
-        <div className="relative">
+        <div className="relative px-2 sm:px-0">
           {/* Timeline Line */}
-          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500/50 via-cyan-500/20 to-transparent md:-translate-x-1/2 hidden md:block" />
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500/50 via-cyan-500/20 to-transparent md:-translate-x-1/2" />
 
-          <div className="space-y-12">
+          <div className="space-y-8 md:space-y-12">
             {experiences.map((exp, index) => (
               <motion.div
                 key={index}
@@ -78,26 +78,26 @@ export default function Experience() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={commonWhileInView}
                 transition={{ delay: index * 0.1 }}
-                className={`relative flex flex-col md:flex-row gap-8 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
+                className={`relative flex flex-col md:flex-row gap-6 md:gap-8 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
               >
                 {/* Timeline dot */}
-                <div className="absolute left-[-5px] md:left-1/2 top-0 w-3 h-3 bg-blue-500 rounded-full md:-translate-x-1/2 z-20 shadow-[0_0_15px_rgba(59,130,246,0.5)] hidden md:block" />
+                <div className="absolute left-[13px] md:left-1/2 top-8 md:top-0 w-3 h-3 bg-blue-500 rounded-full md:-translate-x-1/2 z-20 shadow-[0_0_15px_rgba(59,130,246,0.5)]" />
 
-                <div className="flex-1">
-                  <div className={`glass rounded-3xl p-8 relative overflow-hidden group hover:bg-white/5 transition-colors duration-500 ${index % 2 === 1 ? 'text-left md:text-right' : 'text-left'}`}>
+                <div className="flex-1 pl-10 md:pl-0">
+                  <div className={`glass rounded-3xl p-6 md:p-8 relative overflow-hidden group hover:bg-white/5 transition-colors duration-500 ${index % 2 === 1 ? 'text-left md:text-right' : 'text-left'}`}>
                     <div className={`absolute top-0 ${index % 2 === 1 ? 'right-0' : 'left-0'} w-2 h-full bg-gradient-to-b ${exp.color}`} />
                     
                     <div className={`flex items-center gap-3 mb-4 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
                       <div className="p-2 bg-blue-500/10 rounded-lg">
-                        <Briefcase className="w-5 h-5 text-blue-400" />
+                        <Briefcase className="w-4 h-4 md:w-5 md:h-5 text-blue-400" />
                       </div>
-                      <span className="text-blue-400 font-semibold tracking-wider text-sm uppercase">{exp.period}</span>
+                      <span className="text-blue-400 font-semibold tracking-wider text-xs md:text-sm uppercase">{exp.period}</span>
                     </div>
 
-                    <h3 className="text-2xl font-bold text-white mb-1">{exp.position}</h3>
-                    <p className="text-lg font-medium text-gray-300 mb-4">{exp.company}</p>
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-1">{exp.position}</h3>
+                    <p className="text-base md:text-lg font-medium text-gray-300 mb-4">{exp.company}</p>
                     
-                    <p className="text-gray-400 leading-relaxed mb-6">
+                    <p className="text-sm md:text-base text-gray-400 leading-relaxed mb-6">
                       {exp.description}
                     </p>
 
@@ -105,7 +105,7 @@ export default function Experience() {
                       {exp.highlights.map((skill, i) => (
                         <span
                           key={i}
-                          className="px-3 py-1 bg-white/5 text-gray-300 text-xs rounded-full border border-white/10"
+                          className="px-2 md:px-3 py-1 bg-white/5 text-gray-300 text-[10px] md:text-xs rounded-full border border-white/10"
                         >
                           {skill}
                         </span>

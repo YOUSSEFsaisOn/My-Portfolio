@@ -67,26 +67,26 @@ export default function Contact() {
           initial="hidden"
           whileInView="visible"
           viewport={commonWhileInView}
-          className="mb-16 text-center"
+          className="mb-12 md:mb-16 text-center"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6 tracking-tight">
             Get In <span className="text-blue-400">Touch</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto px-4">
             Ready to start a project? Let&apos;s talk about your vision.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-10 md:gap-16">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={commonWhileInView}
-            className="space-y-8"
+            className="space-y-6 md:space-y-8 px-4 md:px-0"
           >
-            <h3 className="text-2xl font-bold text-white mb-4">Contact Info</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Contact Info</h3>
 
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
               {contactMethods.map((method, index) => (
                 <a
                   key={index}
@@ -118,8 +118,9 @@ export default function Contact() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={commonWhileInView}
+            className="px-4 md:px-0"
           >
-            <div className="glass p-8 md:p-10 rounded-[2.5rem] relative">
+            <div className="glass p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] relative">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
