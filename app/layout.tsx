@@ -1,22 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Kanit } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
-const geistSans = Geist({
+const kanit = Kanit({
   subsets: ["latin"],
-  variable: "--font-geist-sans",
-});
-
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-geist-mono",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-kanit",
 });
 
 export const metadata: Metadata = {
-  title: "Yousef Mohamed - Frontend Developer",
+  title: "Focal -- AI Focus & Automations",
   description:
-    "Frontend Developer specializing in React.js, Next.js, and modern web applications. Passionate about building responsive, interactive, and user-friendly web experiences.",
+    "Focal is an AI device designed to help you focus and create powerful AI automations seamlessly.",
   generator: "v0.app",
   icons: {
     icon: [
@@ -44,9 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
-      >
+      <body className={`${kanit.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
