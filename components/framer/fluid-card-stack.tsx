@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { LucideIcon } from 'lucide-react'
 
 interface CardData {
   id: string
@@ -22,7 +21,7 @@ export default function FluidCardStack({ cards, className }: FluidCardStackProps
   const [hoveredId, setHoveredId] = useState<string | null>(null)
 
   return (
-    <div className={`flex flex-col md:flex-row gap-4 w-full h-[500px] md:h-[400px] ${className}`}>
+    <div className={`flex flex-col md:flex-row gap-4 w-full h-auto md:h-[400px] ${className}`}>
       {cards.map((card) => {
         const isHovered = hoveredId === card.id
         const isNoneHovered = hoveredId === null
@@ -32,10 +31,13 @@ export default function FluidCardStack({ cards, className }: FluidCardStackProps
             key={card.id}
             onMouseEnter={() => setHoveredId(card.id)}
             onMouseLeave={() => setHoveredId(null)}
+            onClick={() => setHoveredId(isHovered ? null : card.id)}
             layout
             initial={false}
             animate={{
               flex: isHovered ? 3 : isNoneHovered ? 1 : 0.5,
+              height: isHovered ? 'auto' : 'auto',
+              minHeight: isHovered ? '200px' : '80px'
             }}
             transition={{
               type: "spring",
@@ -62,17 +64,17 @@ export default function FluidCardStack({ cards, className }: FluidCardStackProps
               {card.title}
             </motion.h3>
 
-            {/* Description - only shown when expanded or on small screens if we decide */}
-            <AnimatePresence>
-              {(isHovered) && (
+            {/* Description - only shown when expanded */}
+            <AnimatePresence mode="wait">
+              {isHovered && (
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ duration: 0.2 }}
-                  className="flex flex-col h-full"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex flex-col h-full overflow-hidden"
                 >
-                  <p className="text-gray-400 text-sm mb-6 line-clamp-3 md:line-clamp-none">
+                  <p className="text-gray-400 text-sm mb-6 mt-2 leading-relaxed">
                     {card.description}
                   </p>
                   
@@ -80,7 +82,7 @@ export default function FluidCardStack({ cards, className }: FluidCardStackProps
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="mt-auto self-start px-6 py-2 bg-white text-black rounded-full text-sm font-semibold"
+                      className="mt-auto self-start px-6 py-2 bg-white text-black rounded-full text-sm font-semibold mb-2"
                     >
                       {card.buttonText}
                     </motion.button>

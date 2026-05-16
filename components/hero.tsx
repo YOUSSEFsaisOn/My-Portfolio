@@ -67,19 +67,19 @@ export default function Hero() {
           👋 Welcome to my portfolio
         </div>
 
-        <div className="h-32 md:h-48 mb-6 flex items-center justify-center">
+        <div className="h-28 sm:h-32 md:h-48 mb-4 sm:mb-6 flex items-center justify-center overflow-visible">
           <TextVideoMask
             text="YOUSEF"
-            fontSize="clamp(60px, 15vw, 180px)"
+            fontSize="clamp(56px, 18vw, 180px)"
             fontWeight={900}
           />
         </div>
 
-        <p className="text-xl md:text-2xl text-gray-300 mb-4 font-medium">
+        <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-4 font-medium px-4">
           Frontend Developer | React.js & Next.js Specialist{" "}
         </p>
 
-        <p className="text-gray-400 text-lg mb-12 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-gray-400 text-base sm:text-lg mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed px-4">
           Motivated Frontend Developer with hands-on experience building
           full-stack e-learning platforms, e-commerce apps, and production-ready
           web applications. Specialized in React.js, Next.js, TypeScript, and
@@ -87,10 +87,10 @@ export default function Hero() {
           and clean architecture.{" "}
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 px-6">
           <Link
             href="#contact"
-            className="px-8 py-3.5 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-xl hover:shadow-[0_8px_30px_rgba(59,130,246,0.4)] hover:scale-105 transition-all duration-300 group"
+            className="px-8 py-3.5 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-xl hover:shadow-[0_8px_30px_rgba(59,130,246,0.4)] hover:scale-105 transition-all duration-300 group text-center"
           >
             Get In Touch
             <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform duration-300">
@@ -101,7 +101,7 @@ export default function Hero() {
             href="https://github.com/YOUSSEFsaisOn"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-3.5 border border-cyan-400/30 text-cyan-300 font-semibold rounded-xl hover:bg-cyan-400/10 hover:border-cyan-400/60 hover:shadow-[0_8px_30px_rgba(34,211,238,0.15)] hover:scale-105 transition-all duration-300 backdrop-blur-sm"
+            className="px-8 py-3.5 border border-cyan-400/30 text-cyan-300 font-semibold rounded-xl hover:bg-cyan-400/10 hover:border-cyan-400/60 hover:shadow-[0_8px_30px_rgba(34,211,238,0.15)] hover:scale-105 transition-all duration-300 backdrop-blur-sm text-center"
           >
             View GitHub
           </a>

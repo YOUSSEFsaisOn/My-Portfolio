@@ -24,36 +24,36 @@ export default function About() {
           initial="hidden"
           whileInView="visible"
           viewport={commonWhileInView}
-          className="mb-16 text-center"
+          className="mb-12 md:mb-16 text-center"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-6xl font-bold mb-4 md:mb-6 tracking-tight">
             About <span className="text-blue-400">Me</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto px-4">
             A developer focused on building high-performance, visually stunning digital experiences.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={commonWhileInView}
-            className="space-y-6"
+            className="space-y-6 px-4 md:px-0"
           >
-            <p className="text-gray-300 text-lg leading-relaxed">
-              I'm a Frontend Developer with experience delivering production-ready full-stack applications. I've built complete e-learning platforms with role-based auth, secure video streaming, payment integration, and admin dashboards — all as freelance solutions following clean architecture best practices.            </p>
+            <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+              I&apos;m a Frontend Developer with experience delivering production-ready full-stack applications. I&apos;ve built complete e-learning platforms with role-based auth, secure video streaming, payment integration, and admin dashboards — all as freelance solutions following clean architecture best practices.            </p>
             
-            <p className="text-gray-300 text-lg leading-relaxed">
-              My expertise spans React.js, Next.js (App Router), TypeScript, React Query, Paymob, Bunny.net, and .NET backend APIs. I'm committed to writing clean, maintainable code and building secure, scalable systems.
+            <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+              My expertise spans React.js, Next.js (App Router), TypeScript, React Query, Paymob, Bunny.net, and .NET backend APIs. I&apos;m committed to writing clean, maintainable code and building secure, scalable systems.
             </p>
 
-            <div className="pt-6 space-y-4">
-              <h3 className="text-white font-semibold text-xl mb-4">Key Highlights</h3>
-              <div className="grid sm:grid-cols-1 gap-3">
+            <div className="pt-4 md:pt-6 space-y-4">
+              <h3 className="text-white font-semibold text-lg md:text-xl mb-4">Key Highlights</h3>
+              <div className="grid grid-cols-1 gap-3">
                 {highlights.map((item, i) => (
-                  <div key={i} className="flex items-center gap-3 text-gray-300">
-                    <CheckCircle2 className="w-5 h-5 text-blue-400 shrink-0" />
+                  <div key={i} className="flex items-start gap-3 text-gray-300 text-sm md:text-base">
+                    <CheckCircle2 className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </div>
                 ))}

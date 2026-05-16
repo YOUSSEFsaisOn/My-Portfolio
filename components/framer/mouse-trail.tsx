@@ -83,7 +83,7 @@ export default function MouseTrail(props: MouseTrailProps) {
   const trailPointsRef = useRef<Array<{ x: number, y: number, life: number }>>([])
   const particlesRef = useRef<Particle[]>([])
   const rafRef = useRef<number | undefined>(undefined)
-  const timeRef = useRef(performance.now())
+  const timeRef = useRef<number>(0)
   
   const isInView = useInView(containerRef, { amount: 0.1 })
   const shouldAnimate = isInView
@@ -99,7 +99,7 @@ export default function MouseTrail(props: MouseTrailProps) {
     if (!canvas) return
     const resize = () => {
       const rect = canvas.getBoundingClientRect()
-      const dpr = window.devicePixelRatio || 1
+      const dpr = typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1
       canvas.width = rect.width * dpr
       canvas.height = rect.height * dpr
     }
@@ -183,8 +183,7 @@ export default function MouseTrail(props: MouseTrailProps) {
 
     timeRef.current = performance.now()
     
-    const animate = () => {
-      const now = performance.now()
+    const animate = (now: number) => {
       let dt = (now - timeRef.current) / 1000
       dt = Math.max(0, Math.min(dt, 0.05))
       timeRef.current = now
@@ -203,7 +202,7 @@ export default function MouseTrail(props: MouseTrailProps) {
 
       const p = propsRef.current
       const rect = canvas.getBoundingClientRect()
-      const dpr = window.devicePixelRatio || 1
+      const dpr = typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1
 
       ctx.setTransform(1, 0, 0, 1, 0, 0)
       ctx.scale(dpr, dpr)
