@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { fadeInUp, commonWhileInView } from '@/lib/animations'
 
 export default function Skills() {
   const skillCategories = [
@@ -17,7 +18,7 @@ export default function Skills() {
     {
       category: 'Backend',
       icon: '🔌',
-      skills: ['.NET Core', 'REST APIs', 'Node.js', 'GraphQL']
+      skills: ['.NET Core', 'REST APIs', 'GraphQL']
     },
     {
       category: 'Databases',
@@ -27,7 +28,7 @@ export default function Skills() {
     {
       category: 'Tools',
       icon: '🛠️',
-      skills: ['Git', 'Docker', 'Vercel', 'Figma']
+      skills: ['Git', 'Vercel', 'Figma']
     },
     {
       category: 'Quality',
@@ -37,12 +38,14 @@ export default function Skills() {
   ]
 
   return (
-    <section id="skills" className="py-32 px-6 bg-slate-950/50">
+    <section id="skills" className="py-32 px-6 bg-[#0C0C0C]">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20">
           <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={commonWhileInView}
             className="text-4xl md:text-5xl font-black mb-6"
           >
             Technical <span className="text-blue-500">Stack</span>
@@ -58,6 +61,7 @@ export default function Skills() {
               key={index}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
+              viewport={commonWhileInView}
               transition={{ delay: index * 0.05 }}
               className="glass p-8 rounded-3xl group hover:border-blue-500/50 transition-all duration-500"
             >
