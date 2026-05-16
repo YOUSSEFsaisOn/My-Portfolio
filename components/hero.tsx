@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import MouseTrail from './framer/mouse-trail'
 import TextVideoMask from './framer/text-video-mask'
+import Magnet from './framer/magnet'
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false)
@@ -14,7 +15,7 @@ export default function Hero() {
 
   return (
     <section
-      className="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden bg-[#0C0C0C]"
     >
       {/* Mouse Trail */}
       <div className="absolute inset-0 z-[1] pointer-events-none">
@@ -28,23 +29,30 @@ export default function Hero() {
         />
       </div>
 
-      {/* Animated Background */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Animated Background Orbs (Knotch style) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
-          className="absolute w-72 h-72 bg-blue-500/20 rounded-full blur-3xl animate-pulse"
+          className="absolute w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] animate-pulse"
           style={{
-            top: '10%',
-            left: '10%',
+            top: '-10%',
+            left: '-10%',
           }}
         />
         <div
-          className="absolute w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl animate-pulse"
+          className="absolute w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[100px] animate-pulse"
           style={{
             bottom: '10%',
-            right: '10%',
+            right: '5%',
+            animationDelay: '2s'
           }}
         />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-slate-500/10 rounded-full blur-3xl" />
+        <div
+          className="absolute w-[300px] h-[300px] bg-indigo-500/10 rounded-full blur-[80px]"
+          style={{
+            top: '40%',
+            left: '60%',
+          }}
+        />
       </div>
 
       {/* Grid pattern overlay */}
@@ -63,11 +71,13 @@ export default function Hero() {
         </div>
 
         <div className="h-32 md:h-48 mb-6 flex items-center justify-center">
-          <TextVideoMask 
-            text="YOUSEF"
-            fontSize="clamp(60px, 15vw, 180px)"
-            fontWeight={900}
-          />
+          <div className="hero-heading">
+            <TextVideoMask
+              text="YOUSEF"
+              fontSize="clamp(60px, 15vw, 180px)"
+              fontWeight={900}
+            />
+          </div>
         </div>
 
         <p className="text-xl md:text-2xl text-gray-300 mb-4 font-medium">
@@ -77,21 +87,25 @@ export default function Hero() {
           Motivated Frontend Developer with hands-on experience building full-stack e-learning platforms, e-commerce apps, and production-ready web applications. Specialized in React.js, Next.js, TypeScript, and .NET backend integration with a strong focus on performance, security, and clean architecture.        </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <Link
-            href="#contact"
-            className="px-8 py-3.5 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-xl hover:shadow-[0_8px_30px_rgba(59,130,246,0.4)] hover:scale-105 transition-all duration-300 group"
-          >
-            Get In Touch
-            <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
-          </Link>
-          <a
-            href="https://github.com/YOUSSEFsaisOn"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-3.5 border border-cyan-400/30 text-cyan-300 font-semibold rounded-xl hover:bg-cyan-400/10 hover:border-cyan-400/60 hover:shadow-[0_8px_30px_rgba(34,211,238,0.15)] hover:scale-105 transition-all duration-300 backdrop-blur-sm"
-          >
-            View GitHub
-          </a>
+          <Magnet strength={20}>
+            <Link
+              href="#contact"
+              className="px-8 py-3.5 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-xl hover:shadow-[0_8px_30px_rgba(59,130,246,0.4)] hover:scale-105 transition-all duration-300 group block"
+            >
+              Get In Touch
+              <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
+            </Link>
+          </Magnet>
+          <Magnet strength={20}>
+            <a
+              href="https://github.com/YOUSSEFsaisOn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-3.5 border border-cyan-400/30 text-cyan-300 font-semibold rounded-xl hover:bg-cyan-400/10 hover:border-cyan-400/60 hover:shadow-[0_8px_30px_rgba(34,211,238,0.15)] hover:scale-105 transition-all duration-300 backdrop-blur-sm block"
+            >
+              View GitHub
+            </a>
+          </Magnet>
         </div>
 
         <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">

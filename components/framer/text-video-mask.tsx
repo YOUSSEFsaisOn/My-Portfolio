@@ -22,7 +22,7 @@ export default function TextVideoMask(props: TextVideoMaskProps) {
     videoUrl = "https://framerusercontent.com/assets/MLWPbW1dUQawJLhhun3dBwpgJak.mp4",
     text = "VIDEO",
     fontSize = "120px",
-    fontFamily = "Inter, sans-serif",
+    fontFamily = "var(--font-kanit), sans-serif",
     fontWeight = 900,
     fontStyle = "normal",
     letterSpacing = "-0.05em",

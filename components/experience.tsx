@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Briefcase } from 'lucide-react'
+import { fadeInUp, commonWhileInView } from '@/lib/animations'
 
 export default function Experience() {
   const experiences = [
@@ -48,12 +49,13 @@ export default function Experience() {
   ]
 
   return (
-    <section id="experience" className="py-24 px-6 relative">
+    <section id="experience" className="py-24 px-6 relative bg-[#0C0C0C]">
       <div className="max-w-6xl mx-auto">
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={commonWhileInView}
           className="mb-16 text-center"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
@@ -74,7 +76,7 @@ export default function Experience() {
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={commonWhileInView}
                 transition={{ delay: index * 0.1 }}
                 className={`relative flex flex-col md:flex-row gap-8 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
               >
