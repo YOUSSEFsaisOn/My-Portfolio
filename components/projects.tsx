@@ -1,7 +1,9 @@
 'use client'
 
 import FluidCardStack from './framer/fluid-card-stack'
-import { ShoppingBag, StickyNote, Video, Lock, BookOpen, BarChart3 } from 'lucide-react'
+import { ShoppingBag, StickyNote, Video, Lock, BookOpen } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { fadeInUp, commonWhileInView } from '@/lib/animations'
 
 const ALL_PROJECTS = [
   {
@@ -68,18 +70,24 @@ export default function Projects() {
     }))
 
   return (
-    <section id="projects" className="py-20 px-6 bg-slate-800/40 relative overflow-hidden">
+    <section id="projects" className="py-20 px-6 bg-[#0C0C0C] relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-20 -right-40 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl" />
       <div className="absolute bottom-20 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl" />
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="mb-16 text-center">
+        <motion.div
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={commonWhileInView}
+          className="mb-16 text-center"
+        >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
             Featured Projects
           </h2>
           <p className="text-gray-400 text-lg">Showcase of my best work</p>
-        </div>
+        </motion.div>
 
         <div className="mb-12">
           <FluidCardStack cards={cardData} />

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, Linkedin, Github, Send, CheckCircle2 } from "lucide-react";
+import { fadeInUp, commonWhileInView } from "@/lib/animations";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -57,14 +58,15 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-24 px-6 relative overflow-hidden">
+    <section id="contact" className="py-24 px-6 relative overflow-hidden bg-[#0C0C0C]">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={commonWhileInView}
           className="mb-16 text-center"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
@@ -79,7 +81,7 @@ export default function Contact() {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={commonWhileInView}
             className="space-y-8"
           >
             <h3 className="text-2xl font-bold text-white mb-4">Contact Info</h3>
@@ -115,7 +117,7 @@ export default function Contact() {
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={commonWhileInView}
           >
             <div className="glass p-8 md:p-10 rounded-[2.5rem] relative">
               <form onSubmit={handleSubmit} className="space-y-6">

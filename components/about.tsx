@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { CheckCircle2 } from 'lucide-react'
+import { fadeInUp, commonWhileInView } from '@/lib/animations'
 
 export default function About() {
   const highlights = [
@@ -13,15 +14,16 @@ export default function About() {
   ]
 
   return (
-    <section id="about" className="py-24 px-6 relative overflow-hidden">
+    <section id="about" className="py-24 px-6 relative overflow-hidden bg-[#0C0C0C]">
       {/* Background decoration */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
       
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={commonWhileInView}
           className="mb-16 text-center"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
@@ -36,7 +38,7 @@ export default function About() {
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={commonWhileInView}
             className="space-y-6"
           >
             <p className="text-gray-300 text-lg leading-relaxed">
@@ -62,7 +64,7 @@ export default function About() {
           <motion.div 
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={commonWhileInView}
             className="relative"
           >
             <div className="glass rounded-3xl p-1 relative z-10 overflow-hidden group">

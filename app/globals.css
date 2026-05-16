@@ -40,7 +40,7 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: #0C0C0C;
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.145 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -77,6 +77,7 @@
 @theme inline {
   --font-sans: var(--font-geist-sans), 'Inter', system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
+  --font-kanit: var(--font-kanit), 'Inter', system-ui, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -136,7 +137,12 @@
 .cursor-none * { cursor: none; }
 
 .glass {
-  @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  @apply bg-white/5 backdrop-blur-[20px] border border-white/10 shadow-[0_0_32px_0_rgba(0,0,0,0.08)];
+}
+
+.hero-heading {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(to bottom, #646973, #BBCCD7);
 }
 
 .grid-background {
