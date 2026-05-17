@@ -72,7 +72,7 @@ export default function About() {
               <div className="relative bg-slate-950/40 rounded-[calc(1.5rem-1px)] p-10 flex flex-col gap-10">
                 <div>
                   <p className="text-blue-400 font-medium mb-2 uppercase tracking-wider text-xs">Experience</p>
-                  <p className="text-5xl font-bold text-white">2+ Years</p>
+                  <p className="text-5xl font-bold text-white">3+ Years</p>
                   <p className="text-gray-400 mt-2">Professional software development</p>
                 </div>
                 
