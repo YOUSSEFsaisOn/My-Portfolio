@@ -120,8 +120,12 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
   }
 }
 
@@ -163,4 +167,112 @@
 
 .animate-slow-pan {
   animation: slow-pan 20s linear infinite;
+}
+
+/* ── About Section Premium Animations ── */
+
+@keyframes rotate-gradient {
+  0% { --gradient-angle: 0deg; }
+  100% { --gradient-angle: 360deg; }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(200%) skewX(-15deg); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(15px, -20px) scale(1.05); }
+  66% { transform: translate(-10px, 10px) scale(0.95); }
+}
+
+@keyframes float-fast {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-8px, -15px); }
+  50% { transform: translate(12px, -8px); }
+  75% { transform: translate(-5px, 12px); }
+}
+
+@keyframes border-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes counter-pulse {
+  0%, 100% { text-shadow: 0 0 20px rgba(96, 165, 250, 0); }
+  50% { text-shadow: 0 0 30px rgba(96, 165, 250, 0.3); }
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(135deg, #60a5fa 0%, #22d3ee 50%, #818cf8 100%);
+  background-size: 200% auto;
+  animation: gradient-shift 4s ease-in-out infinite;
+}
+
+.gradient-border {
+  position: relative;
+  border-radius: 1.5rem;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--gradient-angle, 0deg),
+    #60a5fa,
+    #22d3ee,
+    #818cf8,
+    #60a5fa
+  );
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  animation: rotate-gradient 4s linear infinite;
+}
+
+@property --gradient-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.shimmer-hover {
+  overflow: hidden;
+  position: relative;
+}
+
+.shimmer-hover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.06) 45%,
+    rgba(255, 255, 255, 0.12) 50%,
+    rgba(255, 255, 255, 0.06) 55%,
+    transparent 100%
+  );
+  transform: translateX(-100%) skewX(-15deg);
+  pointer-events: none;
+}
+
+.shimmer-hover:hover::after {
+  animation: shimmer 1s ease-in-out;
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: float-fast 5s ease-in-out infinite;
+}
+
+.animate-counter-pulse {
+  animation: counter-pulse 3s ease-in-out infinite;
 }

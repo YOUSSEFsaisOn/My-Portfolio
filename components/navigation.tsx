@@ -1,20 +1,41 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
+
+      // Track active section
+      const sections = ['about', 'experience', 'projects', 'skills', 'contact']
+      for (const section of sections.reverse()) {
+        const el = document.getElementById(section)
+        if (el && window.scrollY >= el.offsetTop - 200) {
+          setActiveSection(section)
+          break
+        }
+      }
     }
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const scrollToSection = useCallback((e: React.MouseEvent, href: string) => {
+    e.preventDefault()
+    const id = href.replace('#', '')
+    const el = document.getElementById(id)
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+    setIsOpen(false)
   }, [])
 
   const navLinks = [
@@ -27,16 +48,17 @@ export default function Navigation() {
 
   return (
     <motion.nav 
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         scrolled ? 'py-3' : 'py-6'
       }`}
     >
       <div className="max-w-6xl mx-auto px-6">
-        <div className={`flex justify-between items-center px-6 py-2 rounded-full border transition-all duration-300 ${
+        <div className={`flex justify-between items-center px-6 py-2 rounded-full border transition-all duration-500 ${
           scrolled 
-            ? 'bg-slate-900/80 backdrop-blur-md border-white/10 shadow-lg' 
+            ? 'bg-slate-900/80 backdrop-blur-xl border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]' 
             : 'bg-transparent border-transparent'
         }`}>
           <Link href="#" className="text-xl font-bold tracking-tighter text-white hover:opacity-80 transition-opacity">
@@ -46,24 +68,34 @@ export default function Navigation() {
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-8 items-center">
             {navLinks.map((link) => (
-              <Link
+              <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-gray-400 hover:text-white transition-colors duration-300 relative group"
+                onClick={(e) => scrollToSection(e, link.href)}
+                className={`text-sm font-medium transition-colors duration-300 relative group ${
+                  activeSection === link.href.replace('#', '')
+                    ? 'text-white'
+                    : 'text-gray-400 hover:text-white'
+                }`}
               >
                 {link.label}
-                <motion.span 
-                  className="absolute -bottom-1 left-0 w-0 h-px bg-blue-500 group-hover:w-full transition-all duration-300"
-                  whileHover={{ width: '100%' }}
+                <motion.span
+                  className="absolute -bottom-1 left-0 h-px bg-gradient-to-r from-blue-500 to-cyan-500"
+                  initial={{ width: 0 }}
+                  animate={{
+                    width: activeSection === link.href.replace('#', '') ? '100%' : 0,
+                  }}
+                  transition={{ duration: 0.3 }}
                 />
-              </Link>
+              </a>
             ))}
-            <Link 
+            <a 
               href="#contact"
-              className="ml-4 px-5 py-2 bg-white text-black text-sm font-bold rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300"
+              onClick={(e) => scrollToSection(e, '#contact')}
+              className="ml-4 px-5 py-2 bg-white text-black text-sm font-bold rounded-full hover:bg-blue-500 hover:text-white hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all duration-300"
             >
               Let&apos;s Talk
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -83,26 +115,31 @@ export default function Navigation() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden absolute top-full left-0 w-full bg-slate-900 border-b border-white/10 overflow-hidden"
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="md:hidden absolute top-full left-0 w-full bg-slate-900/95 backdrop-blur-xl border-b border-white/10 overflow-hidden"
           >
             <div className="flex flex-col p-6 gap-4">
               {navLinks.map((link) => (
-                <Link
+                <a
                   key={link.href}
                   href={link.href}
-                  className="text-lg font-medium text-gray-300 hover:text-white transition-colors"
-                  onClick={() => setIsOpen(false)}
+                  className={`text-lg font-medium transition-colors ${
+                    activeSection === link.href.replace('#', '')
+                      ? 'text-white'
+                      : 'text-gray-300 hover:text-white'
+                  }`}
+                  onClick={(e) => scrollToSection(e, link.href)}
                 >
                   {link.label}
-                </Link>
+                </a>
               ))}
-              <Link 
+              <a 
                 href="#contact"
                 className="mt-4 px-6 py-3 bg-white text-black text-center font-bold rounded-xl"
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => scrollToSection(e, '#contact')}
               >
                 Let&apos;s Talk
-              </Link>
+              </a>
             </div>
           </motion.div>
         )}
