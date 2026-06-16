@@ -56,25 +56,8 @@ interface MouseTrailProps {
 
 export default function MouseTrail(props: MouseTrailProps) {
   const {
-    variant = 'line',
-    fillType = 'solid',
     trailColor = '#0099FF',
     trailColorEnd = '#FF00FF',
-    trailLength = 20,
-    lineWidth = 3,
-    fadeOut = true,
-    smoothing = 0.3,
-    dotSize = 6,
-    dotSpacing = 10,
-    particleCount = 6,
-    particleSize = 3,
-    spreadAngle = 30,
-    drift = 0.4,
-    pixelSize = 6,
-    snapToGrid = true,
-    blendMode = 'source-over',
-    autoFade = true,
-    fadeDuration = 2,
     style
   } = props
 

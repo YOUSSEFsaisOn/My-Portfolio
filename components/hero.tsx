@@ -1,12 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import MouseTrail from "./framer/mouse-trail";
 import TextVideoMask from "./framer/text-video-mask";
+import ThreeAnimation from "./three-animation";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.9]);
 
   useEffect(() => {
     // Avoid setState cascading warnings in React strict mode.
@@ -16,9 +27,13 @@ export default function Hero() {
 
   return (
     <section
+      ref={sectionRef}
       className="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden"
       style={{ backgroundColor: "#050c18" }}
     >
+      {/* Three.js Background */}
+      <ThreeAnimation />
+
       {/* Mouse Trail */}
       <div className="absolute inset-0 z-[1] pointer-events-none">
         <MouseTrail
@@ -60,7 +75,8 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div
+      <motion.div
+        style={{ y, opacity, scale }}
         className={`relative z-10 max-w-4xl mx-auto text-center transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
       >
         <div className="mb-6 inline-block px-5 py-2.5 bg-gradient-to-r from-blue-500/15 to-cyan-500/15 border border-blue-400/20 rounded-full text-blue-300 text-sm font-medium backdrop-blur-sm">
@@ -90,18 +106,19 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 px-6">
           <Link
             href="#contact"
-            className="px-8 py-3.5 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-xl hover:shadow-[0_8px_30px_rgba(59,130,246,0.4)] hover:scale-105 transition-all duration-300 group text-center"
+            className="px-8 py-3.5 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-xl hover:shadow-[0_8px_30px_rgba(59,130,246,0.4)] hover:scale-105 transition-all duration-300 group text-center relative overflow-hidden"
           >
-            Get In Touch
-            <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform duration-300">
+            <span className="relative z-10">Get In Touch</span>
+            <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform duration-300 relative z-10">
               →
             </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </Link>
           <a
             href="https://github.com/YOUSSEFsaisOn"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-3.5 border border-cyan-400/30 text-cyan-300 font-semibold rounded-xl hover:bg-cyan-400/10 hover:border-cyan-400/60 hover:shadow-[0_8px_30px_rgba(34,211,238,0.15)] hover:scale-105 transition-all duration-300 backdrop-blur-sm text-center"
+            className="px-8 py-3.5 border border-white/10 text-white font-semibold rounded-xl hover:bg-white/10 hover:border-white/20 hover:shadow-[0_8px_30px_rgba(255,255,255,0.05)] hover:scale-105 transition-all duration-300 backdrop-blur-md text-center"
           >
             View GitHub
           </a>
@@ -127,7 +144,7 @@ export default function Hero() {
             Cairo, Egypt
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Scroll Indicator - bara el-content w taht shwai */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 animate-bounce">
