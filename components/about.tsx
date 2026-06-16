@@ -1,55 +1,78 @@
-'use client'
+"use client";
 
-import { useRef, useEffect, useState, useCallback } from 'react'
-import { motion, useMotionValue, useTransform, useInView, animate } from 'framer-motion'
-import { CheckCircle2 } from 'lucide-react'
-import { fadeInUp, fadeInLeft, scaleIn, staggerItem, popIn, staggerContainer, commonWhileInView } from '@/lib/animations'
+import { useRef, useEffect, useState, useCallback } from "react";
+import {
+  motion,
+  useMotionValue,
+  useTransform,
+  useInView,
+  animate,
+} from "framer-motion";
+import { CheckCircle2 } from "lucide-react";
+import {
+  fadeInUp,
+  fadeInLeft,
+  scaleIn,
+  staggerItem,
+  popIn,
+  staggerContainer,
+  commonWhileInView,
+} from "@/lib/animations";
 
 /* ─── Animated Counter ─── */
-function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: string }) {
-  const ref = useRef<HTMLSpanElement>(null)
-  const inView = useInView(ref, { once: true, amount: 0.5 })
-  const count = useMotionValue(0)
-  const rounded = useTransform(count, (v) => Math.round(v))
+function AnimatedCounter({
+  target,
+  suffix = "",
+}: {
+  target: number;
+  suffix?: string;
+}) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.5 });
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, (v) => Math.round(v));
 
   useEffect(() => {
     if (inView) {
-      animate(count, target, { duration: 2, ease: [0.16, 1, 0.3, 1] })
+      animate(count, target, { duration: 2, ease: [0.16, 1, 0.3, 1] });
     }
-  }, [inView, count, target])
+  }, [inView, count, target]);
 
   useEffect(() => {
-    const unsubscribe = rounded.on('change', (v) => {
-      if (ref.current) ref.current.textContent = `${v}${suffix}`
-    })
-    return unsubscribe
-  }, [rounded, suffix])
+    const unsubscribe = rounded.on("change", (v) => {
+      if (ref.current) ref.current.textContent = `${v}${suffix}`;
+    });
+    return unsubscribe;
+  }, [rounded, suffix]);
 
-  return <span ref={ref}>0{suffix}</span>
+  return <span ref={ref}>0{suffix}</span>;
 }
 
 /* ─── Stats Card with 3D Tilt ─── */
 function TiltCard({ children }: { children: React.ReactNode }) {
-  const cardRef = useRef<HTMLDivElement>(null)
-  const rotateX = useMotionValue(0)
-  const rotateY = useMotionValue(0)
+  const cardRef = useRef<HTMLDivElement>(null);
+  const rotateX = useMotionValue(0);
+  const rotateY = useMotionValue(0);
 
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const card = cardRef.current
-    if (!card) return
-    const rect = card.getBoundingClientRect()
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
-    const centerX = rect.width / 2
-    const centerY = rect.height / 2
-    rotateY.set(((x - centerX) / centerX) * 6)
-    rotateX.set(((centerY - y) / centerY) * 6)
-  }, [rotateX, rotateY])
+  const handleMouseMove = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      const card = cardRef.current;
+      if (!card) return;
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      rotateY.set(((x - centerX) / centerX) * 6);
+      rotateX.set(((centerY - y) / centerY) * 6);
+    },
+    [rotateX, rotateY],
+  );
 
   const handleMouseLeave = useCallback(() => {
-    animate(rotateX, 0, { duration: 0.4 })
-    animate(rotateY, 0, { duration: 0.4 })
-  }, [rotateX, rotateY])
+    animate(rotateX, 0, { duration: 0.4 });
+    animate(rotateY, 0, { duration: 0.4 });
+  }, [rotateX, rotateY]);
 
   return (
     <motion.div
@@ -60,18 +83,18 @@ function TiltCard({ children }: { children: React.ReactNode }) {
         rotateX,
         rotateY,
         transformPerspective: 800,
-        transformStyle: 'preserve-3d',
+        transformStyle: "preserve-3d",
       }}
       className="will-change-transform"
     >
       {children}
     </motion.div>
-  )
+  );
 }
 
 /* ─── Main About Section ─── */
 export default function About() {
-  const [hoveredHighlight, setHoveredHighlight] = useState<number | null>(null)
+  const [hoveredHighlight, setHoveredHighlight] = useState<number | null>(null);
 
   const highlights = [
     "7+ projects delivered including 2 full production e-learning platforms",
@@ -79,19 +102,49 @@ export default function About() {
     "Payment integration expertise (Paymob) with complete checkout and order flow",
     "Secure video streaming implementation (Bunny.net) with token-based protection",
     "Role-based auth systems with JWT, protected routes, and admin dashboards",
-  ]
+  ];
 
   const stats = [
-    { label: 'Experience', value: 3, suffix: '+', unit: 'Years', color: 'from-blue-400 to-cyan-400', description: 'Professional software development' },
-    { label: 'Projects', value: 7, suffix: '+', unit: 'Delivered', color: 'from-cyan-400 to-emerald-400', description: 'Production-ready applications' },
-    { label: 'Platforms', value: 2, suffix: '', unit: 'E-Learning', color: 'from-violet-400 to-blue-400', description: 'Full production platforms built' },
-  ]
+    {
+      label: "Experience",
+      value: 3,
+      suffix: "+",
+      unit: "Years",
+      color: "from-blue-400 to-cyan-400",
+      description: "Professional software development",
+    },
+    {
+      label: "Projects",
+      value: 7,
+      suffix: "+",
+      unit: "Delivered",
+      color: "from-cyan-400 to-emerald-400",
+      description: "Production-ready applications",
+    },
+    {
+      label: "Platforms",
+      value: 2,
+      suffix: "",
+      unit: "E-Learning",
+      color: "from-violet-400 to-blue-400",
+      description: "Full production platforms built",
+    },
+  ];
 
-  const focusTags = ['React', 'Next.js', 'TypeScript', 'Tailwind', '.NET', 'Paymob']
+  const focusTags = [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Tailwind",
+    ".NET",
+    "Paymob",
+  ];
 
   return (
-    <section id="about" className="py-28 px-6 relative overflow-hidden bg-[#0C0C0C]">
-
+    <section
+      id="about"
+      className="py-28 px-6 relative overflow-hidden bg-[#0C0C0C]"
+    >
       {/* ── Animated Background Mesh ── */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-[10%] left-[15%] w-[400px] h-[400px] bg-blue-500/[0.04] rounded-full blur-[100px] animate-float-slow" />
@@ -104,7 +157,7 @@ export default function About() {
         className="absolute inset-0 pointer-events-none opacity-[0.025]"
         style={{
           backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px',
+          backgroundSize: "50px 50px",
         }}
       />
 
@@ -129,9 +182,13 @@ export default function About() {
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-5 tracking-tight">
             About <span className="text-gradient">Me</span>
           </h2>
-          <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto px-4 leading-relaxed">
-            A developer focused on building high-performance, visually stunning digital experiences.
-          </p>
+          <div className="max-w-2xl mx-auto px-4">
+            <div className="h-[2px] w-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-400/70 to-cyan-400/70" />
+            <p className="text-gray-300/90 text-base md:text-lg leading-relaxed text-center">
+              High-performance frontend engineering with clean architecture,
+              secure integrations, and polished UI.
+            </p>
+          </div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
@@ -147,20 +204,29 @@ export default function About() {
               variants={fadeInLeft}
               className="text-gray-300 text-base md:text-lg leading-relaxed"
             >
-              I&apos;m a Frontend Developer with experience delivering production-ready full-stack applications. I&apos;ve built complete e-learning platforms with role-based auth, secure video streaming, payment integration, and admin dashboards — all as freelance solutions following clean architecture best practices.
+              I&apos;m a Frontend Developer with experience delivering
+              production-ready full-stack applications. I&apos;ve built complete
+              e-learning platforms with role-based auth, secure video streaming,
+              payment integration, and admin dashboards — all as freelance
+              solutions following clean architecture best practices.
             </motion.p>
 
             <motion.p
               variants={fadeInLeft}
               className="text-gray-300 text-base md:text-lg leading-relaxed"
             >
-              My expertise spans React.js, Next.js (App Router), TypeScript, React Query, Paymob, Bunny.net, and .NET backend APIs. I&apos;m committed to writing clean, maintainable code and building secure, scalable systems.
+              My expertise spans React.js, Next.js (App Router), TypeScript,
+              React Query, Paymob, Bunny.net, and .NET backend APIs. I&apos;m
+              committed to writing clean, maintainable code and building secure,
+              scalable systems.
             </motion.p>
 
             {/* Key Highlights */}
             <motion.div variants={fadeInLeft} className="pt-4 md:pt-6">
               <div className="flex items-center gap-3 mb-6">
-                <h3 className="text-white font-semibold text-lg md:text-xl">Key Highlights</h3>
+                <h3 className="text-white font-semibold text-lg md:text-xl">
+                  Key Highlights
+                </h3>
                 <div className="flex-1 h-px bg-gradient-to-r from-blue-400/30 to-transparent" />
               </div>
 
@@ -180,23 +246,25 @@ export default function About() {
                     className={`
                       flex items-start gap-3 p-3 rounded-xl
                       transition-all duration-300 cursor-default
-                      ${hoveredHighlight === i
-                        ? 'bg-blue-500/[0.08] border border-blue-400/20'
-                        : 'border border-transparent'
+                      ${
+                        hoveredHighlight === i
+                          ? "bg-blue-500/[0.08] border border-blue-400/20"
+                          : "border border-transparent"
                       }
                     `}
                   >
-                    <motion.div
-                      variants={popIn}
-                      className="shrink-0 mt-0.5"
-                    >
+                    <motion.div variants={popIn} className="shrink-0 mt-0.5">
                       <CheckCircle2
                         className={`w-5 h-5 transition-colors duration-300 ${
-                          hoveredHighlight === i ? 'text-cyan-400' : 'text-blue-400'
+                          hoveredHighlight === i
+                            ? "text-cyan-400"
+                            : "text-blue-400"
                         }`}
                       />
                     </motion.div>
-                    <span className="text-gray-300 text-sm md:text-base leading-relaxed">{item}</span>
+                    <span className="text-gray-300 text-sm md:text-base leading-relaxed">
+                      {item}
+                    </span>
                   </motion.div>
                 ))}
               </motion.div>
@@ -214,7 +282,6 @@ export default function About() {
             <TiltCard>
               <div className="gradient-border shimmer-hover">
                 <div className="relative bg-[#0f0f0f] rounded-3xl p-8 md:p-10 flex flex-col gap-8 overflow-hidden">
-
                   {/* Card internal glow */}
                   <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/[0.06] rounded-full blur-[60px] pointer-events-none" />
                   <div className="absolute bottom-0 left-0 w-40 h-40 bg-cyan-500/[0.05] rounded-full blur-[50px] pointer-events-none" />
@@ -227,16 +294,27 @@ export default function About() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={commonWhileInView}
-                        transition={{ delay: 0.3 + i * 0.15, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{
+                          delay: 0.3 + i * 0.15,
+                          duration: 0.6,
+                          ease: [0.16, 1, 0.3, 1],
+                        }}
                         className="text-center"
                       >
-                        <p className={`text-xs font-medium mb-2 uppercase tracking-widest bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}>
+                        <p
+                          className={`text-xs font-medium mb-2 uppercase tracking-widest bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}
+                        >
                           {stat.label}
                         </p>
                         <p className="text-3xl md:text-4xl font-bold text-white animate-counter-pulse">
-                          <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+                          <AnimatedCounter
+                            target={stat.value}
+                            suffix={stat.suffix}
+                          />
                         </p>
-                        <p className="text-[11px] text-gray-500 mt-1.5 uppercase tracking-wider">{stat.unit}</p>
+                        <p className="text-[11px] text-gray-500 mt-1.5 uppercase tracking-wider">
+                          {stat.unit}
+                        </p>
                       </motion.div>
                     ))}
                   </div>
@@ -251,15 +329,19 @@ export default function About() {
                   <div className="space-y-3 relative z-10">
                     {stats.map((stat, i) => (
                       <motion.div
-                        key={stat.label + '-desc'}
+                        key={stat.label + "-desc"}
                         initial={{ opacity: 0, x: 15 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={commonWhileInView}
                         transition={{ delay: 0.5 + i * 0.1, duration: 0.5 }}
                         className="flex items-center gap-3"
                       >
-                        <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${stat.color} shrink-0`} />
-                        <p className="text-gray-400 text-sm">{stat.description}</p>
+                        <div
+                          className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${stat.color} shrink-0`}
+                        />
+                        <p className="text-gray-300/80 text-sm transition-colors duration-300 hover:text-cyan-200/90">
+                          {stat.description}
+                        </p>
                       </motion.div>
                     ))}
                   </div>
@@ -272,7 +354,9 @@ export default function About() {
 
                   {/* Focus Areas */}
                   <div className="relative z-10">
-                    <p className="text-cyan-400 font-medium mb-4 uppercase tracking-widest text-xs">Focus Areas</p>
+                    <p className="text-cyan-400 font-medium mb-4 uppercase tracking-widest text-xs">
+                      Focus Areas
+                    </p>
                     <motion.div
                       variants={staggerContainer(0.06, 0.6)}
                       initial="hidden"
@@ -286,8 +370,8 @@ export default function About() {
                           variants={popIn}
                           whileHover={{
                             scale: 1.08,
-                            backgroundColor: 'rgba(96, 165, 250, 0.12)',
-                            borderColor: 'rgba(96, 165, 250, 0.4)',
+                            backgroundColor: "rgba(96, 165, 250, 0.12)",
+                            borderColor: "rgba(96, 165, 250, 0.4)",
                           }}
                           className="px-4 py-1.5 bg-white/[0.04] rounded-full text-sm text-gray-300 border border-white/[0.08] cursor-default transition-shadow duration-300 hover:shadow-[0_0_15px_rgba(96,165,250,0.15)]"
                         >
@@ -309,5 +393,5 @@ export default function About() {
         </div>
       </div>
     </section>
-  )
+  );
 }
