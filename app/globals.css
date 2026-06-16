@@ -276,3 +276,173 @@
 .animate-counter-pulse {
   animation: counter-pulse 3s ease-in-out infinite;
 }
+
+/* ══════════════════════════════════════════════
+   Skills Section — Premium Styles
+   ══════════════════════════════════════════════ */
+
+/* ── Marquee Animations ── */
+@keyframes skills-scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes skills-scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.skills-marquee-left {
+  animation: skills-scroll-left var(--duration, 35s) linear infinite;
+}
+
+.skills-marquee-right {
+  animation: skills-scroll-right var(--duration, 40s) linear infinite;
+}
+
+.skills-marquee-track:hover .skills-marquee-left,
+.skills-marquee-track:hover .skills-marquee-right {
+  animation-play-state: paused;
+}
+
+/* ── Marquee Pill ── */
+.skills-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.625rem 1.5rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+}
+
+.skills-pill:hover {
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.12), inset 0 0 20px rgba(59, 130, 246, 0.05);
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* ── Skill Card ── */
+.skills-card {
+  position: relative;
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  perspective: 800px;
+}
+
+.skills-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.02) 50%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  transition: all 0.5s ease;
+  pointer-events: none;
+}
+
+.skills-card:hover::before {
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.4) 0%,
+    rgba(34, 211, 238, 0.2) 50%,
+    rgba(129, 140, 248, 0.3) 100%
+  );
+}
+
+.skills-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 60px var(--card-accent, rgba(59, 130, 246, 0.08));
+}
+
+/* Animated border glow on hover */
+.skills-card-border {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  background: conic-gradient(
+    from var(--gradient-angle, 0deg),
+    rgba(59, 130, 246, 0.3),
+    rgba(34, 211, 238, 0.2),
+    rgba(129, 140, 248, 0.3),
+    rgba(59, 130, 246, 0.3)
+  );
+  animation: rotate-gradient 4s linear infinite;
+  z-index: 0;
+}
+
+.skills-card:hover .skills-card-border {
+  opacity: 1;
+}
+
+/* ── Icon Wrapper ── */
+.skills-icon-wrap {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.875rem;
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.12);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skills-card:hover .skills-icon-wrap {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.3);
+  transform: scale(1.1) rotate(-3deg);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+}
+
+/* ── Skill Chip (inside cards) ── */
+.skills-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+}
+
+.skills-card:hover .skills-chip {
+  color: rgba(96, 165, 250, 0.9);
+  background: rgba(59, 130, 246, 0.08);
+  border-color: rgba(59, 130, 246, 0.15);
+}
+
+.skills-chip:hover {
+  color: rgba(255, 255, 255, 0.9) !important;
+  background: rgba(59, 130, 246, 0.15) !important;
+  border-color: rgba(59, 130, 246, 0.35) !important;
+  box-shadow: 0 0 16px rgba(59, 130, 246, 0.12);
+  transform: translateY(-1px);
+}
