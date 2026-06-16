@@ -1,30 +1,35 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import React, { useMemo, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface CardData {
-  id: string
-  title: string
-  description: string
-  icon: React.ReactNode
-  color: string
-  buttonText?: string
+  id: string;
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  color: string;
+  buttonText?: string;
 }
 
 interface FluidCardStackProps {
-  cards: CardData[]
-  className?: string
+  cards: CardData[];
+  className?: string;
 }
 
-export default function FluidCardStack({ cards, className }: FluidCardStackProps) {
-  const [hoveredId, setHoveredId] = useState<string | null>(null)
+export default function FluidCardStack({
+  cards,
+  className,
+}: FluidCardStackProps) {
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   return (
-    <div className={`flex flex-col md:flex-row gap-4 w-full h-auto md:h-[400px] ${className}`}>
+    <div
+      className={`flex flex-col md:flex-row gap-4 w-full h-auto md:h-[400px] ${className}`}
+    >
       {cards.map((card) => {
-        const isHovered = hoveredId === card.id
-        const isNoneHovered = hoveredId === null
+        const isHovered = hoveredId === card.id;
+        const isNoneHovered = hoveredId === null;
 
         return (
           <motion.div
@@ -36,8 +41,8 @@ export default function FluidCardStack({ cards, className }: FluidCardStackProps
             initial={false}
             animate={{
               flex: isHovered ? 3 : isNoneHovered ? 1 : 0.5,
-              height: isHovered ? 'auto' : 'auto',
-              minHeight: isHovered ? '200px' : '80px'
+              height: isHovered ? "auto" : "auto",
+              minHeight: isHovered ? "200px" : "80px",
             }}
             transition={{
               type: "spring",
@@ -45,7 +50,7 @@ export default function FluidCardStack({ cards, className }: FluidCardStackProps
               damping: 30,
             }}
             className="relative overflow-hidden rounded-3xl cursor-pointer flex flex-col p-6 h-full"
-            style={{ backgroundColor: '#121212' }}
+            style={{ backgroundColor: "#121212" }}
           >
             {/* Icon Container */}
             <motion.div
@@ -69,7 +74,7 @@ export default function FluidCardStack({ cards, className }: FluidCardStackProps
               {isHovered && (
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
+                  animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
                   className="flex flex-col h-full overflow-hidden"
@@ -77,7 +82,7 @@ export default function FluidCardStack({ cards, className }: FluidCardStackProps
                   <p className="text-gray-400 text-sm mb-6 mt-2 leading-relaxed">
                     {card.description}
                   </p>
-                  
+
                   {card.buttonText && (
                     <motion.button
                       whileHover={{ scale: 1.05 }}
@@ -92,16 +97,16 @@ export default function FluidCardStack({ cards, className }: FluidCardStackProps
             </AnimatePresence>
 
             {/* Subtle background glow */}
-            <div 
+            <div
               className="absolute inset-0 opacity-0 transition-opacity duration-500 pointer-events-none"
-              style={{ 
+              style={{
                 background: `radial-gradient(circle at center, ${card.color}20 0%, transparent 70%)`,
-                opacity: isHovered ? 1 : 0 
+                opacity: isHovered ? 1 : 0,
               }}
             />
           </motion.div>
-        )
+        );
       })}
     </div>
-  )
+  );
 }
