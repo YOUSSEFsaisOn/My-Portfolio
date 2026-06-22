@@ -4,74 +4,48 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --background: #ffffff;
+  --foreground: #050812;
+  --card: #ffffff;
+  --card-foreground: #050812;
+  --popover: #ffffff;
+  --popover-foreground: #050812;
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #1e293b;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #f1f5f9;
+  --accent-foreground: #1e293b;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #3b82f6;
   --radius: 0.75rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
 }
 
 .dark {
-  --background: #0c0c0c;
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --background: #050812;
+  --foreground: #f8fafc;
+  --card: #080d18;
+  --card-foreground: #f8fafc;
+  --popover: #080d18;
+  --popover-foreground: #f8fafc;
+  --primary: #3b82f6;
+  --primary-foreground: #050812;
+  --secondary: #1e293b;
+  --secondary-foreground: #f8fafc;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --accent: #1e293b;
+  --accent-foreground: #f8fafc;
+  --destructive: #7f1d1d;
+  --destructive-foreground: #f8fafc;
+  --border: #1e293b;
+  --input: #1e293b;
+  --ring: #60a5fa;
 }
 
 @theme inline {
@@ -97,23 +71,10 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
 }
 
 @layer base {
@@ -130,6 +91,22 @@
     @apply bg-background text-foreground;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
+    position: relative;
+  }
+
+  /* Noise Texture Overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 9999;
+    filter: contrast(150%) brightness(100%);
   }
 
   /* Scrollbar consistency */
@@ -158,7 +135,27 @@
   background-color: rgba(59, 130, 246, 0.55);
 }
 
-/* Gradient text animation */
+.glass {
+  @apply bg-white/5 backdrop-blur-[20px] border border-white/10 shadow-[0_0_32px_0_rgba(0,0,0,0.08)];
+}
+
+.hero-heading {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(to bottom, #ffffff, #3b82f6);
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(
+    135deg,
+    #60a5fa 0%,
+    #2563eb 50%,
+    #3b82f6 100%
+  );
+  background-size: 200% auto;
+  animation: gradient-shift 4s ease-in-out infinite;
+}
+
 @keyframes gradient-shift {
   0% {
     background-position: 0% center;
@@ -169,47 +166,6 @@
   100% {
     background-position: 0% center;
   }
-}
-
-/* Hide default cursor in hero */
-.cursor-none {
-  cursor: none;
-}
-.cursor-none * {
-  cursor: none;
-}
-
-.glass {
-  @apply bg-white/5 backdrop-blur-[20px] border border-white/10 shadow-[0_0_32px_0_rgba(0,0,0,0.08)];
-}
-
-.hero-heading {
-  @apply bg-clip-text text-transparent;
-  background-image: linear-gradient(to bottom, #646973, #bbccd7);
-}
-
-.grid-background {
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-.radial-gradient-mask {
-  mask-image: radial-gradient(circle at center, black, transparent 80%);
-}
-
-@keyframes slow-pan {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 40px 40px;
-  }
-}
-
-.animate-slow-pan {
-  animation: slow-pan 20s linear infinite;
 }
 
 /* ── About Section Premium Animations ── */
@@ -261,36 +217,14 @@
   }
 }
 
-@keyframes border-glow {
-  0%,
-  100% {
-    opacity: 0.4;
-  }
-  50% {
-    opacity: 0.8;
-  }
-}
-
 @keyframes counter-pulse {
   0%,
   100% {
-    text-shadow: 0 0 20px rgba(96, 165, 250, 0);
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0);
   }
   50% {
-    text-shadow: 0 0 30px rgba(96, 165, 250, 0.3);
+    text-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
   }
-}
-
-.text-gradient {
-  @apply bg-clip-text text-transparent;
-  background-image: linear-gradient(
-    135deg,
-    #60a5fa 0%,
-    #22d3ee 50%,
-    #818cf8 100%
-  );
-  background-size: 200% auto;
-  animation: gradient-shift 4s ease-in-out infinite;
 }
 
 .gradient-border {
@@ -306,10 +240,10 @@
   padding: 1.5px;
   background: conic-gradient(
     from var(--gradient-angle, 0deg),
+    #3b82f6,
     #60a5fa,
-    #22d3ee,
-    #818cf8,
-    #60a5fa
+    #2563eb,
+    #3b82f6
   );
   mask:
     linear-gradient(#000 0 0) content-box,
@@ -458,8 +392,8 @@
   background: linear-gradient(
     135deg,
     rgba(59, 130, 246, 0.4) 0%,
-    rgba(34, 211, 238, 0.2) 50%,
-    rgba(129, 140, 248, 0.3) 100%
+    rgba(37, 99, 235, 0.2) 50%,
+    rgba(30, 64, 175, 0.3) 100%
   );
 }
 
@@ -482,8 +416,8 @@
   background: conic-gradient(
     from var(--gradient-angle, 0deg),
     rgba(59, 130, 246, 0.3),
-    rgba(34, 211, 238, 0.2),
-    rgba(129, 140, 248, 0.3),
+    rgba(37, 99, 235, 0.2),
+    rgba(30, 64, 175, 0.3),
     rgba(59, 130, 246, 0.3)
   );
   animation: rotate-gradient 4s linear infinite;

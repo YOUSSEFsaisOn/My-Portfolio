@@ -58,7 +58,7 @@ export default function Navigation() {
       <div className="max-w-6xl mx-auto px-6">
         <div className={`flex justify-between items-center px-6 py-2 rounded-full border transition-all duration-500 ${
           scrolled 
-            ? 'bg-slate-900/80 backdrop-blur-xl border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]' 
+            ? 'bg-[#080d18]/80 backdrop-blur-xl border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
             : 'bg-transparent border-transparent'
         }`}>
           <Link href="#" className="text-xl font-bold tracking-tighter text-white hover:opacity-80 transition-opacity">
@@ -75,12 +75,12 @@ export default function Navigation() {
                 className={`text-sm font-medium transition-colors duration-300 relative group ${
                   activeSection === link.href.replace('#', '')
                     ? 'text-white'
-                    : 'text-gray-400 hover:text-white'
+                    : 'text-slate-400 hover:text-white'
                 }`}
               >
                 {link.label}
                 <motion.span
-                  className="absolute -bottom-1 left-0 h-px bg-gradient-to-r from-blue-500 to-cyan-500"
+                  className="absolute -bottom-1 left-0 h-px bg-gradient-to-r from-blue-500 to-blue-300"
                   initial={{ width: 0 }}
                   animate={{
                     width: activeSection === link.href.replace('#', '') ? '100%' : 0,
@@ -92,7 +92,7 @@ export default function Navigation() {
             <a 
               href="#contact"
               onClick={(e) => scrollToSection(e, '#contact')}
-              className="ml-4 px-5 py-2 bg-white text-black text-sm font-bold rounded-full hover:bg-blue-500 hover:text-white hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all duration-300"
+              className="ml-4 px-5 py-2 bg-blue-600 text-white text-sm font-bold rounded-full hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all duration-300"
             >
               Let&apos;s Talk
             </a>
@@ -101,7 +101,7 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-white hover:text-blue-400 transition-colors"
+            className="md:hidden text-white hover:text-blue-500 transition-colors"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -116,7 +116,7 @@ export default function Navigation() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="md:hidden absolute top-full left-0 w-full bg-slate-900/95 backdrop-blur-xl border-b border-white/10 overflow-hidden"
+            className="md:hidden absolute top-full left-0 w-full bg-[#050812]/95 backdrop-blur-xl border-b border-white/10 overflow-hidden"
           >
             <div className="flex flex-col p-6 gap-4">
               {navLinks.map((link) => (
@@ -126,7 +126,7 @@ export default function Navigation() {
                   className={`text-lg font-medium transition-colors ${
                     activeSection === link.href.replace('#', '')
                       ? 'text-white'
-                      : 'text-gray-300 hover:text-white'
+                      : 'text-slate-300 hover:text-white'
                   }`}
                   onClick={(e) => scrollToSection(e, link.href)}
                 >
@@ -135,7 +135,7 @@ export default function Navigation() {
               ))}
               <a 
                 href="#contact"
-                className="mt-4 px-6 py-3 bg-white text-black text-center font-bold rounded-xl"
+                className="mt-4 px-6 py-3 bg-blue-600 text-white text-center font-bold rounded-xl"
                 onClick={(e) => scrollToSection(e, '#contact')}
               >
                 Let&apos;s Talk
