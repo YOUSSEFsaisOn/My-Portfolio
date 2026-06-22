@@ -19,8 +19,8 @@ function MarqueeRow({
   return (
     <div className="skills-marquee-track overflow-hidden relative">
       {/* Fade masks */}
-      <div className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none bg-gradient-to-r from-[#0C0C0C] to-transparent" />
-      <div className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none bg-gradient-to-l from-[#0C0C0C] to-transparent" />
+      <div className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none bg-gradient-to-r from-[#050812] to-transparent" />
+      <div className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none bg-gradient-to-l from-[#050812] to-transparent" />
 
       <div
         className={`flex gap-4 w-max ${
@@ -83,7 +83,7 @@ function SkillCard({
             <h3 className="text-xl font-bold text-white tracking-tight">
               {category.category}
             </h3>
-            <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-blue-400 to-cyan-400 transition-all duration-500 rounded-full mt-1" />
+            <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-blue-500 to-blue-300 transition-all duration-500 rounded-full mt-1" />
           </div>
         </div>
 
@@ -143,31 +143,31 @@ export default function Skills() {
       category: 'State',
       icon: '🔄',
       skills: ['Redux Toolkit', 'React Query', 'Context API'],
-      accent: 'rgba(34, 211, 238, 0.15)',
+      accent: 'rgba(37, 99, 235, 0.15)',
     },
     {
       category: 'Backend',
       icon: '🔌',
       skills: ['.NET Core', 'REST APIs', 'GraphQL'],
-      accent: 'rgba(129, 140, 248, 0.15)',
+      accent: 'rgba(30, 64, 175, 0.15)',
     },
     {
       category: 'Databases',
       icon: '🗄️',
       skills: ['SQL Server', 'Firebase', 'PostgreSQL'],
-      accent: 'rgba(52, 211, 153, 0.15)',
+      accent: 'rgba(30, 58, 138, 0.15)',
     },
     {
       category: 'Tools',
       icon: '🛠️',
       skills: ['Git', 'Vercel', 'Figma'],
-      accent: 'rgba(251, 191, 36, 0.12)',
+      accent: 'rgba(29, 78, 216, 0.12)',
     },
     {
       category: 'Quality',
       icon: '✅',
       skills: ['Jest', 'TDD', 'Performance', 'SEO'],
-      accent: 'rgba(244, 114, 182, 0.12)',
+      accent: 'rgba(37, 99, 235, 0.12)',
     },
   ]
 
@@ -179,21 +179,17 @@ export default function Skills() {
     <section
       ref={sectionRef}
       id="skills"
-      className="py-28 md:py-36 px-6 bg-[#0C0C0C] relative overflow-hidden"
+      className="py-28 md:py-36 px-6 bg-[#050812] relative overflow-hidden"
     >
       {/* ── Animated Background ── */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
           style={{ y: bgY1, scale: bgScale }}
-          className="absolute top-[5%] left-[10%] w-[450px] h-[450px] bg-blue-500/[0.03] rounded-full blur-[120px]"
+          className="absolute top-[5%] left-[10%] w-[450px] h-[450px] bg-blue-600/[0.03] rounded-full blur-[120px]"
         />
         <motion.div
           style={{ y: bgY2 }}
-          className="absolute bottom-[10%] right-[5%] w-[400px] h-[400px] bg-cyan-500/[0.04] rounded-full blur-[100px]"
-        />
-        <motion.div
-          style={{ y: bgY1 }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-500/[0.025] rounded-full blur-[140px]"
+          className="absolute bottom-[10%] right-[5%] w-[400px] h-[400px] bg-indigo-600/[0.04] rounded-full blur-[100px]"
         />
       </div>
 
@@ -212,7 +208,7 @@ export default function Skills() {
           {/* Decorative line */}
           <motion.div
             style={{ width: lineWidth }}
-            className="h-px bg-gradient-to-r from-transparent via-blue-400/40 to-transparent mx-auto mb-10"
+            className="h-px bg-gradient-to-r from-transparent via-blue-500/40 to-transparent mx-auto mb-10"
           />
 
           <motion.div
@@ -220,7 +216,7 @@ export default function Skills() {
             animate={headingInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-[0.2em] text-blue-300 border border-blue-500/20 bg-blue-500/[0.06] mb-6">
+            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-[0.2em] text-blue-400 border border-blue-500/20 bg-blue-500/[0.06] mb-6">
               Tech Arsenal
             </span>
           </motion.div>
@@ -243,7 +239,7 @@ export default function Skills() {
             initial={{ opacity: 0, y: 20 }}
             animate={headingInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto px-6 leading-relaxed"
+            className="text-slate-400 text-base md:text-lg max-w-2xl mx-auto px-6 leading-relaxed"
           >
             A comprehensive overview of the technologies and tools I leverage to
             build production-grade applications.

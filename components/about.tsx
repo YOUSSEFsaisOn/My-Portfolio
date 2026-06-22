@@ -110,7 +110,7 @@ export default function About() {
       value: 3,
       suffix: "+",
       unit: "Years",
-      color: "from-blue-400 to-cyan-400",
+      color: "from-blue-500 to-blue-300",
       description: "Professional software development",
     },
     {
@@ -118,7 +118,7 @@ export default function About() {
       value: 7,
       suffix: "+",
       unit: "Delivered",
-      color: "from-cyan-400 to-emerald-400",
+      color: "from-blue-400 to-indigo-400",
       description: "Production-ready applications",
     },
     {
@@ -126,7 +126,7 @@ export default function About() {
       value: 2,
       suffix: "",
       unit: "E-Learning",
-      color: "from-violet-400 to-blue-400",
+      color: "from-indigo-400 to-blue-500",
       description: "Full production platforms built",
     },
   ];
@@ -143,13 +143,12 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-28 px-6 relative overflow-hidden bg-[#0C0C0C]"
+      className="py-28 px-6 relative overflow-hidden bg-[#050812]"
     >
       {/* ── Animated Background Mesh ── */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[10%] left-[15%] w-[400px] h-[400px] bg-blue-500/[0.04] rounded-full blur-[100px] animate-float-slow" />
-        <div className="absolute bottom-[15%] right-[10%] w-[350px] h-[350px] bg-cyan-500/[0.05] rounded-full blur-[120px] animate-float-fast" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-500/[0.03] rounded-full blur-[140px]" />
+        <div className="absolute top-[10%] left-[15%] w-[400px] h-[400px] bg-blue-600/[0.04] rounded-full blur-[100px] animate-float-slow" />
+        <div className="absolute bottom-[15%] right-[10%] w-[350px] h-[350px] bg-indigo-600/[0.05] rounded-full blur-[120px] animate-float-fast" />
       </div>
 
       {/* ── Grid Pattern ── */}
@@ -176,15 +175,15 @@ export default function About() {
             whileInView={{ width: 60 }}
             viewport={commonWhileInView}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="h-[2px] bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto mb-8 rounded-full"
+            className="h-[2px] bg-gradient-to-r from-blue-500 to-blue-300 mx-auto mb-8 rounded-full"
           />
 
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-5 tracking-tight">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-5 tracking-tight text-white">
             About <span className="text-gradient">Me</span>
           </h2>
           <div className="max-w-2xl mx-auto px-4">
-            <div className="h-[2px] w-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-400/70 to-cyan-400/70" />
-            <p className="text-gray-300/90 text-base md:text-lg leading-relaxed text-center">
+            <div className="h-[2px] w-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-500/70 to-blue-300/70" />
+            <p className="text-slate-300/90 text-base md:text-lg leading-relaxed text-center">
               High-performance frontend engineering with clean architecture,
               secure integrations, and polished UI.
             </p>
@@ -202,7 +201,7 @@ export default function About() {
           >
             <motion.p
               variants={fadeInLeft}
-              className="text-gray-300 text-base md:text-lg leading-relaxed"
+              className="text-slate-300 text-base md:text-lg leading-relaxed"
             >
               I&apos;m a Frontend Developer with experience delivering
               production-ready full-stack applications. I&apos;ve built complete
@@ -213,7 +212,7 @@ export default function About() {
 
             <motion.p
               variants={fadeInLeft}
-              className="text-gray-300 text-base md:text-lg leading-relaxed"
+              className="text-slate-300 text-base md:text-lg leading-relaxed"
             >
               My expertise spans React.js, Next.js (App Router), TypeScript,
               React Query, Paymob, Bunny.net, and .NET backend APIs. I&apos;m
@@ -227,7 +226,7 @@ export default function About() {
                 <h3 className="text-white font-semibold text-lg md:text-xl">
                   Key Highlights
                 </h3>
-                <div className="flex-1 h-px bg-gradient-to-r from-blue-400/30 to-transparent" />
+                <div className="flex-1 h-px bg-gradient-to-r from-blue-500/30 to-transparent" />
               </div>
 
               <motion.div
@@ -248,7 +247,7 @@ export default function About() {
                       transition-all duration-300 cursor-default
                       ${
                         hoveredHighlight === i
-                          ? "bg-blue-500/[0.08] border border-blue-400/20"
+                          ? "bg-blue-600/[0.08] border border-blue-500/20"
                           : "border border-transparent"
                       }
                     `}
@@ -257,12 +256,12 @@ export default function About() {
                       <CheckCircle2
                         className={`w-5 h-5 transition-colors duration-300 ${
                           hoveredHighlight === i
-                            ? "text-cyan-400"
-                            : "text-blue-400"
+                            ? "text-blue-400"
+                            : "text-blue-500"
                         }`}
                       />
                     </motion.div>
-                    <span className="text-gray-300 text-sm md:text-base leading-relaxed">
+                    <span className="text-slate-300 text-sm md:text-base leading-relaxed">
                       {item}
                     </span>
                   </motion.div>
@@ -281,10 +280,10 @@ export default function About() {
           >
             <TiltCard>
               <div className="gradient-border shimmer-hover">
-                <div className="relative bg-[#0f0f0f] rounded-3xl p-8 md:p-10 flex flex-col gap-8 overflow-hidden">
+                <div className="relative bg-[#080d18] rounded-3xl p-8 md:p-10 flex flex-col gap-8 overflow-hidden">
                   {/* Card internal glow */}
-                  <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/[0.06] rounded-full blur-[60px] pointer-events-none" />
-                  <div className="absolute bottom-0 left-0 w-40 h-40 bg-cyan-500/[0.05] rounded-full blur-[50px] pointer-events-none" />
+                  <div className="absolute top-0 right-0 w-48 h-48 bg-blue-600/[0.06] rounded-full blur-[60px] pointer-events-none" />
+                  <div className="absolute bottom-0 left-0 w-40 h-40 bg-indigo-600/[0.05] rounded-full blur-[50px] pointer-events-none" />
 
                   {/* Stats Grid */}
                   <div className="grid grid-cols-3 gap-4 relative z-10">
@@ -312,7 +311,7 @@ export default function About() {
                             suffix={stat.suffix}
                           />
                         </p>
-                        <p className="text-[11px] text-gray-500 mt-1.5 uppercase tracking-wider">
+                        <p className="text-[11px] text-slate-500 mt-1.5 uppercase tracking-wider">
                           {stat.unit}
                         </p>
                       </motion.div>
@@ -322,7 +321,7 @@ export default function About() {
                   {/* Divider with gradient */}
                   <div className="relative">
                     <div className="h-px w-full bg-white/[0.06]" />
-                    <div className="absolute inset-0 h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent" />
+                    <div className="absolute inset-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
                   </div>
 
                   {/* Descriptions */}
@@ -339,7 +338,7 @@ export default function About() {
                         <div
                           className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${stat.color} shrink-0`}
                         />
-                        <p className="text-gray-300/80 text-sm transition-colors duration-300 hover:text-cyan-200/90">
+                        <p className="text-slate-300/80 text-sm transition-colors duration-300 hover:text-blue-200/90">
                           {stat.description}
                         </p>
                       </motion.div>
@@ -349,12 +348,12 @@ export default function About() {
                   {/* Divider */}
                   <div className="relative">
                     <div className="h-px w-full bg-white/[0.06]" />
-                    <div className="absolute inset-0 h-px bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
+                    <div className="absolute inset-0 h-px bg-gradient-to-r from-transparent via-blue-400/20 to-transparent" />
                   </div>
 
                   {/* Focus Areas */}
                   <div className="relative z-10">
-                    <p className="text-cyan-400 font-medium mb-4 uppercase tracking-widest text-xs">
+                    <p className="text-blue-400 font-medium mb-4 uppercase tracking-widest text-xs">
                       Focus Areas
                     </p>
                     <motion.div
@@ -370,10 +369,10 @@ export default function About() {
                           variants={popIn}
                           whileHover={{
                             scale: 1.08,
-                            backgroundColor: "rgba(96, 165, 250, 0.12)",
-                            borderColor: "rgba(96, 165, 250, 0.4)",
+                            backgroundColor: "rgba(59, 130, 246, 0.12)",
+                            borderColor: "rgba(59, 130, 246, 0.4)",
                           }}
-                          className="px-4 py-1.5 bg-white/[0.04] rounded-full text-sm text-gray-300 border border-white/[0.08] cursor-default transition-shadow duration-300 hover:shadow-[0_0_15px_rgba(96,165,250,0.15)]"
+                          className="px-4 py-1.5 bg-white/[0.04] rounded-full text-sm text-slate-300 border border-white/[0.08] cursor-default transition-shadow duration-300 hover:shadow-[0_0_15px_rgba(59,130,246,0.15)]"
                         >
                           {tag}
                         </motion.span>
@@ -385,10 +384,8 @@ export default function About() {
             </TiltCard>
 
             {/* Floating decorative orbs */}
-            <div className="absolute -top-8 -right-8 w-28 h-28 bg-blue-500/[0.08] rounded-full blur-2xl animate-float-slow pointer-events-none" />
-            <div className="absolute -bottom-12 -left-12 w-36 h-36 bg-cyan-500/[0.06] rounded-full blur-3xl animate-float-fast pointer-events-none" />
-            <div className="absolute top-1/2 -right-4 w-3 h-3 bg-blue-400/40 rounded-full animate-float-fast pointer-events-none" />
-            <div className="absolute bottom-1/4 -left-3 w-2 h-2 bg-cyan-400/50 rounded-full animate-float-slow pointer-events-none" />
+            <div className="absolute -top-8 -right-8 w-28 h-28 bg-blue-600/[0.08] rounded-full blur-2xl animate-float-slow pointer-events-none" />
+            <div className="absolute -bottom-12 -left-12 w-36 h-36 bg-indigo-600/[0.06] rounded-full blur-3xl animate-float-fast pointer-events-none" />
           </motion.div>
         </div>
       </div>
