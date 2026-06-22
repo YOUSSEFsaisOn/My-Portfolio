@@ -1,12 +1,8 @@
 'use client'
 
-import { useRef, useEffect, useState, useCallback } from "react";
+import { useState } from "react";
 import {
   motion,
-  useMotionValue,
-  useTransform,
-  useInView,
-  animate,
 } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import {
@@ -14,83 +10,11 @@ import {
   fadeInLeft,
   scaleIn,
   staggerItem,
-  popIn,
   staggerContainer,
   commonWhileInView,
 } from "@/lib/animations";
-
-/* ─── Animated Counter ─── */
-function AnimatedCounter({
-  target,
-  suffix = "",
-}: {
-  target: number;
-  suffix?: string;
-}) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.5 });
-  const count = useMotionValue(0);
-  const rounded = useTransform(count, (v) => Math.round(v));
-
-  useEffect(() => {
-    if (inView) {
-      animate(count, target, { duration: 2, ease: [0.16, 1, 0.3, 1] });
-    }
-  }, [inView, count, target]);
-
-  useEffect(() => {
-    const unsubscribe = rounded.on("change", (v) => {
-      if (ref.current) ref.current.textContent = `${v}${suffix}`;
-    });
-    return unsubscribe;
-  }, [rounded, suffix]);
-
-  return <span ref={ref}>0{suffix}</span>;
-}
-
-/* ─── Stats Card with 3D Tilt ─── */
-function TiltCard({ children }: { children: React.ReactNode }) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const rotateX = useMotionValue(0);
-  const rotateY = useMotionValue(0);
-
-  const handleMouseMove = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      const card = cardRef.current;
-      if (!card) return;
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      rotateY.set(((x - centerX) / centerX) * 6);
-      rotateX.set(((centerY - y) / centerY) * 6);
-    },
-    [rotateX, rotateY],
-  );
-
-  const handleMouseLeave = useCallback(() => {
-    animate(rotateX, 0, { duration: 0.4 });
-    animate(rotateY, 0, { duration: 0.4 });
-  }, [rotateX, rotateY]);
-
-  return (
-    <motion.div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX,
-        rotateY,
-        transformPerspective: 800,
-        transformStyle: "preserve-3d",
-      }}
-      className="will-change-transform"
-    >
-      {children}
-    </motion.div>
-  );
-}
+import AnimatedCounter from "./shared/animated-counter";
+import TiltCard from "./shared/tilt-card";
 
 export default function AboutSection() {
   const [hoveredHighlight, setHoveredHighlight] = useState<number | null>(null);
