@@ -63,70 +63,36 @@ export default function Hero() {
       <div
         className={`relative z-10 max-w-4xl mx-auto text-center transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
       >
-        <div className="mb-6 inline-block px-5 py-2.5 bg-gradient-to-r from-blue-500/15 to-cyan-500/15 border border-blue-400/20 rounded-full text-blue-300 text-sm font-medium backdrop-blur-sm">
-          👋 Welcome to my portfolio
-        </div>
-
+        <h1 className="text-4xl md:text-6xl font-bold mb-4 font-serif text-white tracking-tight">
+          We Build The Engine
+        </h1>
         <div className="h-28 sm:h-32 md:h-48 mb-4 sm:mb-6 flex items-center justify-center overflow-visible">
           <TextVideoMask
-            text="YOUSEF"
-            fontSize="clamp(56px, 18vw, 180px)"
+            text="THE DEVHOUSE"
+            fontSize="clamp(40px, 12vw, 140px)"
             fontWeight={900}
           />
         </div>
 
-        <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-4 font-medium px-4">
-          Frontend Developer | React.js & Next.js Specialist{" "}
-        </p>
-
-        <p className="text-gray-400 text-base sm:text-lg mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed px-4">
-          Motivated Frontend Developer with hands-on experience building
-          full-stack e-learning platforms, e-commerce apps, and production-ready
-          web applications. Specialized in React.js, Next.js, TypeScript, and
-          .NET backend integration with a strong focus on performance, security,
-          and clean architecture.{" "}
+        <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 font-medium px-4 max-w-3xl mx-auto">
+          We build the custom operational backbones that power modern businesses.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 px-6">
           <Link
-            href="#contact"
-            className="px-8 py-3.5 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-xl hover:shadow-[0_8px_30px_rgba(59,130,246,0.4)] hover:scale-105 transition-all duration-300 group text-center"
+            href="/ConsultationProgram"
+            className="px-8 py-3.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 hover:scale-105 transition-all duration-300 group text-center"
           >
-            Get In Touch
-            <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform duration-300">
-              →
-            </span>
+            Book a Consultation
           </Link>
-          <a
-            href="https://github.com/YOUSSEFsaisOn"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-3.5 border border-cyan-400/30 text-cyan-300 font-semibold rounded-xl hover:bg-cyan-400/10 hover:border-cyan-400/60 hover:shadow-[0_8px_30px_rgba(34,211,238,0.15)] hover:scale-105 transition-all duration-300 backdrop-blur-sm text-center"
+          <Link
+            href="/AboutUs"
+            className="px-8 py-3.5 border border-white/20 text-white font-semibold rounded-xl hover:bg-white/10 hover:scale-105 transition-all duration-300 backdrop-blur-sm text-center"
           >
-            View GitHub
-          </a>
+            Learn More
+          </Link>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
-          <a
-            href="mailto:1234yusid@gmail.com"
-            className="flex items-center gap-2 hover:text-cyan-400 transition-colors duration-300 group"
-          >
-            <span className="w-2 h-2 bg-cyan-400 rounded-full group-hover:scale-150 transition-transform duration-300" />
-            1234yusid@gmail.com
-          </a>
-          <a
-            href="tel:+201107361400"
-            className="flex items-center gap-2 hover:text-cyan-400 transition-colors duration-300 group"
-          >
-            <span className="w-2 h-2 bg-cyan-400 rounded-full group-hover:scale-150 transition-transform duration-300" />
-            +20 110 736 1400
-          </a>
-          <div className="flex items-center gap-2 text-gray-400">
-            <span className="w-2 h-2 bg-cyan-400 rounded-full" />
-            Cairo, Egypt
-          </div>
-        </div>
       </div>
 
       {/* Scroll Indicator - bara el-content w taht shwai */}

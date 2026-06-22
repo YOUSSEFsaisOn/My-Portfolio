@@ -1,0 +1,285 @@
+
+> my-app@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.4 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.2:3000
+✓ Ready in 529ms
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+
+○ Compiling / ...
+ GET / 200 in 10.0s (next.js: 9.1s, application-code: 851ms)
+ GET / 200 in 98ms (next.js: 5ms, application-code: 93ms)
+ GET /PastProjects 200 in 1165ms (next.js: 1099ms, application-code: 66ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+ GET /AboutUs 200 in 971ms (next.js: 819ms, application-code: 152ms)
+ GET /ConsultationProgram 200 in 930ms (next.js: 823ms, application-code: 107ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ScrollAndMaybeFocusHandler cacheNode={{rsc:{...}, ...}}>
+      <InnerScrollAndFocusHandlerOld focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="Consultati..." loading={null}>
+            <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url="/Consultat..." tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="Consultati...">
+                      <SegmentTrieNode>
+                      <ConsultationPage>
+                        <div className="bg-[#05081...">
+                          <Navigation>
+                          <main className="pt-32 pb-2...">
+                            <h1>
+                            <p>
+                            <form className="space-y-6 ...">
+                              <div className="grid grid-...">
+                                <div>
+                                  <label>
+                                  <input
+                                    type="text"
+                                    className="w-full bg-white/5 border border-white/10 rounded-xl p-3 focus:outline-n..."
+                                    required={true}
+-                                   style={{caret-color:"transparent"}}
+                                  >
+                                <div>
+                                  <label>
+                                  <input
+                                    type="email"
+                                    className="w-full bg-white/5 border border-white/10 rounded-xl p-3 focus:outline-n..."
+                                    required={true}
+-                                   style={{caret-color:"transparent"}}
+                                  >
+                              <div className="grid grid-...">
+                                <div>
+                                  <label>
+                                  <div className="flex">
+                                    <select>
+                                    <input
+                                      type="tel"
+                                      className="w-full bg-white/5 border border-white/10 rounded-r-xl p-3 focus:outli..."
+                                      required={true}
+-                                     style={{caret-color:"transparent"}}
+                                    >
+                                <div>
+                                  <label>
+                                  <input
+                                    type="date"
+                                    className="w-full bg-white/5 border border-white/10 rounded-xl p-3 focus:outline-n..."
+-                                   style={{caret-color:"transparent"}}
+                                  >
+                              <div>
+                                <label>
+                                <input
+                                  type="time"
+                                  className="w-full bg-white/5 border border-white/10 rounded-xl p-3 focus:outline-non..."
+-                                 style={{caret-color:"transparent"}}
+                                >
+                              <div>
+                                <label>
+                                <textarea
+                                  className="w-full bg-white/5 border border-white/10 rounded-xl p-3 h-32 focus:outlin..."
+                                  required={true}
+-                                 style={{caret-color:"transparent"}}
+                                >
+                              ...
+                          ...
+                    ...
+                  ...
+        ...
+
+ GET / 200 in 92ms (next.js: 7ms, application-code: 84ms)
+ GET /PastProjects 200 in 58ms (next.js: 5ms, application-code: 54ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+ GET /AboutUs 200 in 90ms (next.js: 3ms, application-code: 86ms)
+ GET /ConsultationProgram 200 in 87ms (next.js: 6ms, application-code: 81ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ScrollAndMaybeFocusHandler cacheNode={{rsc:{...}, ...}}>
+      <InnerScrollAndFocusHandlerOld focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="Consultati..." loading={null}>
+            <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url="/Consultat..." tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="Consultati...">
+                      <SegmentTrieNode>
+                      <ConsultationPage>
+                        <div className="bg-[#05081...">
+                          <Navigation>
+                          <main className="pt-32 pb-2...">
+                            <h1>
+                            <p>
+                            <form className="space-y-6 ...">
+                              <div className="grid grid-...">
+                                <div>
+                                  <label>
+                                  <input
+                                    type="text"
+                                    className="w-full bg-white/5 border border-white/10 rounded-xl p-3 focus:outline-n..."
+                                    required={true}
+-                                   style={{caret-color:"transparent"}}
+                                  >
+                                <div>
+                                  <label>
+                                  <input
+                                    type="email"
+                                    className="w-full bg-white/5 border border-white/10 rounded-xl p-3 focus:outline-n..."
+                                    required={true}
+-                                   style={{caret-color:"transparent"}}
+                                  >
+                              <div className="grid grid-...">
+                                <div>
+                                  <label>
+                                  <div className="flex">
+                                    <select>
+                                    <input
+                                      type="tel"
+                                      className="w-full bg-white/5 border border-white/10 rounded-r-xl p-3 focus:outli..."
+                                      required={true}
+-                                     style={{caret-color:"transparent"}}
+                                    >
+                                <div>
+                                  <label>
+                                  <input
+                                    type="date"
+                                    className="w-full bg-white/5 border border-white/10 rounded-xl p-3 focus:outline-n..."
+-                                   style={{caret-color:"transparent"}}
+                                  >
+                              <div>
+                                <label>
+                                <input
+                                  type="time"
+                                  className="w-full bg-white/5 border border-white/10 rounded-xl p-3 focus:outline-non..."
+-                                 style={{caret-color:"transparent"}}
+                                >
+                              <div>
+                                <label>
+                                <textarea
+                                  className="w-full bg-white/5 border border-white/10 rounded-xl p-3 h-32 focus:outlin..."
+                                  required={true}
+-                                 style={{caret-color:"transparent"}}
+                                >
+                              ...
+                          ...
+                    ...
+                  ...
+        ...
+
+ GET / 200 in 135ms (next.js: 5ms, application-code: 130ms)
+ GET /PastProjects 200 in 81ms (next.js: 5ms, application-code: 76ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+ GET /AboutUs 200 in 90ms (next.js: 5ms, application-code: 85ms)
+ GET /ConsultationProgram 200 in 78ms (next.js: 4ms, application-code: 74ms)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <ScrollAndMaybeFocusHandler cacheNode={{rsc:{...}, ...}}>
+      <InnerScrollAndFocusHandlerOld focusAndScrollRef={{scrollRef:null, ...}} cacheNode={{rsc:{...}, ...}}>
+        <ErrorBoundary errorComponent={undefined} errorStyles={undefined} errorScripts={undefined}>
+          <LoadingBoundary name="Consultati..." loading={null}>
+            <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <InnerLayoutRouter url="/Consultat..." tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} ...>
+                    <SegmentViewNode type="page" pagePath="Consultati...">
+                      <SegmentTrieNode>
+                      <ConsultationPage>
+                        <div className="bg-[#05081...">
+                          <Navigation>
+                          <main className="pt-32 pb-2...">
+                            <h1>
+                            <p>
+                            <form className="space-y-6 ...">
+                              <div className="grid grid-...">
+                                <div>
+                                  <label>
+                                  <input
+                                    type="text"
+                                    className="w-full bg-white/5 border border-white/10 rounded-xl p-3 focus:outline-n..."
+                                    required={true}
+-                                   style={{caret-color:"transparent"}}
+                                  >
+                                <div>
+                                  <label>
+                                  <input
+                                    type="email"
+                                    className="w-full bg-white/5 border border-white/10 rounded-xl p-3 focus:outline-n..."
+                                    required={true}
+-                                   style={{caret-color:"transparent"}}
+                                  >
+                              <div className="grid grid-...">
+                                <div>
+                                  <label>
+                                  <div className="flex">
+                                    <select>
+                                    <input
+                                      type="tel"
+                                      className="w-full bg-white/5 border border-white/10 rounded-r-xl p-3 focus:outli..."
+                                      required={true}
+-                                     style={{caret-color:"transparent"}}
+                                    >
+                                <div>
+                                  <label>
+                                  <input
+                                    type="date"
+                                    className="w-full bg-white/5 border border-white/10 rounded-xl p-3 focus:outline-n..."
+-                                   style={{caret-color:"transparent"}}
+                                  >
+                              <div>
+                                <label>
+                                <input
+                                  type="time"
+                                  className="w-full bg-white/5 border border-white/10 rounded-xl p-3 focus:outline-non..."
+-                                 style={{caret-color:"transparent"}}
+                                >
+                              <div>
+                                <label>
+                                <textarea
+                                  className="w-full bg-white/5 border border-white/10 rounded-xl p-3 h-32 focus:outlin..."
+                                  required={true}
+-                                 style={{caret-color:"transparent"}}
+                                >
+                              ...
+                          ...
+                    ...
+                  ...
+        ...
