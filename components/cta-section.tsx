@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 export default function CTASection() {
   return (
-    <section className="relative overflow-hidden bg-white">
+    <section id="cta" className="relative overflow-hidden bg-white">
       <div className="absolute top-0 left-0 w-full h-32 bg-white rounded-b-[100%] z-10" />
 
       <div className="relative pt-32 pb-24 px-6 bg-gradient-to-br from-[#008CFF] to-[#0062CC] rounded-t-[50px] md:rounded-t-[100px]">

@@ -71,11 +71,14 @@ export default function HeroSection() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    const frame = requestAnimationFrame(() => {
+      setMounted(true);
+    });
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   return (
-    <section className="relative min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-b from-[#050812] to-[#080D18] overflow-hidden px-6">
+    <section id="hero" className="relative min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-b from-[#050812] to-[#080D18] overflow-hidden px-6">
       {mounted && <StarField />}
 
       {/* Background Orbs */}
@@ -102,7 +105,7 @@ export default function HeroSection() {
           </span>
         </motion.div>
 
-        <h1 className="font-serif text-5xl md:text-8xl text-white mb-8 leading-[1.1] drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+        <h1 className="font-serif text-5xl md:text-8xl hero-heading mb-8 leading-[1.1] drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]">
           We Build <br />
           <span className="italic">The Engine</span>
         </h1>
