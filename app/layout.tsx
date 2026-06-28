@@ -1,22 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Kanit } from "next/font/google";
+import { Roboto, Roboto_Slab } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
-const geistSans = Geist({
+const roboto = Roboto({
   subsets: ["latin"],
-  variable: "--font-geist-sans",
+  weight: ["100", "300", "400", "500", "700", "900"],
+  variable: "--font-roboto",
 });
 
-const geistMono = Geist_Mono({
+const robotoSlab = Roboto_Slab({
   subsets: ["latin"],
-  variable: "--font-geist-mono",
-});
-
-const kanit = Kanit({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-kanit",
+  variable: "--font-roboto-slab",
 });
 
 export const metadata: Metadata = {
@@ -51,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${kanit.variable} font-kanit antialiased`}
+        className={`${roboto.variable} ${robotoSlab.variable} font-sans antialiased`}
       >
         {children}
         {process.env.NODE_ENV === "production" && <Analytics />}

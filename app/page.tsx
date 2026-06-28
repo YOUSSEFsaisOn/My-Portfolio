@@ -5,34 +5,17 @@ import Projects from '@/components/projects'
 import Skills from '@/components/skills'
 import Contact from '@/components/contact'
 import Navigation from '@/components/navigation'
-import SmoothSection from '@/components/smooth-section'
 
 export default function Home() {
   return (
-    <div className="bg-[#050812] text-white min-h-screen">
+    <div className="bg-white text-[#050812] min-h-screen">
       <Navigation />
-
       <Hero />
-
-      <SmoothSection parallaxSpeed={0.3}>
-        <About />
-      </SmoothSection>
-
-      <SmoothSection parallaxSpeed={0.2}>
-        <Experience />
-      </SmoothSection>
-
-      <SmoothSection parallaxSpeed={0.3}>
-        <Projects />
-      </SmoothSection>
-
-      <SmoothSection parallaxSpeed={0.2}>
-        <Skills />
-      </SmoothSection>
-
-      <SmoothSection parallaxSpeed={0.15}>
-        <Contact />
-      </SmoothSection>
+      <About />
+      <Experience />
+      <Projects />
+      <Skills />
+      <Contact />
     </div>
   )
 }
