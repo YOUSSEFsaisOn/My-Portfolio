@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Kanit } from "next/font/google";
+import { Geist, Geist_Mono, Kanit, DM_Serif_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
@@ -19,10 +19,16 @@ const kanit = Kanit({
   variable: "--font-kanit",
 });
 
+const dmSerif = DM_Serif_Display({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-serif",
+});
+
 export const metadata: Metadata = {
-  title: "Yousef Mohamed - Frontend Developer",
+  title: "The DevHouse | Software Engineering & AI Agency",
   description:
-    "Frontend Developer specializing in React.js, Next.js, and modern web applications. Passionate about building responsive, interactive, and user-friendly web experiences.",
+    "We design and build custom software that becomes the operational backbone of your business.",
   generator: "v0.app",
   icons: {
     icon: [
@@ -49,9 +55,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${kanit.variable} font-kanit antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${kanit.variable} ${dmSerif.variable} font-kanit antialiased bg-[#050812] text-white`}
       >
         {children}
         {process.env.NODE_ENV === "production" && <Analytics />}
