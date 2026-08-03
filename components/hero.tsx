@@ -1,12 +1,24 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
+import { motion, useScroll, useTransform } from "framer-motion";
 import MouseTrail from "./framer/mouse-trail";
 import TextVideoMask from "./framer/text-video-mask";
+import ThreeAnimation from "./three-animation";
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.9]);
+  const y = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
 
   useEffect(() => {
     // Avoid setState cascading warnings in React strict mode.
@@ -16,9 +28,13 @@ export default function Hero() {
 
   return (
     <section
+      ref={containerRef}
       className="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden"
       style={{ backgroundColor: "#050c18" }}
     >
+      {/* 3D Starfield Background */}
+      <ThreeAnimation />
+
       {/* Mouse Trail */}
       <div className="absolute inset-0 z-[1] pointer-events-none">
         <MouseTrail
@@ -31,8 +47,8 @@ export default function Hero() {
         />
       </div>
 
-      {/* Animated Background */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Animated Background Orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
           className="absolute w-72 h-72 bg-blue-500/20 rounded-full blur-3xl animate-pulse"
           style={{
@@ -60,7 +76,8 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div
+      <motion.div
+        style={{ opacity, scale, y }}
         className={`relative z-10 max-w-4xl mx-auto text-center transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
       >
         <div className="mb-6 inline-block px-5 py-2.5 bg-gradient-to-r from-blue-500/15 to-cyan-500/15 border border-blue-400/20 rounded-full text-blue-300 text-sm font-medium backdrop-blur-sm">
@@ -76,7 +93,7 @@ export default function Hero() {
         </div>
 
         <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-4 font-medium px-4">
-          Frontend Developer | React.js & Next.js Specialist{" "}
+          Frontend Developer | React.js &amp; Next.js Specialist{" "}
         </p>
 
         <p className="text-gray-400 text-base sm:text-lg mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed px-4">
@@ -127,7 +144,7 @@ export default function Hero() {
             Cairo, Egypt
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Scroll Indicator - bara el-content w taht shwai */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 animate-bounce">
