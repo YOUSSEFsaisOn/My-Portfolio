@@ -23,7 +23,7 @@ export default function FloatingContact() {
               d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
               fill="none"
             />
-            <text className="text-[8px] font-black uppercase tracking-[0.2em] fill-[#050812]">
+            <text className="text-[8px] font-black uppercase tracking-[0.2em] fill-white">
               <textPath xlinkHref="#circlePath">
                 • CONTACT US • CONTACT US • CONTACT US •
               </textPath>
