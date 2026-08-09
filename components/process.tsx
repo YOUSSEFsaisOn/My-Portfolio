@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 
 export default function Process() {
   return (
-    <section className="py-32 bg-[#007bff] relative overflow-hidden">
-      {/* Decorative Circles */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full translate-x-1/3 translate-y-1/3" />
+    <section className="py-32 bg-[#121622]/60 border-y border-white/5 relative overflow-hidden">
+      {/* Decorative Glows */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-[#2c58e3]/10 rounded-full -translate-x-1/2 -translate-y-1/2 blur-[80px]" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#06b6d4]/10 rounded-full translate-x-1/3 translate-y-1/3 blur-[80px]" />
 
       <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
         <motion.h2
@@ -25,12 +25,12 @@ export default function Process() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-white/80 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto"
+          className="text-slate-300 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto font-sans"
         >
           Our proven development process ensures quality and client satisfaction at every step. From initial discovery to final launch.
         </motion.p>
 
-        {/* Process steps could be added here if needed, but for now we match the image's layout */}
+        {/* Process steps */}
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
             { label: "Discovery", step: "01" },
@@ -44,12 +44,12 @@ export default function Process() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="flex flex-col items-center"
+              className="flex flex-col items-center group"
             >
-              <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white font-bold mb-4">
+              <div className="w-16 h-16 rounded-2xl bg-[#1a2035]/80 border border-white/5 flex items-center justify-center text-white font-black text-lg mb-4 group-hover:border-[#2c58e3] group-hover:shadow-[0_0_15px_rgba(44,88,227,0.3)] transition-all duration-300">
                 {item.step}
               </div>
-              <span className="text-white font-bold uppercase tracking-widest text-xs">
+              <span className="text-slate-300 group-hover:text-white font-bold uppercase tracking-widest text-xs transition-colors">
                 {item.label}
               </span>
             </motion.div>

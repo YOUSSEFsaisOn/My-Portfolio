@@ -35,7 +35,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-32 px-6 bg-white">
+    <section id="contact" className="py-32 px-6 bg-transparent relative z-10">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -43,9 +43,9 @@ export default function Contact() {
           viewport={{ once: true }}
           className="mb-20"
         >
-          <h2 className="text-[clamp(32px,5vw,64px)] font-black text-[#050812] leading-tight font-serif tracking-tighter">
+          <h2 className="text-[clamp(32px,5vw,64px)] font-black text-white leading-tight font-serif tracking-tighter">
             LET&apos;S <br />
-            <span className="text-[#de0000]">CONNECT.</span>
+            <span className="text-[#2c58e3] drop-shadow-[0_0_15px_rgba(44,88,227,0.3)]">CONNECT.</span>
           </h2>
         </motion.div>
 
@@ -62,14 +62,14 @@ export default function Contact() {
                   transition={{ delay: index * 0.1 }}
                   className="flex items-center gap-6 group"
                 >
-                  <div className="w-16 h-16 bg-[#f4f4f5] rounded-2xl flex items-center justify-center text-[#050812] group-hover:bg-[#de0000] group-hover:text-white transition-all duration-300">
+                  <div className="w-16 h-16 bg-[#121622]/60 backdrop-blur-sm border border-white/5 rounded-2xl flex items-center justify-center text-white group-hover:bg-[#2c58e3] group-hover:shadow-[0_0_15px_rgba(44,88,227,0.4)] transition-all duration-300">
                     {method.icon}
                   </div>
                   <div>
-                    <p className="text-xs font-black uppercase tracking-widest text-slate-400 mb-1">
+                    <p className="text-xs font-black uppercase tracking-widest text-slate-500 mb-1">
                       {method.label}
                     </p>
-                    <p className="text-xl font-bold text-[#050812]">
+                    <p className="text-xl font-bold text-white group-hover:text-[#2c58e3] transition-colors">
                       {method.value}
                     </p>
                   </div>
@@ -77,11 +77,11 @@ export default function Contact() {
               ))}
             </div>
 
-            <div className="p-10 bg-[#f4f4f5] rounded-[2rem] border border-black/5">
-              <h3 className="text-xl font-black text-[#050812] mb-4 uppercase tracking-tighter">
+            <div className="p-10 bg-[#121622]/60 backdrop-blur-sm rounded-[2rem] border border-white/5 shadow-xl">
+              <h3 className="text-xl font-black text-white mb-4 uppercase tracking-tighter">
                 Based in Cairo, Egypt
               </h3>
-              <p className="text-slate-600 font-medium leading-relaxed">
+              <p className="text-slate-300 font-medium leading-relaxed font-sans">
                 I&apos;m ready to relocate and open to opportunities worldwide.
                 Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!
               </p>
@@ -92,7 +92,7 @@ export default function Contact() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="bg-[#050812] p-10 md:p-16 rounded-[3rem] text-white"
+            className="bg-[#121622]/80 backdrop-blur-md p-10 md:p-16 rounded-[3rem] text-white border border-white/5 shadow-2xl"
           >
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="space-y-2">
@@ -102,7 +102,7 @@ export default function Contact() {
                 <input
                   type="text"
                   required
-                  className="w-full bg-transparent border-b border-white/10 py-4 focus:outline-none focus:border-[#de0000] transition-colors font-bold text-xl"
+                  className="w-full bg-transparent border-b border-white/10 py-4 focus:outline-none focus:border-[#2c58e3] transition-colors font-bold text-xl text-white"
                   placeholder="Your Name"
                 />
               </div>
@@ -113,7 +113,7 @@ export default function Contact() {
                 <input
                   type="email"
                   required
-                  className="w-full bg-transparent border-b border-white/10 py-4 focus:outline-none focus:border-[#de0000] transition-colors font-bold text-xl"
+                  className="w-full bg-transparent border-b border-white/10 py-4 focus:outline-none focus:border-[#2c58e3] transition-colors font-bold text-xl text-white"
                   placeholder="hello@example.com"
                 />
               </div>
@@ -124,14 +124,14 @@ export default function Contact() {
                 <textarea
                   required
                   rows={4}
-                  className="w-full bg-transparent border-b border-white/10 py-4 focus:outline-none focus:border-[#de0000] transition-colors font-bold text-xl resize-none"
+                  className="w-full bg-transparent border-b border-white/10 py-4 focus:outline-none focus:border-[#2c58e3] transition-colors font-bold text-xl resize-none text-white"
                   placeholder="Your Project Details"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-6 bg-[#de0000] text-white rounded-2xl font-black uppercase tracking-widest hover:bg-white hover:text-[#050812] transition-all duration-300 flex items-center justify-center gap-3"
+                className="w-full py-6 bg-[#2c58e3] text-white rounded-2xl font-black uppercase tracking-widest hover:bg-white hover:text-[#0a0d14] transition-all duration-300 flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(44,88,227,0.3)]"
               >
                 {submitted ? (
                   <>
@@ -149,13 +149,13 @@ export default function Contact() {
           </motion.div>
         </div>
 
-        <div className="mt-32 pt-16 border-t border-black/5 flex flex-col md:flex-row justify-between items-center gap-8">
-          <p className="text-slate-400 font-bold text-sm">
+        <div className="mt-32 pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+          <p className="text-slate-500 font-bold text-sm">
             © {new Date().getFullYear()} YOUSEF MOHAMED.
           </p>
           <div className="flex gap-10">
-            <a href="https://github.com/YOUSSEFsaisOn" className="text-sm font-black uppercase tracking-widest hover:text-[#de0000] transition-colors">GitHub</a>
-            <a href="https://linkedin.com/in/yousef-mohamed-370260292" className="text-sm font-black uppercase tracking-widest hover:text-[#de0000] transition-colors">LinkedIn</a>
+            <a href="https://github.com/YOUSSEFsaisOn" className="text-sm font-black uppercase tracking-widest hover:text-[#2c58e3] transition-colors text-slate-400">GitHub</a>
+            <a href="https://linkedin.com/in/yousef-mohamed-370260292" className="text-sm font-black uppercase tracking-widest hover:text-[#2c58e3] transition-colors text-slate-400">LinkedIn</a>
           </div>
         </div>
       </div>

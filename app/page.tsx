@@ -8,10 +8,13 @@ import Navigation from '@/components/navigation'
 import Values from '@/components/values'
 import Process from '@/components/process'
 import FloatingContact from '@/components/floating-contact'
+import FloatingAi from '@/components/floating-ai'
+import SpaceBackground from '@/components/space-background'
 
 export default function Home() {
   return (
-    <div className="bg-white text-[#050812] min-h-screen">
+    <div className="bg-[#0a0d14] text-white min-h-screen relative overflow-hidden">
+      <SpaceBackground />
       <Navigation />
       <Hero />
       <Values />
@@ -22,6 +25,7 @@ export default function Home() {
       <Skills />
       <Contact />
       <FloatingContact />
+      <FloatingAi />
     </div>
   )
 }
