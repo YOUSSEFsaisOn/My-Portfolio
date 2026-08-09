@@ -52,15 +52,73 @@ export default function Navigation() {
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl z-50"
     >
-      <div className={`transition-all duration-500 flex justify-between items-center px-8 py-4 rounded-[2rem] border border-black/5 shadow-[0_20px_50px_rgba(0,0,0,0.1)] ${
-        scrolled ? 'bg-white/90 backdrop-blur-md' : 'bg-white/80 backdrop-blur-sm'
+      <div className={`transition-all duration-500 flex justify-between items-center px-8 py-4 rounded-[2rem] border border-white/5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] ${
+        scrolled ? 'bg-[#121622]/90 backdrop-blur-md' : 'bg-[#121622]/80 backdrop-blur-sm'
       }`}>
         <Link href="#" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 bg-[#de0000] rounded-xl flex items-center justify-center rotate-3 group-hover:rotate-0 transition-transform">
-            <span className="text-white font-black text-xl italic">Y</span>
+          {/* Neon Logo design matching image's home shape with 'dev' inside */}
+          <div className="relative flex items-center justify-center p-1.5 overflow-visible">
+            <svg
+              width="44"
+              height="40"
+              viewBox="0 0 100 90"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="drop-shadow-[0_0_10px_rgba(44,88,227,0.8)] filter transition-transform duration-300 group-hover:scale-105"
+            >
+              {/* Outer house outline */}
+              <path
+                d="M50 10 L85 45 L85 80 L15 80 L15 45 Z"
+                stroke="#ffffff"
+                strokeWidth="7"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="none"
+              />
+              {/* Inner 'dev' design inside house */}
+              <path
+                d="M32 46 C32 40, 42 40, 42 46 L42 62 C42 68, 32 68, 32 62 Z"
+                stroke="#2c58e3"
+                strokeWidth="5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="none"
+              />
+              <path
+                d="M42 43 L42 62"
+                stroke="#2c58e3"
+                strokeWidth="5"
+                strokeLinecap="round"
+                fill="none"
+              />
+              <path
+                d="M48 55 C48 46, 58 46, 58 55 L48 55"
+                stroke="#2c58e3"
+                strokeWidth="5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="none"
+              />
+              <path
+                d="M48 55 C48 64, 58 64, 58 55"
+                stroke="#2c58e3"
+                strokeWidth="5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="none"
+              />
+              <path
+                d="M64 45 L70 62 L76 45"
+                stroke="#2c58e3"
+                strokeWidth="5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="none"
+              />
+            </svg>
           </div>
-          <span className="text-xl font-black tracking-tighter text-[#050812] font-serif">
-            YOUSEF<span className="text-[#de0000]">.</span>
+          <span className="text-xl font-black tracking-tighter text-white font-serif ml-1">
+            The DevHouse
           </span>
         </Link>
 
@@ -73,8 +131,8 @@ export default function Navigation() {
               onClick={(e) => scrollToSection(e, link.href)}
               className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors duration-300 ${
                 activeSection === link.href.replace('#', '')
-                  ? 'text-[#de0000]'
-                  : 'text-slate-500 hover:text-[#050812]'
+                  ? 'text-[#2c58e3]'
+                  : 'text-slate-400 hover:text-white'
               }`}
             >
               {link.label}
@@ -83,7 +141,7 @@ export default function Navigation() {
           <a
             href="#contact"
             onClick={(e) => scrollToSection(e, '#contact')}
-            className="px-6 py-2 bg-[#de0000] text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-full hover:bg-[#050812] transition-all duration-300"
+            className="px-6 py-2 bg-[#2c58e3] text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-full hover:bg-white hover:text-[#0a0d14] transition-all duration-300 shadow-[0_0_15px_rgba(44,88,227,0.4)]"
           >
             Let&apos;s talk
           </a>
@@ -92,7 +150,7 @@ export default function Navigation() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-[#050812] hover:text-[#de0000] transition-colors p-2"
+          className="md:hidden text-white hover:text-[#2c58e3] transition-colors p-2"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -106,13 +164,13 @@ export default function Navigation() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="md:hidden fixed inset-0 top-0 h-screen w-full bg-white z-50 flex flex-col p-8"
+            className="md:hidden fixed inset-0 top-0 h-screen w-full bg-[#0a0d14] z-50 flex flex-col p-8"
           >
             <div className="flex justify-between items-center mb-16">
-              <span className="text-2xl font-black tracking-tighter text-[#050812] font-serif">
-                YOUSEF<span className="text-[#de0000]">.</span>
+              <span className="text-2xl font-black tracking-tighter text-white font-serif">
+                The DevHouse
               </span>
-              <button onClick={() => setIsOpen(false)} className="text-[#050812]">
+              <button onClick={() => setIsOpen(false)} className="text-white">
                 <X size={32} />
               </button>
             </div>
@@ -124,8 +182,8 @@ export default function Navigation() {
                   href={link.href}
                   className={`text-4xl font-black tracking-tighter uppercase font-serif ${
                     activeSection === link.href.replace('#', '')
-                      ? 'text-[#de0000]'
-                      : 'text-[#050812]'
+                      ? 'text-[#2c58e3]'
+                      : 'text-white'
                   }`}
                   onClick={(e) => scrollToSection(e, link.href)}
                 >
@@ -134,7 +192,7 @@ export default function Navigation() {
               ))}
               <a 
                 href="#contact"
-                className="mt-8 w-full py-6 bg-[#de0000] text-white text-center font-black uppercase tracking-widest rounded-2xl text-xl"
+                className="mt-8 w-full py-6 bg-[#2c58e3] text-white text-center font-black uppercase tracking-widest rounded-2xl text-xl"
                 onClick={(e) => scrollToSection(e, '#contact')}
               >
                 Let&apos;s Talk

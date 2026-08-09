@@ -13,7 +13,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-32 px-6 bg-white relative overflow-hidden">
+    <section id="about" className="py-32 px-6 bg-transparent relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <motion.div
@@ -22,11 +22,11 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-[clamp(32px,5vw,64px)] font-black text-[#050812] leading-tight mb-8 font-serif tracking-tighter">
+            <h2 className="text-[clamp(32px,5vw,64px)] font-black text-white leading-tight mb-8 font-serif tracking-tighter">
               DRIVEN BY <br />
-              <span className="text-[#de0000]">INNOVATION.</span>
+              <span className="text-[#2c58e3] drop-shadow-[0_0_15px_rgba(44,88,227,0.3)]">INNOVATION.</span>
             </h2>
-            <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
+            <div className="space-y-6 text-slate-300 text-lg leading-relaxed">
               <p>
                 Motivated Frontend Developer with experience specializing in React.js, Next.js, .NET, and modern JavaScript frameworks. Passionate about building responsive, interactive, user-friendly web applications and full-stack solutions.
               </p>
@@ -41,9 +41,9 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-[#f4f4f5] p-8 md:p-12 rounded-[2rem] border border-black/5"
+            className="bg-[#121622]/60 backdrop-blur-sm p-8 md:p-12 rounded-[2rem] border border-white/5 shadow-2xl"
           >
-            <h3 className="text-2xl font-black text-[#050812] mb-8 font-serif uppercase tracking-tighter">
+            <h3 className="text-2xl font-black text-white mb-8 font-serif uppercase tracking-tighter">
               Key Focus Areas
             </h3>
             <ul className="space-y-6">
@@ -56,8 +56,8 @@ export default function About() {
                   transition={{ delay: i * 0.1 }}
                   className="flex items-start gap-4"
                 >
-                  <CheckCircle2 className="w-6 h-6 text-[#de0000] shrink-0 mt-1" />
-                  <span className="text-slate-700 font-medium">{item}</span>
+                  <CheckCircle2 className="w-6 h-6 text-[#2c58e3] shrink-0 mt-1" />
+                  <span className="text-slate-200 font-medium">{item}</span>
                 </motion.li>
               ))}
             </ul>
