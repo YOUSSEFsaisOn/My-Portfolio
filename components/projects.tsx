@@ -1,111 +1,103 @@
 "use client";
 
-import FluidCardStack from "./framer/fluid-card-stack";
-import { ShoppingBag, StickyNote, Video, Lock, BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
-import { fadeInUp, commonWhileInView } from "@/lib/animations";
+import { ExternalLink, Github } from "lucide-react";
 
 const ALL_PROJECTS = [
   {
-    id: "1",
-    title: "Compass College ",
-    shortTitle: "Compass College",
+    title: "Compass College",
     description:
-      "Next.js · .NET · React Query · TypeScript · Paymob · Bunny.net · Admin Dashboard",
-    shortDescription:
-      "Next.js · .NET · React Query · TypeScript · Paymob · Bunny.net · Admin Dashboard Built a full-stack e-learning platform (site + admin dashboard) for high school students — courses, books, exams, pricing, and auth Developed instructor management system and course pricing with free/​paid content support Implemented secure video streaming via Bunny.net⁠ and payment flow using Paymob Used Next.js (App Router), TypeScript, React Query, and .NET backend APIs with JWT authentication Deployed to MonsterASP.NET⁠ with clean architecture, protected routes, and production-ready configurations",
-    tags: ["Next.js", "React Query", "Paymob", "Tailwind CSS", ".NET Backend"],
-    gradient: "from-blue-500 to-purple-500",
-    color: "#3b82f6",
-    icon: <ShoppingBag className="text-white" size={24} />,
-    emoji: "🛍️",
+      "A full-stack e-learning platform (site + admin dashboard) for high school students — courses, books, exams, pricing, and auth. Developed instructor management system and course pricing with free/paid content support.",
+    tech: ["Next.js", ".NET", "React Query", "Paymob", "Bunny.net"],
+    link: "https://compass.college/",
   },
   {
-    id: "2",
-    title: "ET Engineering Academy — E-Learning Platform⁠",
-    shortTitle: "ET Engineering Academy",
+    title: "ET Engineering Academy",
     description:
-      "Next.js · .NET · React Query · TypeScript · Paymob · Bunny.net",
-    shortDescription:
-      "Next.js · .NET · React Query · TypeScript · Paymob · Bunny.net Built a full-stack e-learning platform (courses, books, live sessions, instructors, Zoom) with login & register Integrated Paymob payment flow and Bunny.net⁠ protected video streaming Used Next.js (App Router), TypeScript, React Query, and .NET backend APIs with JWT auth Deployed to MonsterASP.NET⁠ as a freelance solution following clean architecture and best practices ",
-    tags: ["Next.js", "TypeScript", ".NET API", "JWT Auth", "Real-time Sync"],
-    gradient: "from-cyan-500 to-blue-500",
-    color: "#10b981",
-    icon: <StickyNote className="text-white" size={24} />,
-    emoji: "📝",
+      "Built a full-stack e-learning platform including courses, books, live sessions, instructors, and Zoom integration. Managed complex server state with React Query and implemented secure video delivery.",
+    tech: ["Next.js", ".NET", "TypeScript", "React Query", "Bunny.net"],
+    link: "https://etengineeringacademy.com",
   },
   {
-    id: "3",
-    title: "Firebase Auth System",
-    shortTitle: "Firebase Auth System",
-    description:
-      "Built a secure authentication app with Google Sign-In and Email/​Password login using Firebase Authentication",
-    shortDescription:
-      "•Built a secure authentication app with Google Sign-In and Email/​Password login using Firebase Authentication",
-    tags: ["Next.js", "Bunny.net", "Authentication", "Security", "Performance"],
-    gradient: "from-emerald-500 to-cyan-500",
-    color: "#a855f7",
-    icon: <Video className="text-white" size={24} />,
-    emoji: "🎥",
-  },
-  {
-    id: "4",
     title: "Notes Management App",
-    shortTitle: "Notes Management App",
     description:
-      "Developed a full-stack notes management application with CRUD functionality using Next.js and .NET Web API.• Implemented secure ",
-    shortDescription:
-      "Developed a full-stack notes management application with CRUD functionality using Next.js and .NET Web API Implemented secure authentication and protected routes with JWT.• Designed a responsive UI with clean state management and real-time user feedback ",
-    tags: ["React.js", "Firebase", "OAuth", "Authentication", "Security"],
-    gradient: "from-orange-500 to-red-500",
-    color: "#f59e0b",
-    icon: <Lock className="text-white" size={24} />,
-    emoji: "🔐",
+      "Developed a full-stack notes management application with CRUD functionality using Next.js and .NET Web API. Implemented secure authentication and protected routes with JWT.",
+    tech: ["React.js", ".NET", "JWT", "Tailwind CSS"],
+    link: "#",
+  },
+  {
+    title: "Firebase Auth System",
+    description:
+      "Built a secure authentication app with Google Sign-In and Email/Password login using Firebase Authentication.",
+    tech: ["React", "Firebase", "Auth", "Security"],
+    link: "#",
   },
 ];
 
 export default function Projects() {
-  const featuredProjectIds = ["1", "2", "3", "4"];
-  const cardData = ALL_PROJECTS.filter((p) =>
-    featuredProjectIds.includes(p.id),
-  ).map((p) => ({
-    id: p.id,
-    title: p.shortTitle || p.title,
-    description: p.shortDescription || p.description,
-    icon: p.icon || <BookOpen size={24} />,
-    color: p.color || "#3b82f6",
-    buttonText: "View Project",
-  }));
-
   return (
-    <section
-      id="projects"
-      className="py-20 px-6 bg-[#0C0C0C] relative overflow-hidden"
-    >
-      {/* Background Elements */}
-      <div className="absolute top-20 -right-40 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl" />
-
-      <div className="max-w-6xl mx-auto relative z-10">
+    <section id="projects" className="py-32 px-6 bg-white">
+      <div className="max-w-7xl mx-auto">
         <motion.div
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={commonWhileInView}
-          className="mb-16 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-20 text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
-            Featured Projects
+          <h2 className="text-[clamp(32px,5vw,64px)] font-black text-[#050812] leading-tight font-serif tracking-tighter mb-6">
+            FEATURED <span className="text-[#de0000]">PROJECTS.</span>
           </h2>
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="h-[2px] w-12 sm:w-16 rounded-full bg-gradient-to-r from-blue-400/70 to-cyan-400/70" />
-            <p className="text-gray-300/90 text-lg">Showcase of my best work</p>
-            <div className="h-[2px] w-12 sm:w-16 rounded-full bg-gradient-to-l from-blue-400/70 to-cyan-400/70" />
-          </div>
+          <p className="text-slate-500 max-w-2xl mx-auto text-lg">
+            A selection of platforms and applications I&apos;ve built, focusing on e-learning and full-stack solutions.
+          </p>
         </motion.div>
 
-        <div className="mb-12">
-          <FluidCardStack cards={cardData} />
+        <div className="grid md:grid-cols-2 gap-8">
+          {ALL_PROJECTS.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="group relative bg-[#f4f4f5] p-10 rounded-[3rem] border border-black/5 hover:border-red-600/20 transition-all duration-500"
+            >
+              <div className="flex justify-between items-start mb-8">
+                <div className="flex gap-2">
+                  {project.tech.map((t, i) => (
+                    <span key={i} className="text-[10px] font-bold uppercase tracking-widest text-[#de0000] bg-red-600/5 px-3 py-1 rounded-full">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex gap-4">
+                  <a href="#" className="text-slate-400 hover:text-[#050812] transition-colors">
+                    <Github size={20} />
+                  </a>
+                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-[#de0000] transition-colors">
+                    <ExternalLink size={20} />
+                  </a>
+                </div>
+              </div>
+
+              <h3 className="text-3xl font-black text-[#050812] font-serif mb-6 tracking-tight group-hover:text-[#de0000] transition-colors">
+                {project.title}
+              </h3>
+
+              <p className="text-slate-600 leading-relaxed mb-8">
+                {project.description}
+              </p>
+
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#050812] group-hover:text-[#de0000] transition-colors"
+              >
+                Explore Project <span className="w-10 h-px bg-[#050812] group-hover:bg-[#de0000] transition-colors" />
+              </a>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
