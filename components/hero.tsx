@@ -3,9 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import SpaceBackground from "./space-background";
-import FloatingAi from '@/components/floating-ai'
-
+import Hero3D from "./hero-3d";
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -28,15 +26,20 @@ export default function Hero() {
         />
         <div
           className="absolute w-[600px] h-[600px] bg-cyan-600/10 rounded-full blur-[120px]"
-          style={{
+style={{
             bottom: "-10%",
             left: "-10%",
           }}
         />
       </div>
 
+      {/* 3D Animated Scene */}
+      <Hero3D />
+
       {/* Content */}
-      <div className={`relative z-10 max-w-4xl mx-auto text-center transition-opacity duration-500 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
+      <div
+        className={`relative z-10 max-w-4xl mx-auto text-center transition-opacity duration-500 ${mounted ? "opacity-100" : "opacity-0"}`}
+      >
         {/* Glowing Logo floating directly on the background */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -134,8 +137,8 @@ export default function Hero() {
           className="text-base md:text-lg text-slate-300/90 mb-10 max-w-2xl mx-auto leading-relaxed font-sans"
         >
           We design and build custom software that becomes the operational
-          backbone of your business — replacing fragmented tools with a
-          single, intelligent system built around how you actually work.
+          backbone of your business — replacing fragmented tools with a single,
+          intelligent system built around how you actually work.
         </motion.p>
 
         <motion.div
