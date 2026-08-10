@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { X } from 'lucide-react'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -14,8 +14,8 @@ export default function Navigation() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
 
-      const sections = ['about', 'experience', 'projects', 'skills', 'contact']
-      for (const section of sections.reverse()) {
+      const sections = ['about', 'divisions', 'experience', 'projects', 'skills', 'contact']
+      for (const section of [...sections].reverse()) {
         const el = document.getElementById(section)
         if (el && window.scrollY >= el.offsetTop - 100) {
           setActiveSection(section)
@@ -39,6 +39,7 @@ export default function Navigation() {
 
   const navLinks = [
     { href: '#about', label: 'About' },
+    { href: '#divisions', label: 'Divisions' },
     { href: '#experience', label: 'Experience' },
     { href: '#projects', label: 'Projects' },
     { href: '#skills', label: 'Skills' },
