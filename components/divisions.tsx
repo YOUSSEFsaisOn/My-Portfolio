@@ -12,6 +12,7 @@ import {
   Zap, 
   ShieldCheck 
 } from "lucide-react";
+import { TechBadge } from "./shared/tech-badge";
 
 const DIVISIONS = [
   {
@@ -229,12 +230,9 @@ export default function Divisions() {
                     </h4>
                     <div className="flex flex-wrap gap-2.5">
                       {activeDiv.techs.map((tech, i) => (
-                        <span 
-                          key={i} 
-                          className="px-4 py-2 bg-[#E1EEF8]/50 text-[#1A103C] text-xs font-bold uppercase tracking-wider rounded-full border border-[#E1EEF8]/80 hover:bg-white transition-colors font-sans"
-                        >
+                        <TechBadge key={i} variant="division">
                           {tech}
-                        </span>
+                        </TechBadge>
                       ))}
                     </div>
                   </div>
