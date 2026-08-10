@@ -8,6 +8,7 @@ import * as THREE from "three";
 /**
  * Rotating glowing orb with a wireframe shell and inner core.
  * Fully self-contained 3D scene rendered inside the hero section.
+ * Tailored for a modern Light Theme using soft pastel blue and deep purple accents.
  */
 function HeroOrb() {
   const outerRef = useRef<THREE.Mesh>(null);
@@ -27,34 +28,34 @@ function HeroOrb() {
 
   return (
     <group>
-      {/* Glowing distorted core */}
+      {/* Soft pastel blue glowing distorted core */}
       <Float speed={2} rotationIntensity={0.4} floatIntensity={1.2}>
         <mesh ref={outerRef}>
           <sphereGeometry args={[1.4, 64, 64]} />
           <MeshDistortMaterial
-            color="#2c58e3"
-            emissive="#2c58e3"
+            color="#E1EEF8"
+            emissive="#b9d9f5"
             emissiveIntensity={0.6}
-            roughness={0.25}
-            metalness={0.7}
+            roughness={0.1}
+            metalness={0.2}
             distort={0.35}
             speed={2}
           />
         </mesh>
       </Float>
 
-      {/* Wireframe shell */}
+      {/* Wireframe shell in deep midnight purple */}
       <mesh ref={wireRef}>
         <icosahedronGeometry args={[2.1, 1]} />
         <meshBasicMaterial
-          color="#00dfd8"
+          color="#1A103C"
           wireframe
           transparent
-          opacity={0.35}
+          opacity={0.15}
         />
       </mesh>
 
-      {/* Inner glowing sphere */}
+      {/* Inner glowing core sphere */}
       <mesh>
         <sphereGeometry args={[0.7, 32, 32]} />
         <meshBasicMaterial color="#ffffff" transparent opacity={0.9} />
@@ -78,18 +79,18 @@ export default function Hero3D() {
         dpr={[1, 2]}
         gl={{ antialias: true, alpha: true }}
       >
-        <ambientLight intensity={0.4} />
-        <pointLight position={[10, 10, 10]} intensity={1.2} color="#ffffff" />
-        <pointLight position={[-10, -5, -5]} intensity={0.8} color="#2c58e3" />
+        <ambientLight intensity={0.8} />
+        <pointLight position={[10, 10, 10]} intensity={1.5} color="#ffffff" />
+        <pointLight position={[-10, -5, -5]} intensity={1.0} color="#E1EEF8" />
         <Suspense fallback={null}>
           <HeroOrb />
           <Sparkles
-            count={80}
+            count={60}
             scale={8}
             size={2}
             speed={0.4}
-            color="#00dfd8"
-            opacity={0.6}
+            color="#1A103C"
+            opacity={0.25}
           />
         </Suspense>
       </Canvas>

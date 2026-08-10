@@ -15,7 +15,7 @@ import ScrollNav from '@/components/scroll-nav'
 
 export default function Home() {
   return (
-    <div className="bg-[#0a0d14] text-white min-h-screen relative overflow-hidden">
+    <div className="bg-background text-foreground min-h-screen relative overflow-hidden">
       <SpaceBackground />
       <ScrollNav />
       <Navigation />
