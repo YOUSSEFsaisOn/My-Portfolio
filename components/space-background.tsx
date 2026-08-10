@@ -8,7 +8,6 @@ export default function SpaceBackground() {
 
   useEffect(() => {
     // Avoid synchronous state setting in the initial render effect to satisfy strict linting rules.
-    // Setting inside a requestAnimationFrame or microtask/timeout solves this.
     const id = requestAnimationFrame(() => {
       setMounted(true)
     })
@@ -44,7 +43,7 @@ export default function SpaceBackground() {
       return x - Math.floor(x)
     }
 
-    // Stars / Particle Field with 3D Depth
+    // Soft Light Constellations / Particle Field with 3D Depth
     const numParticles = 80
     const particles: Array<{
       x: number
@@ -56,21 +55,21 @@ export default function SpaceBackground() {
     }> = []
 
     for (let i = 0; i < numParticles; i++) {
-      // Color variety of cyan, soft blue, and white
+      // Light mode compatible color varieties: soft purple/indigo, light blue, lavender
       const rVal = random()
-      let color = 'rgba(6, 182, 212, ' // cyan
-      if (rVal < 0.3) {
-        color = 'rgba(44, 88, 227, ' // blue
-      } else if (rVal < 0.6) {
-        color = 'rgba(255, 255, 255, ' // white
+      let color = 'rgba(26, 16, 60, ' // soft midnight purple/indigo
+      if (rVal < 0.4) {
+        color = 'rgba(59, 130, 246, ' // soft sky blue
+      } else if (rVal < 0.7) {
+        color = 'rgba(147, 197, 253, ' // light pastel blue
       }
 
       particles.push({
         x: random() * width - width / 2,
         y: random() * height - height / 2,
         z: random() * 1000 + 10,
-        size: random() * 2 + 0.5,
-        speed: random() * 0.5 + 0.2,
+        size: random() * 1.8 + 0.6,
+        speed: random() * 0.4 + 0.15,
         color,
       })
     }
@@ -89,7 +88,7 @@ export default function SpaceBackground() {
     window.addEventListener('mousemove', handleMouseMove, { passive: true })
 
     const render = (time: number) => {
-      ctx.fillStyle = '#05070c'
+      ctx.fillStyle = '#fafbfe' // Crisp Off-White background
       ctx.fillRect(0, 0, width, height)
 
       // Smooth mouse tracking
@@ -120,7 +119,7 @@ export default function SpaceBackground() {
         const py = p.y * k + height / 2 + mouseY * (1.5 - p.z / 1000)
 
         // Fade out as it gets further
-        const opacity = Math.min(1, (1000 - p.z) / 300) * 0.8
+        const opacity = Math.min(1, (1000 - p.z) / 300) * 0.25 // Slightly lower opacity for light background sublty
         const size = p.size * k
         const glowSize = size * 3.5
 
@@ -128,7 +127,7 @@ export default function SpaceBackground() {
           ctx.beginPath()
           const grad = ctx.createRadialGradient(px, py, 0, px, py, glowSize)
           grad.addColorStop(0, p.color + opacity + ')')
-          grad.addColorStop(0.25, p.color + opacity * 0.35 + ')')
+          grad.addColorStop(0.3, p.color + opacity * 0.35 + ')')
           grad.addColorStop(1, 'transparent')
           ctx.fillStyle = grad
           ctx.arc(px, py, glowSize, 0, Math.PI * 2)
@@ -154,7 +153,7 @@ export default function SpaceBackground() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 w-full h-full -z-10 pointer-events-none"
-      style={{ background: '#0a0d14' }}
+      style={{ background: '#fafbfe' }}
     />
   )
 }

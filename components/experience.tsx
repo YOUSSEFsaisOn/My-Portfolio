@@ -56,9 +56,9 @@ export default function Experience() {
           viewport={{ once: true }}
           className="mb-20"
         >
-          <h2 className="text-[clamp(32px,5vw,64px)] font-black text-white leading-tight font-serif tracking-tighter">
+          <h2 className="text-[clamp(32px,5vw,64px)] font-black text-[#1A103C] leading-tight font-serif tracking-tighter">
             WORK <br />
-            <span className="text-[#2c58e3] drop-shadow-[0_0_15px_rgba(44,88,227,0.3)]">EXPERIENCE.</span>
+            <span className="text-[#3b82f6] drop-shadow-[0_0_15px_rgba(59,130,246,0.15)]">EXPERIENCE.</span>
           </h2>
         </motion.div>
 
@@ -70,25 +70,25 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group bg-[#121622]/60 backdrop-blur-sm p-8 md:p-12 rounded-[2rem] border border-white/5 hover:border-[#2c58e3]/30 transition-all duration-500 shadow-xl"
+              className="group bg-white p-8 md:p-12 rounded-[2rem] border border-slate-100 hover:border-[#E1EEF8] transition-all duration-500 shadow-xl shadow-slate-100/50"
             >
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
                 <div className="space-y-4 max-w-3xl">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 bg-blue-600/10 rounded-lg text-[#2c58e3]">
+                    <div className="p-2 bg-[#E1EEF8] rounded-lg text-[#1A103C]">
                       <Briefcase size={20} />
                     </div>
-                    <span className="text-sm font-bold text-slate-400 uppercase tracking-widest">
+                    <span className="text-sm font-bold text-slate-500 uppercase tracking-widest font-sans">
                       {exp.period}
                     </span>
                   </div>
-                  <h3 className="text-3xl font-black text-white font-serif tracking-tight">
+                  <h3 className="text-3xl font-black text-[#1A103C] font-serif tracking-tight">
                     {exp.position}
                   </h3>
-                  <p className="text-xl font-bold text-[#2c58e3]">
+                  <p className="text-xl font-bold text-[#3b82f6] font-sans">
                     {exp.company}
                   </p>
-                  <p className="text-slate-300 leading-relaxed text-lg font-sans">
+                  <p className="text-slate-600 leading-relaxed text-lg font-sans">
                     {exp.description}
                   </p>
                 </div>
@@ -97,7 +97,7 @@ export default function Experience() {
                   {exp.highlights.map((h, i) => (
                     <span
                       key={i}
-                      className="px-4 py-2 bg-[#1a2035]/50 text-slate-300 text-xs font-bold uppercase tracking-wider rounded-full border border-white/5"
+                      className="px-4 py-2 bg-[#E1EEF8]/65 text-[#1A103C] text-xs font-bold uppercase tracking-wider rounded-full border border-[#E1EEF8] font-sans"
                     >
                       {h}
                     </span>
