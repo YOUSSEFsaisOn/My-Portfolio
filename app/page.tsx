@@ -1,5 +1,4 @@
 import Hero from '@/components/hero'
-import About from '@/components/about'
 import Divisions from '@/components/divisions'
 import Experience from '@/components/experience'
 import Projects from '@/components/projects'
@@ -21,7 +20,6 @@ export default function Home() {
       <Navigation />
       <Hero />
       <Values />
-      <About />
       <Divisions />
       <Experience />
       <Process />
