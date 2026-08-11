@@ -13,25 +13,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-32 px-6 bg-[#080B14] relative overflow-hidden">
-      {/* Decorative glow elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div
-          className="absolute w-[500px] h-[500px] bg-[#D9E7FF]/5 rounded-full blur-[120px]"
-          style={{
-            top: "20%",
-            left: "-10%",
-          }}
-        />
-        <div
-          className="absolute w-[400px] h-[400px] bg-[#0797B2]/5 rounded-full blur-[100px]"
-          style={{
-            bottom: "10%",
-            right: "-5%",
-          }}
-        />
-      </div>
-
+    <section id="about" className="py-32 px-6 bg-transparent relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <motion.div
@@ -42,9 +24,9 @@ export default function About() {
           >
             <h2 className="text-[clamp(32px,5vw,64px)] font-black text-white leading-tight mb-8 font-serif tracking-tighter">
               DRIVEN BY <br />
-              <span className="text-[#D9E7FF] drop-shadow-[0_0_15px_rgba(217,231,255,0.15)]">INNOVATION.</span>
+              <span className="text-[#3567E8] drop-shadow-[0_0_15px_rgba(53,103,232,0.15)]">INNOVATION.</span>
             </h2>
-            <div className="space-y-6 text-[#D9E7FF]/70 text-lg leading-relaxed font-sans">
+            <div className="space-y-6 text-[#CEDDEA] text-lg leading-relaxed font-sans">
               <p>
                 Motivated Frontend Developer with experience specializing in React.js, Next.js, .NET, and modern JavaScript frameworks. Passionate about building responsive, interactive, user-friendly web applications and full-stack solutions.
               </p>
@@ -59,7 +41,7 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-[#0A0E1A] p-8 md:p-12 rounded-[2rem] border border-[#D9E7FF]/10 shadow-xl shadow-[#3567E8]/5"
+            className="bg-[#115EA5] p-8 md:p-12 rounded-[2rem] border border-[#10477C] shadow-xl shadow-blue-950/80"
           >
             <h3 className="text-2xl font-black text-white mb-8 font-serif uppercase tracking-tighter">
               Key Focus Areas
@@ -74,8 +56,8 @@ export default function About() {
                   transition={{ delay: i * 0.1 }}
                   className="flex items-start gap-4"
                 >
-                  <CheckCircle2 className="w-6 h-6 text-[#3567E8] shrink-0 mt-1" />
-                  <span className="text-[#D9E7FF]/80 font-medium font-sans">{item}</span>
+                  <CheckCircle2 className="w-6 h-6 text-[#D9E7FF] shrink-0 mt-1" />
+                  <span className="text-[#CEDDEA] font-medium font-sans">{item}</span>
                 </motion.li>
               ))}
             </ul>

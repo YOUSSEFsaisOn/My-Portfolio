@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
+import { TechBadgeGroup } from "./shared/tech-badge";
 
 const ALL_PROJECTS = [
   {
@@ -64,20 +65,38 @@ export default function Projects() {
             >
               <div>
                 <div className="flex justify-between items-start mb-8">
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((t, i) => (
-                      <span key={i} className="text-[10px] font-bold uppercase tracking-widest text-white bg-[#1161AB] border border-[#10477C] px-3 py-1 rounded-full font-sans">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
+                  <TechBadgeGroup techs={project.tech} />
                   <div className="flex gap-4">
-                    <a href="#" className="text-[#CEDDEA] hover:text-white transition-colors">
-                      <Github size={20} />
-                    </a>
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-[#CEDDEA] hover:text-white transition-colors">
-                      <ExternalLink size={20} />
-                    </a>
+                    {[
+                      {
+                        href: "#",
+                        label: "GitHub Repository",
+                        title: "GitHub",
+                        icon: <Github size={20} />,
+                        target: undefined,
+                        rel: undefined,
+                      },
+                      {
+                        href: project.link,
+                        label: "Live Demo Link",
+                        title: "Live Demo",
+                        icon: <ExternalLink size={20} />,
+                        target: "_blank",
+                        rel: "noopener noreferrer",
+                      },
+                    ].map((item, idx) => (
+                      <a
+                        key={idx}
+                        href={item.href}
+                        target={item.target}
+                        rel={item.rel}
+                        className={idx === 0 ? "text-[#CEDDEA]/90 hover:text-white transition-colors duration-200" : "text-[#CEDDEA] hover:text-[#D9E7FF] transition-all duration-300"}
+                        aria-label={item.label}
+                        title={item.title}
+                      >
+                        {item.icon}
+                      </a>
+                    ))}
                   </div>
                 </div>
 

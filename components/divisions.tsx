@@ -12,6 +12,33 @@ import {
   Zap, 
   ShieldCheck 
 } from "lucide-react";
+import { TechBadgeGroup } from "./shared/tech-badge";
+
+interface StatCardProps {
+  label: string;
+  value: string;
+  icon: React.ComponentType<{ className?: string }>;
+  color: string;
+}
+
+function StatCard({ label, value, icon: Icon, color }: StatCardProps) {
+  return (
+    <div className="flex items-center justify-between p-4 bg-[#115EA5] border border-[#10477C] rounded-2xl hover:bg-[#1161AB] transition-colors shadow-sm">
+      <div className="flex items-center gap-3">
+        <div className="p-2 bg-[#123C6A] rounded-lg text-white">
+          <Icon className="w-4 h-4" />
+        </div>
+        <span className="text-sm font-bold text-white">{label}</span>
+      </div>
+      <span 
+        className="text-lg font-black font-sans tracking-tight"
+        style={{ color }}
+      >
+        {value}
+      </span>
+    </div>
+  );
+}
 
 const DIVISIONS = [
   {
@@ -23,7 +50,7 @@ const DIVISIONS = [
     colorClass: "from-blue-600 to-cyan-500",
     glowColor: "rgba(53, 103, 232, 0.25)",
     bgGradient: "from-blue-900/20 via-slate-900/40 to-cyan-900/10",
-    shadowClass: "shadow-[0_0_50px_-12px_rgba(53,103,232,0.15)]",
+    shadowClass: "shadow-[0_0_50px_-12px_rgba(53, 103, 232, 0.15)]",
     techs: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     stats: [
       { label: "Performance Score", value: "99%", icon: Zap },
@@ -227,16 +254,7 @@ export default function Divisions() {
                     <h4 className="text-xs font-black uppercase tracking-[0.2em] text-[#CEDDEA]/60 font-sans">
                       Division Core Stack:
                     </h4>
-                    <div className="flex flex-wrap gap-2.5">
-                      {activeDiv.techs.map((tech, i) => (
-                        <span 
-                          key={i} 
-                          className="px-4 py-2 bg-[#123C6A] text-white text-xs font-bold uppercase tracking-wider rounded-full border border-[#10477C] hover:bg-[#1161AB] transition-colors font-sans"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                    <TechBadgeGroup techs={activeDiv.techs} />
                   </div>
                 </div>
 
@@ -248,27 +266,15 @@ export default function Divisions() {
                   </h4>
 
                   <div className="space-y-5 font-sans">
-                    {activeDiv.stats.map((stat, idx) => {
-                      const StatIcon = stat.icon;
-                      return (
-                        <div key={idx} className="flex items-center justify-between p-4 bg-[#115EA5] border border-[#10477C] rounded-2xl hover:bg-[#1161AB] transition-colors shadow-sm">
-                          <div className="flex items-center gap-3">
-                            <div className="p-2 bg-[#123C6A] rounded-lg text-white">
-                              <StatIcon className="w-4 h-4" />
-                            </div>
-                            <span className="text-sm font-bold text-white">
-                              {stat.label}
-                            </span>
-                          </div>
-                          <span 
-                            className="text-lg font-black font-sans tracking-tight"
-                            style={{ color: activeDiv.color }}
-                          >
-                            {stat.value}
-                          </span>
-                        </div>
-                      );
-                    })}
+                    {activeDiv.stats.map((stat, idx) => (
+                      <StatCard
+                        key={idx}
+                        label={stat.label}
+                        value={stat.value}
+                        icon={stat.icon}
+                        color={activeDiv.color}
+                      />
+                    ))}
                   </div>
 
                   <div className="pt-4 flex items-center justify-between text-xs text-[#CEDDEA]/60 font-medium font-sans">

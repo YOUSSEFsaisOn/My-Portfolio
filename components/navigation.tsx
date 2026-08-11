@@ -125,15 +125,17 @@ export default function Navigation() {
         </Link>
 
         {/* Hamburger Menu Button */}
-        <button
-          onClick={() => setIsOpen(true)}
-          className="text-white hover:text-[#3567E8] transition-colors p-2 flex flex-col justify-between h-5 w-6 group cursor-pointer"
-          aria-label="Toggle menu"
-        >
-          <span className="h-0.5 w-full bg-white transition-all group-hover:bg-[#3567E8]"></span>
-          <span className="h-0.5 w-full bg-white transition-all group-hover:bg-[#3567E8]"></span>
-          <span className="h-0.5 w-full bg-white transition-all group-hover:bg-[#3567E8]"></span>
-        </button>
+      <button
+  onClick={() => setIsOpen(true)}
+  className="relative group p-3 rounded-lg hover:bg-white/10 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#3567E8]/50"
+  aria-label="Toggle menu"
+>
+  <div className="flex flex-col justify-between w-6 h-5">
+    <span className="block h-0.5 w-full bg-white rounded-full transition-all duration-300 group-hover:bg-[#3567E8] group-hover:w-4/5 origin-left"></span>
+    <span className="block h-0.5 w-full bg-white rounded-full transition-all duration-300 group-hover:bg-[#3567E8] group-hover:w-full"></span>
+    <span className="block h-0.5 w-full bg-white rounded-full transition-all duration-300 group-hover:bg-[#3567E8] group-hover:w-4/5 origin-right"></span>
+  </div>
+</button>
       </div>
 
       {/* Slide-out Menu Drawer Overlay */}
