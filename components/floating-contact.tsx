@@ -23,8 +23,8 @@ export default function FloatingContact() {
               d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
               fill="none"
             />
-            {/* Soft dark charcoal fill for the rotating contact us overlay, exactly as in image.png */}
-            <text className="text-[8.5px] font-black uppercase tracking-[0.18em] fill-slate-800">
+            {/* Soft blue text overlay for the rotating contact us, matching the dark theme */}
+            <text className="text-[8.5px] font-black uppercase tracking-[0.18em] fill-[#D9E7FF]">
               <textPath xlinkHref="#circlePath">
                 • CONTACT US • CONTACT US • CONTACT US •
               </textPath>
@@ -33,7 +33,7 @@ export default function FloatingContact() {
         </div>
 
         {/* WhatsApp Icon */}
-        <div className="w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-xl shadow-green-500/20 relative z-10 hover:scale-105 transition-transform">
+        <div className="w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-xl shadow-green-500/30 relative z-10 hover:scale-105 transition-transform">
           <svg
             viewBox="0 0 24 24"
             className="w-8 h-8 fill-white"

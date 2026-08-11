@@ -44,7 +44,7 @@ export default function SpaceBackground() {
     }
 
     // Soft Light Constellations / Particle Field with 3D Depth
-    const numParticles = 80
+    const numParticles = 100
     const particles: Array<{
       x: number
       y: number
@@ -55,20 +55,19 @@ export default function SpaceBackground() {
     }> = []
 
     for (let i = 0; i < numParticles; i++) {
-      // Light mode compatible color varieties: soft purple/indigo, light blue, lavender
       const rVal = random()
-      let color = 'rgba(26, 16, 60, ' // soft midnight purple/indigo
-      if (rVal < 0.4) {
-        color = 'rgba(59, 130, 246, ' // soft sky blue
-      } else if (rVal < 0.7) {
-        color = 'rgba(147, 197, 253, ' // light pastel blue
+      let color = 'rgba(7, 151, 178, ' // Teal particles (#0797B2)
+      if (rVal < 0.5) {
+        color = 'rgba(217, 231, 255, ' // Soft blue (#D9E7FF)
+      } else if (rVal < 0.85) {
+        color = 'rgba(53, 103, 232, ' // CTA blue (#3567E8)
       }
 
       particles.push({
         x: random() * width - width / 2,
         y: random() * height - height / 2,
         z: random() * 1000 + 10,
-        size: random() * 1.8 + 0.6,
+        size: random() * 2.0 + 0.6,
         speed: random() * 0.4 + 0.15,
         color,
       })
@@ -88,7 +87,7 @@ export default function SpaceBackground() {
     window.addEventListener('mousemove', handleMouseMove, { passive: true })
 
     const render = (time: number) => {
-      ctx.fillStyle = '#fafbfe' // Crisp Off-White background
+      ctx.fillStyle = '#080B14' // Background: #080B14
       ctx.fillRect(0, 0, width, height)
 
       // Smooth mouse tracking
@@ -119,7 +118,7 @@ export default function SpaceBackground() {
         const py = p.y * k + height / 2 + mouseY * (1.5 - p.z / 1000)
 
         // Fade out as it gets further
-        const opacity = Math.min(1, (1000 - p.z) / 300) * 0.25 // Slightly lower opacity for light background sublty
+        const opacity = Math.min(1, (1000 - p.z) / 300) * 0.5
         const size = p.size * k
         const glowSize = size * 3.5
 
@@ -153,7 +152,7 @@ export default function SpaceBackground() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 w-full h-full -z-10 pointer-events-none"
-      style={{ background: '#fafbfe' }}
+      style={{ background: '#080B14' }}
     />
   )
 }

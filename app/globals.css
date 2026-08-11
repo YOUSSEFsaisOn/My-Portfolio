@@ -4,25 +4,25 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #fafbfe;
-  --foreground: #121622;
-  --card: #ffffff;
-  --card-foreground: #121622;
-  --popover: #ffffff;
-  --popover-foreground: #121622;
-  --primary: #1A103C;
+  --background: #080B14;
+  --foreground: #FFFFFF;
+  --card: #115EA5;
+  --card-foreground: #CEDDEA;
+  --popover: #10477C;
+  --popover-foreground: #FFFFFF;
+  --primary: #3567E8;
   --primary-foreground: #ffffff;
-  --secondary: #E1EEF8;
-  --secondary-foreground: #1A103C;
-  --muted: #E1EEF8;
-  --muted-foreground: #64748b;
-  --accent: #1A103C;
+  --secondary: #D9E7FF;
+  --secondary-foreground: #080B14;
+  --muted: #123C6A;
+  --muted-foreground: #CEDDEA;
+  --accent: #3567E8;
   --accent-foreground: #ffffff;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: #E1EEF8;
-  --input: #ffffff;
-  --ring: #1A103C;
+  --border: #123C6A;
+  --input: #10477C;
+  --ring: #3567E8;
   --radius: 0.75rem;
 }
 
@@ -53,11 +53,25 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  --color-bg-bright: #0A7CD4;
+  --color-bg-dark: #0D365F;
+  --color-card-1: #115EA5;
+  --color-card-2: #10477C;
+  --color-card-3: #123C6A;
+  --color-heading-text: #FFFFFF;
+  --color-body-text: #CEDDEA;
+  --color-top-nav: #0D4982;
+  --color-icon-circle-bg: #1161AB;
+  --color-whatsapp-icon: #25D366;
+  --color-soft-blue: #D9E7FF;
+  --color-teal-particles: #0797B2;
+  --color-cta-blue: #3567E8;
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-[#123C6A]/60 outline-ring/50;
   }
 
   html {
@@ -73,7 +87,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif text-[#1A103C];
+    @apply font-serif text-white;
   }
 
   /* Noise Texture Overlay */
@@ -94,7 +108,7 @@
   /* Scrollbar consistency */
   * {
     scrollbar-width: thin;
-    scrollbar-color: rgba(26, 16, 60, 0.2) rgba(0, 0, 0, 0.02);
+    scrollbar-color: rgba(53, 103, 232, 0.25) rgba(8, 11, 20, 0.05);
   }
 }
 
@@ -104,35 +118,35 @@
 }
 
 *::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.01);
+  background: rgba(8, 11, 20, 0.05);
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: rgba(26, 16, 60, 0.15);
+  background-color: rgba(53, 103, 232, 0.2);
   border: 2px solid transparent;
   background-clip: content-box;
   border-radius: 9999px;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(26, 16, 60, 0.3);
+  background-color: rgba(53, 103, 232, 0.45);
 }
 
 .glass {
-  @apply bg-white/70 backdrop-blur-[20px] border border-white/40 shadow-[0_8px_32px_0_rgba(26,16,60,0.06)];
+  @apply bg-[#0D4982]/45 backdrop-blur-[20px] border border-[#115EA5]/40 shadow-[0_8px_32px_0_rgba(8,11,20,0.5)];
 }
 
 .hero-heading {
   @apply bg-clip-text text-transparent;
-  background-image: linear-gradient(to bottom, #1A103C, #4338ca);
+  background-image: linear-gradient(to bottom, #FFFFFF, #D9E7FF);
 }
 
 .text-gradient {
   @apply bg-clip-text text-transparent;
   background-image: linear-gradient(
     135deg,
-    #1A103C 0%,
-    #4f46e5 100%
+    #FFFFFF 0%,
+    #D9E7FF 100%
   );
 }
 
@@ -160,10 +174,10 @@
   padding: 1.5px;
   background: conic-gradient(
     from var(--gradient-angle, 0deg),
-    #1A103C,
-    #3b82f6,
-    #c084fc,
-    #1A103C
+    #3567E8,
+    #0797B2,
+    #D9E7FF,
+    #3567E8
   );
   mask:
     linear-gradient(#000 0 0) content-box,
@@ -174,18 +188,18 @@
 
 .skills-pill {
   @apply inline-flex items-center px-4 py-2 rounded-full text-sm font-medium transition-all duration-300;
-  background: rgba(26, 16, 60, 0.03);
-  border: 1px solid rgba(26, 16, 60, 0.05);
-  color: #475569;
+  background: rgba(217, 231, 255, 0.05);
+  border: 1px solid rgba(217, 231, 255, 0.1);
+  color: #CEDDEA;
 }
 
 .skills-pill:hover {
-  background: #E1EEF8;
-  border-color: rgba(26, 16, 60, 0.15);
-  color: #1A103C;
+  background: #1161AB;
+  border-color: rgba(217, 231, 255, 0.25);
+  color: #FFFFFF;
   transform: translateY(-2px);
 }
 
 .skills-card {
-  @apply bg-white p-6 rounded-2xl border border-slate-100 transition-all duration-500 hover:shadow-xl hover:-translate-y-1;
+  @apply bg-[#115EA5] p-6 rounded-2xl border border-[#10477C] transition-all duration-500 hover:shadow-xl hover:-translate-y-1;
 }
