@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto, Roboto_Slab } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+import DynamicTheme from "@/components/dynamic-theme";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -16,10 +17,9 @@ const robotoSlab = Roboto_Slab({
 });
 
 export const metadata: Metadata = {
-  title: "Yousef Mohamed - Frontend Developer",
+  title: "The DevHouse - Premium Software Portfolio",
   description:
-    "Frontend Developer specializing in React.js, Next.js, and modern web applications. Passionate about building responsive, interactive, and user-friendly web experiences.",
-  generator: "v0.app",
+    "Premium software development company specializing in React.js, Next.js, and .NET. Partner with us to engineer robust digital solutions.",
   icons: {
     icon: [
       {
@@ -49,6 +49,7 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} ${robotoSlab.variable} font-sans antialiased`}
       >
+        <DynamicTheme />
         {children}
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>

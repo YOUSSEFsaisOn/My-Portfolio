@@ -7,7 +7,6 @@ import { swiftScrollTo } from "@/lib/scroll";
 const SECTIONS = [
   { id: "hero", label: "Home", color: "#3567E8" },
   { id: "values", label: "Principles", color: "#0797B2" },
-  { id: "about", label: "About", color: "#D9E7FF" },
   { id: "divisions", label: "Divisions", color: "#1161AB" },
   { id: "experience", label: "Experience", color: "#3567E8" },
   { id: "process", label: "Process", color: "#0797B2" },
