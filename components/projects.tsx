@@ -71,10 +71,22 @@ export default function Projects() {
                     ))}
                   </div>
                   <div className="flex gap-4">
-                    <a href="#" className="text-[#CEDDEA] hover:text-white transition-colors">
+                    <a
+                      href="#"
+                      className="text-[#CEDDEA] hover:text-white transition-colors"
+                      aria-label="GitHub Repository"
+                      title="GitHub"
+                    >
                       <Github size={20} />
                     </a>
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-[#CEDDEA] hover:text-white transition-colors">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#CEDDEA] hover:text-white transition-colors"
+                      aria-label="Live Demo Link"
+                      title="Live Demo"
+                    >
                       <ExternalLink size={20} />
                     </a>
                   </div>

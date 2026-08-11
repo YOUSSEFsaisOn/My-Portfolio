@@ -200,6 +200,42 @@
   transform: translateY(-2px);
 }
 
+.portfolio-card-1 {
+  background-color: #115EA5;
+  border: 1px solid #10477C;
+}
+
+.portfolio-card-2 {
+  background-color: #10477C;
+  border: 1px solid #123C6A;
+}
+
+.portfolio-card-3 {
+  background-color: #123C6A;
+  border: 1px solid #10477C;
+}
+
+.tech-badge-style {
+  padding: 0.5rem 1.0rem;
+  background-color: #1161AB;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 9999px;
+  border: 1px solid #10477C;
+}
+
 .skills-card {
-  @apply bg-[#115EA5] p-6 rounded-2xl border border-[#10477C] transition-all duration-500 hover:shadow-xl hover:-translate-y-1;
+  background-color: #115EA5;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid #10477C;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skills-card:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 20px 25px -5px rgba(8, 11, 20, 0.4), 0 10px 10px -5px rgba(8, 11, 20, 0.4);
 }
