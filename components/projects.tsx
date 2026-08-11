@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
+import { TechBadgeGroup } from "./shared/tech-badge";
 
 const ALL_PROJECTS = [
   {
@@ -44,10 +45,10 @@ export default function Projects() {
           viewport={{ once: true }}
           className="mb-20 text-center"
         >
-          <h2 className="text-[clamp(32px,5vw,64px)] font-black text-[#1A103C] leading-tight font-serif tracking-tighter mb-6">
-            FEATURED <span className="text-[#3b82f6] drop-shadow-[0_0_15px_rgba(59,130,246,0.15)]">PROJECTS.</span>
+          <h2 className="text-[clamp(32px,5vw,64px)] font-black text-white leading-tight font-serif tracking-tighter mb-6">
+            FEATURED <span className="text-[#3567E8] drop-shadow-[0_0_15px_rgba(53,103,232,0.15)]">PROJECTS.</span>
           </h2>
-          <p className="text-slate-600 max-w-2xl mx-auto text-lg font-sans">
+          <p className="text-[#CEDDEA] max-w-2xl mx-auto text-lg font-sans">
             A selection of platforms and applications I&apos;ve built, focusing on e-learning and full-stack solutions.
           </p>
         </motion.div>
@@ -60,43 +61,61 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group relative bg-white p-10 rounded-[3rem] border border-slate-100 hover:border-[#E1EEF8] transition-all duration-500 shadow-lg shadow-slate-100/50 flex flex-col justify-between"
+              className="group relative bg-[#115EA5] p-10 rounded-[3rem] border border-[#10477C] hover:border-[#123C6A] transition-all duration-500 shadow-lg shadow-blue-950/40 flex flex-col justify-between"
             >
               <div>
                 <div className="flex justify-between items-start mb-8">
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((t, i) => (
-                      <span key={i} className="text-[10px] font-bold uppercase tracking-widest text-[#1A103C] bg-[#E1EEF8] border border-[#E1EEF8]/80 px-3 py-1 rounded-full font-sans">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
+                  <TechBadgeGroup techs={project.tech} />
                   <div className="flex gap-4">
-                    <a href="#" className="text-slate-400 hover:text-[#1A103C] transition-colors">
-                      <Github size={20} />
-                    </a>
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-[#1A103C] transition-colors">
-                      <ExternalLink size={20} />
-                    </a>
+                    {[
+                      {
+                        href: "#",
+                        label: "GitHub Repository",
+                        title: "GitHub",
+                        icon: <Github size={20} />,
+                        target: undefined,
+                        rel: undefined,
+                      },
+                      {
+                        href: project.link,
+                        label: "Live Demo Link",
+                        title: "Live Demo",
+                        icon: <ExternalLink size={20} />,
+                        target: "_blank",
+                        rel: "noopener noreferrer",
+                      },
+                    ].map((item, idx) => (
+                      <a
+                        key={idx}
+                        href={item.href}
+                        target={item.target}
+                        rel={item.rel}
+                        className={idx === 0 ? "text-[#CEDDEA]/90 hover:text-white transition-colors duration-200" : "text-[#CEDDEA] hover:text-[#D9E7FF] transition-all duration-300"}
+                        aria-label={item.label}
+                        title={item.title}
+                      >
+                        {item.icon}
+                      </a>
+                    ))}
                   </div>
                 </div>
 
-                <h3 className="text-3xl font-black text-[#1A103C] font-serif mb-6 tracking-tight group-hover:text-[#3b82f6] transition-colors">
+                <h3 className="text-3xl font-black text-white font-serif mb-6 tracking-tight group-hover:text-[#D9E7FF] transition-colors">
                   {project.title}
                 </h3>
 
-                <p className="text-slate-600 leading-relaxed mb-8 font-sans">
+                <p className="text-[#CEDDEA] leading-relaxed mb-8 font-sans">
                   {project.description}
                 </p>
               </div>
 
-              {/* Styled exactly like the Deep Midnight Purple button in the design image */}
+              {/* CTA Blue button */}
               <div className="pt-2">
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-[#1A103C] text-white px-6 py-3.5 rounded-lg text-xs font-black uppercase tracking-widest hover:bg-[#2c1a5d] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-sm"
+                  className="inline-flex items-center justify-center bg-[#3567E8] text-white px-6 py-3.5 rounded-lg text-xs font-black uppercase tracking-widest hover:bg-[#254fbf] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-sm"
                 >
                   Explore Project <span className="ml-2 font-bold font-sans">→</span>
                 </a>

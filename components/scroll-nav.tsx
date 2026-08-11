@@ -4,15 +4,15 @@ import { useEffect, useState, useCallback } from "react";
 import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
 
 const SECTIONS = [
-  { id: "hero", label: "Home", color: "#1A103C" },
-  { id: "values", label: "Principles", color: "#3b82f6" },
-  { id: "about", label: "About", color: "#1A103C" },
-  { id: "divisions", label: "Divisions", color: "#10b981" },
-  { id: "experience", label: "Experience", color: "#1A103C" },
-  { id: "process", label: "Process", color: "#3b82f6" },
-  { id: "projects", label: "Projects", color: "#1A103C" },
-  { id: "skills", label: "Skills", color: "#a855f7" },
-  { id: "contact", label: "Contact", color: "#f59e0b" }
+  { id: "hero", label: "Home", color: "#3567E8" },
+  { id: "values", label: "Principles", color: "#0797B2" },
+  { id: "about", label: "About", color: "#D9E7FF" },
+  { id: "divisions", label: "Divisions", color: "#1161AB" },
+  { id: "experience", label: "Experience", color: "#3567E8" },
+  { id: "process", label: "Process", color: "#0797B2" },
+  { id: "projects", label: "Projects", color: "#D9E7FF" },
+  { id: "skills", label: "Skills", color: "#1161AB" },
+  { id: "contact", label: "Contact", color: "#25D366" }
 ];
 
 export default function ScrollNav() {
@@ -71,13 +71,13 @@ export default function ScrollNav() {
         className="fixed top-0 left-0 right-0 h-[3.5px] z-[9999] origin-left pointer-events-none"
         style={{
           scaleX,
-          background: `linear-gradient(to right, #1A103C, ${activeSectionObj.color}, #3b82f6)`,
+          background: `linear-gradient(to right, #3567E8, ${activeSectionObj.color}, #0797B2)`,
           boxShadow: `0 1px 10px ${activeSectionObj.color}`
         }}
       />
 
       {/* 2. Floating Vertical Dot Handles (Only visible on md and up) */}
-      <div className="fixed right-8 top-1/2 -translate-y-1/2 z-[100] hidden md:flex flex-col items-center gap-5 bg-white/85 backdrop-blur-md p-4 rounded-full border border-slate-100 shadow-xl shadow-slate-100/50">
+      <div className="fixed right-8 top-1/2 -translate-y-1/2 z-[100] hidden md:flex flex-col items-center gap-5 bg-[#10477C]/90 backdrop-blur-md p-4 rounded-full border border-[#115EA5]/40 shadow-xl shadow-blue-950/40">
         {SECTIONS.map((section) => {
           const isActive = section.id === activeSection;
           const isHovered = section.id === hoveredId;
@@ -97,9 +97,9 @@ export default function ScrollNav() {
                     animate={{ opacity: 1, x: -16, scale: 1 }}
                     exit={{ opacity: 0, x: -10, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute right-full mr-2 py-1.5 px-3 rounded-lg text-xs font-black tracking-wider uppercase text-slate-800 whitespace-nowrap bg-white border border-slate-100 shadow-md pointer-events-none"
+                    className="absolute right-full mr-2 py-1.5 px-3 rounded-lg text-xs font-black tracking-wider uppercase text-white whitespace-nowrap bg-[#115EA5] border border-[#10477C] shadow-md pointer-events-none"
                     style={{
-                      boxShadow: `0 2px 10px rgba(26,16,60,0.04), 0 0 12px ${section.color}15`
+                      boxShadow: `0 2px 10px rgba(8,11,20,0.4), 0 0 12px ${section.color}30`
                     }}
                   >
                     {section.label}
@@ -129,7 +129,7 @@ export default function ScrollNav() {
                 <motion.span
                   className="w-2.5 h-2.5 rounded-full block transition-transform duration-300"
                   style={{
-                    backgroundColor: isActive ? section.color : "rgba(26, 16, 60, 0.2)",
+                    backgroundColor: isActive ? section.color : "rgba(217, 231, 255, 0.2)",
                     boxShadow: isActive ? `0 0 6px ${section.color}40` : "none",
                     transform: isActive || isHovered ? "scale(1.2)" : "scale(1)"
                   }}

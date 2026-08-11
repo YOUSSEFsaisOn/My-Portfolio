@@ -8,7 +8,7 @@ import * as THREE from "three";
 /**
  * Rotating glowing orb with a wireframe shell and inner core.
  * Fully self-contained 3D scene rendered inside the hero section.
- * Tailored for a modern Light Theme using soft pastel blue and deep purple accents.
+ * Tailored for a modern theme using teal and soft blue.
  */
 function HeroOrb() {
   const outerRef = useRef<THREE.Mesh>(null);
@@ -33,8 +33,8 @@ function HeroOrb() {
         <mesh ref={outerRef}>
           <sphereGeometry args={[1.4, 64, 64]} />
           <MeshDistortMaterial
-            color="#E1EEF8"
-            emissive="#b9d9f5"
+            color="#0797B2"
+            emissive="#0d365f"
             emissiveIntensity={0.6}
             roughness={0.1}
             metalness={0.2}
@@ -48,7 +48,7 @@ function HeroOrb() {
       <mesh ref={wireRef}>
         <icosahedronGeometry args={[2.1, 1]} />
         <meshBasicMaterial
-          color="#1A103C"
+          color="#D9E7FF"
           wireframe
           transparent
           opacity={0.15}
@@ -81,7 +81,7 @@ export default function Hero3D() {
       >
         <ambientLight intensity={0.8} />
         <pointLight position={[10, 10, 10]} intensity={1.5} color="#ffffff" />
-        <pointLight position={[-10, -5, -5]} intensity={1.0} color="#E1EEF8" />
+        <pointLight position={[-10, -5, -5]} intensity={1.0} color="#0D365F" />
         <Suspense fallback={null}>
           <HeroOrb />
           <Sparkles
@@ -89,7 +89,7 @@ export default function Hero3D() {
             scale={8}
             size={2}
             speed={0.4}
-            color="#1A103C"
+            color="#D9E7FF"
             opacity={0.25}
           />
         </Suspense>

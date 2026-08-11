@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
+import { TechBadgeGroup } from "./shared/tech-badge";
 
 export default function Experience() {
   const experiences = [
@@ -56,9 +57,9 @@ export default function Experience() {
           viewport={{ once: true }}
           className="mb-20"
         >
-          <h2 className="text-[clamp(32px,5vw,64px)] font-black text-[#1A103C] leading-tight font-serif tracking-tighter">
+          <h2 className="text-[clamp(32px,5vw,64px)] font-black text-white leading-tight font-serif tracking-tighter">
             WORK <br />
-            <span className="text-[#3b82f6] drop-shadow-[0_0_15px_rgba(59,130,246,0.15)]">EXPERIENCE.</span>
+            <span className="text-[#3567E8] drop-shadow-[0_0_15px_rgba(53,103,232,0.15)]">EXPERIENCE.</span>
           </h2>
         </motion.div>
 
@@ -70,38 +71,31 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group bg-white p-8 md:p-12 rounded-[2rem] border border-slate-100 hover:border-[#E1EEF8] transition-all duration-500 shadow-xl shadow-slate-100/50"
+              className="group bg-[#115EA5] p-8 md:p-12 rounded-[2rem] border border-[#10477C] hover:border-[#123C6A] transition-all duration-500 shadow-xl shadow-blue-950/40"
             >
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
                 <div className="space-y-4 max-w-3xl">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 bg-[#E1EEF8] rounded-lg text-[#1A103C]">
+                    <div className="p-2 bg-[#1161AB] rounded-lg text-white">
                       <Briefcase size={20} />
                     </div>
-                    <span className="text-sm font-bold text-slate-500 uppercase tracking-widest font-sans">
+                    <span className="text-sm font-bold text-[#CEDDEA]/80 uppercase tracking-widest font-sans">
                       {exp.period}
                     </span>
                   </div>
-                  <h3 className="text-3xl font-black text-[#1A103C] font-serif tracking-tight">
+                  <h3 className="text-3xl font-black text-white font-serif tracking-tight">
                     {exp.position}
                   </h3>
-                  <p className="text-xl font-bold text-[#3b82f6] font-sans">
+                  <p className="text-xl font-bold text-[#D9E7FF] font-sans">
                     {exp.company}
                   </p>
-                  <p className="text-slate-600 leading-relaxed text-lg font-sans">
+                  <p className="text-[#CEDDEA] leading-relaxed text-lg font-sans">
                     {exp.description}
                   </p>
                 </div>
 
-                <div className="flex flex-wrap gap-2 md:w-48 shrink-0">
-                  {exp.highlights.map((h, i) => (
-                    <span
-                      key={i}
-                      className="px-4 py-2 bg-[#E1EEF8]/65 text-[#1A103C] text-xs font-bold uppercase tracking-wider rounded-full border border-[#E1EEF8] font-sans"
-                    >
-                      {h}
-                    </span>
-                  ))}
+                <div className="md:w-48 shrink-0">
+                  <TechBadgeGroup techs={exp.highlights} />
                 </div>
               </div>
             </motion.div>

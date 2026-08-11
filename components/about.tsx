@@ -22,11 +22,11 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-[clamp(32px,5vw,64px)] font-black text-[#1A103C] leading-tight mb-8 font-serif tracking-tighter">
+            <h2 className="text-[clamp(32px,5vw,64px)] font-black text-white leading-tight mb-8 font-serif tracking-tighter">
               DRIVEN BY <br />
-              <span className="text-[#3b82f6] drop-shadow-[0_0_15px_rgba(59,130,246,0.15)]">INNOVATION.</span>
+              <span className="text-[#3567E8] drop-shadow-[0_0_15px_rgba(53,103,232,0.15)]">INNOVATION.</span>
             </h2>
-            <div className="space-y-6 text-slate-600 text-lg leading-relaxed font-sans">
+            <div className="space-y-6 text-[#CEDDEA] text-lg leading-relaxed font-sans">
               <p>
                 Motivated Frontend Developer with experience specializing in React.js, Next.js, .NET, and modern JavaScript frameworks. Passionate about building responsive, interactive, user-friendly web applications and full-stack solutions.
               </p>
@@ -41,9 +41,9 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-white p-8 md:p-12 rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-100/80"
+            className="bg-[#115EA5] p-8 md:p-12 rounded-[2rem] border border-[#10477C] shadow-xl shadow-blue-950/80"
           >
-            <h3 className="text-2xl font-black text-[#1A103C] mb-8 font-serif uppercase tracking-tighter">
+            <h3 className="text-2xl font-black text-white mb-8 font-serif uppercase tracking-tighter">
               Key Focus Areas
             </h3>
             <ul className="space-y-6">
@@ -56,8 +56,8 @@ export default function About() {
                   transition={{ delay: i * 0.1 }}
                   className="flex items-start gap-4"
                 >
-                  <CheckCircle2 className="w-6 h-6 text-[#1A103C] shrink-0 mt-1" />
-                  <span className="text-slate-700 font-medium font-sans">{item}</span>
+                  <CheckCircle2 className="w-6 h-6 text-[#D9E7FF] shrink-0 mt-1" />
+                  <span className="text-[#CEDDEA] font-medium font-sans">{item}</span>
                 </motion.li>
               ))}
             </ul>
