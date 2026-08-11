@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
+import { fadeInLeft, fadeInRight, commonWhileInView } from "@/lib/animations";
 
 export default function About() {
   const highlights = [
@@ -17,10 +18,10 @@ export default function About() {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={commonWhileInView}
+            variants={fadeInLeft}
           >
             <h2 className="text-[clamp(32px,5vw,64px)] font-black text-white leading-tight mb-8 font-serif tracking-tighter">
               DRIVEN BY <br />
@@ -37,10 +38,10 @@ export default function About() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={commonWhileInView}
+            variants={fadeInRight}
             className="bg-[#115EA5] p-8 md:p-12 rounded-[2rem] border border-[#10477C] shadow-xl shadow-blue-950/80"
           >
             <h3 className="text-2xl font-black text-white mb-8 font-serif uppercase tracking-tighter">
@@ -52,8 +53,8 @@ export default function About() {
                   key={i}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
+                  viewport={commonWhileInView}
+                  transition={{ delay: i * 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   className="flex items-start gap-4"
                 >
                   <CheckCircle2 className="w-6 h-6 text-[#D9E7FF] shrink-0 mt-1" />
