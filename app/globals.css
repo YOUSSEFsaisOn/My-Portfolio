@@ -186,20 +186,6 @@
   animation: rotate-gradient 4s linear infinite;
 }
 
-.skills-pill {
-  @apply inline-flex items-center px-4 py-2 rounded-full text-sm font-medium transition-all duration-300;
-  background: rgba(217, 231, 255, 0.05);
-  border: 1px solid rgba(217, 231, 255, 0.1);
-  color: #CEDDEA;
-}
-
-.skills-pill:hover {
-  background: #1161AB;
-  border-color: rgba(217, 231, 255, 0.25);
-  color: #FFFFFF;
-  transform: translateY(-2px);
-}
-
 .portfolio-card-1 {
   background-color: #115EA5;
   border: 1px solid #10477C;
