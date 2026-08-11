@@ -45,7 +45,7 @@ export default function Contact() {
         >
           <h2 className="text-[clamp(32px,5vw,64px)] font-black text-white leading-tight font-serif tracking-tighter">
             LET&apos;S <br />
-            <span className="text-[#3567E8] drop-shadow-[0_0_15px_rgba(53,103,232,0.15)]">CONNECT.</span>
+            <span className="text-[#235ccf] drop-shadow-[0_0_15px_rgba(53,103,232,0.15)]">CONNECT.</span>
           </h2>
         </motion.div>
 
@@ -62,14 +62,14 @@ export default function Contact() {
                   transition={{ delay: index * 0.1 }}
                   className="flex items-center gap-6 group"
                 >
-                  <div className="w-16 h-16 bg-[#1161AB] border border-[#10477C] rounded-2xl flex items-center justify-center text-white group-hover:bg-[#3567E8] group-hover:text-white group-hover:shadow-[0_0_15px_rgba(53,103,232,0.3)] transition-all duration-300">
+                  <div className="w-16 h-16 bg-[#1161AB] border border-[#10477C] rounded-2xl flex items-center justify-center text-white group-hover:bg-[#235ccf] group-hover:text-white group-hover:shadow-[0_0_15px_rgba(53,103,232,0.3)] transition-all duration-300">
                     {method.icon}
                   </div>
                   <div>
                     <p className="text-xs font-black uppercase tracking-widest text-[#CEDDEA]/60 mb-1 font-sans">
                       {method.label}
                     </p>
-                    <p className="text-xl font-bold text-white group-hover:text-[#3567E8] transition-colors font-sans">
+                    <p className="text-xl font-bold text-white group-hover:text-[#235ccf] transition-colors font-sans">
                       {method.value}
                     </p>
                   </div>
@@ -102,7 +102,7 @@ export default function Contact() {
                 <input
                   type="text"
                   required
-                  className="w-full bg-transparent border-b border-[#123C6A] py-4 focus:outline-none focus:border-[#3567E8] transition-colors font-bold text-xl text-white font-sans placeholder-[#CEDDEA]/40"
+                  className="w-full bg-transparent border-b border-[#123C6A] py-4 focus:outline-none focus:border-[#235ccf] transition-colors font-bold text-xl text-white font-sans placeholder-[#CEDDEA]/40"
                   placeholder="Your Name"
                 />
               </div>
@@ -113,7 +113,7 @@ export default function Contact() {
                 <input
                   type="email"
                   required
-                  className="w-full bg-transparent border-b border-[#123C6A] py-4 focus:outline-none focus:border-[#3567E8] transition-colors font-bold text-xl text-white font-sans placeholder-[#CEDDEA]/40"
+                  className="w-full bg-transparent border-b border-[#123C6A] py-4 focus:outline-none focus:border-[#235ccf] transition-colors font-bold text-xl text-white font-sans placeholder-[#CEDDEA]/40"
                   placeholder="hello@example.com"
                 />
               </div>
@@ -124,14 +124,14 @@ export default function Contact() {
                 <textarea
                   required
                   rows={4}
-                  className="w-full bg-transparent border-b border-[#123C6A] py-4 focus:outline-none focus:border-[#3567E8] transition-colors font-bold text-xl resize-none text-white font-sans placeholder-[#CEDDEA]/40"
+                  className="w-full bg-transparent border-b border-[#123C6A] py-4 focus:outline-none focus:border-[#235ccf] transition-colors font-bold text-xl resize-none text-white font-sans placeholder-[#CEDDEA]/40"
                   placeholder="Your Project Details"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-6 bg-[#3567E8] text-white rounded-2xl font-black uppercase tracking-widest hover:bg-[#254fbf] transition-all duration-300 flex items-center justify-center gap-3 shadow-md shadow-blue-900/40 cursor-pointer"
+                className="w-full py-6 bg-[#235ccf] text-white rounded-2xl font-black uppercase tracking-widest hover:bg-[#1b4fa6] transition-all duration-300 flex items-center justify-center gap-3 shadow-md shadow-blue-900/40 cursor-pointer"
               >
                 {submitted ? (
                   <>
@@ -154,8 +154,8 @@ export default function Contact() {
             © {new Date().getFullYear()} YOUSEF MOHAMED.
           </p>
           <div className="flex gap-10">
-            <a href="https://github.com/YOUSSEFsaisOn" className="text-sm font-black uppercase tracking-widest hover:text-[#3567E8] transition-colors text-[#CEDDEA]/60 font-sans">GitHub</a>
-            <a href="https://linkedin.com/in/yousef-mohamed-370260292" className="text-sm font-black uppercase tracking-widest hover:text-[#3567E8] transition-colors text-[#CEDDEA]/60 font-sans">LinkedIn</a>
+            <a href="https://github.com/YOUSSEFsaisOn" className="text-sm font-black uppercase tracking-widest hover:text-[#235ccf] transition-colors text-[#CEDDEA]/60 font-sans">GitHub</a>
+            <a href="https://linkedin.com/in/yousef-mohamed-370260292" className="text-sm font-black uppercase tracking-widest hover:text-[#235ccf] transition-colors text-[#CEDDEA]/60 font-sans">LinkedIn</a>
           </div>
         </div>
       </div>

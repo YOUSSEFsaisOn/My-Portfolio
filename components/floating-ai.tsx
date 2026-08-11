@@ -17,7 +17,7 @@ export default function FloatingAi() {
         aria-label="AI Consultation"
       >
         {/* Glowing aura around button */}
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-[#3567E8] via-[#0797B2] to-[#D9E7FF] opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-md -z-10" />
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-[#235ccf] via-[#0797B2] to-[#D9E7FF] opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-md -z-10" />
 
         {/* Colorful gradient brain/AI SVG */}
         <svg
@@ -32,7 +32,7 @@ export default function FloatingAi() {
         >
           <defs>
             <linearGradient id="ai-brain-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#3567E8" />
+              <stop offset="0%" stopColor="#235ccf" />
               <stop offset="50%" stopColor="#0797B2" />
               <stop offset="100%" stopColor="#D9E7FF" />
             </linearGradient>

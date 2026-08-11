@@ -60,7 +60,7 @@ export default function SpaceBackground() {
       if (rVal < 0.5) {
         color = 'rgba(217, 231, 255, ' // Soft blue (#D9E7FF)
       } else if (rVal < 0.85) {
-        color = 'rgba(53, 103, 232, ' // CTA blue (#3567E8)
+        color = 'rgba(35, 92, 207, ' // CTA blue (#235ccf)
       }
 
       particles.push({

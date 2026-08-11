@@ -46,7 +46,7 @@ export default function Projects() {
           className="mb-20 text-center"
         >
           <h2 className="text-[clamp(32px,5vw,64px)] font-black text-white leading-tight font-serif tracking-tighter mb-6">
-            FEATURED <span className="text-[#3567E8] drop-shadow-[0_0_15px_rgba(53,103,232,0.15)]">PROJECTS.</span>
+            FEATURED <span className="text-[#235ccf] drop-shadow-[0_0_15px_rgba(53,103,232,0.15)]">PROJECTS.</span>
           </h2>
           <p className="text-[#CEDDEA] max-w-2xl mx-auto text-lg font-sans">
             A selection of platforms and applications I&apos;ve built, focusing on e-learning and full-stack solutions.
@@ -115,7 +115,7 @@ export default function Projects() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-[#3567E8] text-white px-6 py-3.5 rounded-lg text-xs font-black uppercase tracking-widest hover:bg-[#254fbf] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-sm"
+                  className="inline-flex items-center justify-center bg-[#235ccf] text-white px-6 py-3.5 rounded-lg text-xs font-black uppercase tracking-widest hover:bg-[#1b4fa6] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-sm"
                 >
                   Explore Project <span className="ml-2 font-bold font-sans">→</span>
                 </a>

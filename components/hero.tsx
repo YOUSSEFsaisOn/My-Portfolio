@@ -18,7 +18,7 @@ export default function Hero() {
       {/* Decorative Glow Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
-          className="absolute w-[600px] h-[600px] bg-[#3567E8]/10 rounded-full blur-[120px]"
+          className="absolute w-[600px] h-[600px] bg-[#235ccf]/10 rounded-full blur-[120px]"
           style={{
             top: "-10%",
             right: "-10%",
@@ -68,7 +68,7 @@ export default function Hero() {
               {/* Inner 'dev' design inside house */}
               <path
                 d="M32 46 C32 40, 42 40, 42 46 L42 62 C42 68, 32 68, 32 62 Z"
-                stroke="#3567E8"
+                stroke="#235ccf"
                 strokeWidth="5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -76,14 +76,14 @@ export default function Hero() {
               />
               <path
                 d="M42 43 L42 62"
-                stroke="#3567E8"
+                stroke="#235ccf"
                 strokeWidth="5"
                 strokeLinecap="round"
                 fill="none"
               />
               <path
                 d="M48 55 C48 46, 58 46, 58 55 L48 55"
-                stroke="#3567E8"
+                stroke="#235ccf"
                 strokeWidth="5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -91,7 +91,7 @@ export default function Hero() {
               />
               <path
                 d="M48 55 C48 64, 58 64, 58 55"
-                stroke="#3567E8"
+                stroke="#235ccf"
                 strokeWidth="5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -99,7 +99,7 @@ export default function Hero() {
               />
               <path
                 d="M64 45 L70 62 L76 45"
-                stroke="#3567E8"
+                stroke="#235ccf"
                 strokeWidth="5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -116,7 +116,7 @@ export default function Hero() {
           className="text-[clamp(44px,7vw,84px)] font-black text-white leading-[1.08] tracking-tighter mb-4 font-serif"
         >
           We Build The <br />
-          <span className="text-[#3567E8]">Engine</span>
+          <span className="text-[#235ccf]">Engine</span>
         </motion.h1>
 
         <motion.div
@@ -149,7 +149,7 @@ export default function Hero() {
         >
           <Link
             href="#contact"
-            className="px-12 py-4 bg-[#3567E8] text-white font-bold rounded-full hover:bg-[#254fbf] hover:scale-105 active:scale-95 transition-all duration-300 shadow-md shadow-blue-900/50"
+            className="px-12 py-4 bg-[#235ccf] text-white font-bold rounded-full hover:bg-[#1b4fa6] hover:scale-105 active:scale-95 transition-all duration-300 shadow-md shadow-blue-900/50"
           >
             Book a Consultation
           </Link>
@@ -167,7 +167,7 @@ export default function Hero() {
           <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-[#CEDDEA]/60">
             LEARN MORE
           </span>
-          <div className="w-px h-12 bg-gradient-to-b from-[#3567E8] to-transparent" />
+          <div className="w-px h-12 bg-gradient-to-b from-[#235ccf] to-transparent" />
         </div>
       </motion.div>
     </section>

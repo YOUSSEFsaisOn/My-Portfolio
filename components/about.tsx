@@ -25,7 +25,7 @@ export default function About() {
           >
             <h2 className="text-[clamp(32px,5vw,64px)] font-black text-white leading-tight mb-8 font-serif tracking-tighter">
               DRIVEN BY <br />
-              <span className="text-[#3567E8] drop-shadow-[0_0_15px_rgba(53,103,232,0.15)]">INNOVATION.</span>
+              <span className="text-[#235ccf] drop-shadow-[0_0_15px_rgba(53,103,232,0.15)]">INNOVATION.</span>
             </h2>
             <div className="space-y-6 text-[#CEDDEA] text-lg leading-relaxed font-sans">
               <p>

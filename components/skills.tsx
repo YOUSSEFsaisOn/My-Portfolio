@@ -41,7 +41,7 @@ export default function Skills() {
         >
           <h2 className="text-[clamp(32px,5vw,64px)] font-black text-white leading-tight font-serif tracking-tighter">
             TECHNICAL <br />
-            <span className="text-[#3567E8] drop-shadow-[0_0_15px_rgba(53,103,232,0.15)]">EXPERTISE.</span>
+            <span className="text-[#235ccf] drop-shadow-[0_0_15px_rgba(53,103,232,0.15)]">EXPERTISE.</span>
           </h2>
         </motion.div>
 
@@ -60,7 +60,7 @@ export default function Skills() {
               </h3>
               <ul className="space-y-3">
                 {cat.skills.map((skill, i) => (
-                  <li key={i} className="text-sm font-bold text-[#CEDDEA] hover:text-[#3567E8] transition-colors cursor-default font-sans">
+                  <li key={i} className="text-sm font-bold text-[#CEDDEA] hover:text-[#235ccf] transition-colors cursor-default font-sans">
                     {skill}
                   </li>
                 ))}
