@@ -1,30 +1,56 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
+import { swiftScrollTo } from '@/lib/scroll'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('')
+  const sectionOffsets = useRef<{ [key: string]: number }>({})
 
   useEffect(() => {
+    const sections = ['about', 'divisions', 'experience', 'projects', 'skills', 'contact']
+    
+    const updateOffsets = () => {
+      const offsets: { [key: string]: number } = {}
+      sections.forEach((section) => {
+        const el = document.getElementById(section)
+        if (el) {
+          offsets[section] = el.offsetTop
+        }
+      })
+      sectionOffsets.current = offsets
+    }
+
+    updateOffsets()
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
 
-      const sections = ['about', 'divisions', 'experience', 'projects', 'skills', 'contact']
+      const scrollY = window.scrollY
       for (const section of [...sections].reverse()) {
-        const el = document.getElementById(section)
-        if (el && window.scrollY >= el.offsetTop - 120) {
+        const top = sectionOffsets.current[section]
+        if (top !== undefined && scrollY >= top - 120) {
           setActiveSection(section)
           break
         }
       }
     }
+
     window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener('resize', updateOffsets, { passive: true })
+    
+    const timer = setTimeout(updateOffsets, 1000)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', updateOffsets)
+      clearTimeout(timer)
+    }
   }, [])
 
   const scrollToSection = useCallback((e: React.MouseEvent, href: string) => {
@@ -32,7 +58,7 @@ export default function Navigation() {
     const id = href.replace('#', '')
     const el = document.getElementById(id)
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      swiftScrollTo(Math.max(0, el.offsetTop - 100))
     }
     setIsOpen(false)
   }, [])

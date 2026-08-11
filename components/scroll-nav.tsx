@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
+import { swiftScrollTo } from "@/lib/scroll";
 
 const SECTIONS = [
   { id: "hero", label: "Home", color: "#3567E8" },
@@ -18,6 +19,7 @@ const SECTIONS = [
 export default function ScrollNav() {
   const [activeSection, setActiveSection] = useState("hero");
   const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const sectionOffsets = useRef<{ [key: string]: number }>({});
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -27,38 +29,56 @@ export default function ScrollNav() {
   });
 
   useEffect(() => {
+    const updateOffsets = () => {
+      const offsets: { [key: string]: number } = {};
+      SECTIONS.forEach((section) => {
+        const el = document.getElementById(section.id);
+        if (el) {
+          offsets[section.id] = el.offsetTop;
+        }
+      });
+      sectionOffsets.current = offsets;
+    };
+
+    updateOffsets();
+
     const handleScroll = () => {
+      const scrollY = window.scrollY;
+      if (scrollY < 300) {
+        setActiveSection("hero");
+        return;
+      }
+
       for (let i = SECTIONS.length - 1; i >= 0; i--) {
         const sectionId = SECTIONS[i].id;
-        const el = document.getElementById(sectionId);
-        if (sectionId === "hero") {
-          if (window.scrollY < 300) {
-            setActiveSection("hero");
-            return;
-          }
-        }
-        if (el) {
-          const top = el.offsetTop;
-          if (window.scrollY >= top - 200) {
-            setActiveSection(sectionId);
-            break;
-          }
+        const top = sectionOffsets.current[sectionId];
+        if (top !== undefined && scrollY >= top - 200) {
+          setActiveSection(sectionId);
+          break;
         }
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    window.addEventListener("resize", updateOffsets, { passive: true });
+    
+    // Quick delayed check to ensure dynamically rendered layouts are correctly measured
+    const timer = setTimeout(updateOffsets, 1000);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", updateOffsets);
+      clearTimeout(timer);
+    };
   }, []);
 
   const handleDotClick = useCallback((id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      // Offset matches standard top spacing (100px)
+      swiftScrollTo(Math.max(0, el.offsetTop - 100));
     } else if (id === "hero") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      swiftScrollTo(0);
     }
   }, []);
 
