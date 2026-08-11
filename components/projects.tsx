@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
+import { TechBadge } from "./shared/tech-badge";
 
 const ALL_PROJECTS = [
   {
@@ -66,9 +67,7 @@ export default function Projects() {
                 <div className="flex justify-between items-start mb-8">
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((t, i) => (
-                      <span key={i} className="text-[10px] font-bold uppercase tracking-widest text-white bg-[#1161AB] border border-[#10477C] px-3 py-1 rounded-full font-sans">
-                        {t}
-                      </span>
+                      <TechBadge key={i} tech={t} />
                     ))}
                   </div>
                   <div className="flex gap-4">

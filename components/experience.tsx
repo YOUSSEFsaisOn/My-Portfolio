@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
+import { TechBadge } from "./shared/tech-badge";
 
 export default function Experience() {
   const experiences = [
@@ -95,12 +96,7 @@ export default function Experience() {
 
                 <div className="flex flex-wrap gap-2 md:w-48 shrink-0">
                   {exp.highlights.map((h, i) => (
-                    <span
-                      key={i}
-                      className="px-4 py-2 bg-[#1161AB] text-white text-xs font-bold uppercase tracking-wider rounded-full border border-[#10477C] font-sans"
-                    >
-                      {h}
-                    </span>
+                    <TechBadge key={i} tech={h} />
                   ))}
                 </div>
               </div>

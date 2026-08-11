@@ -12,6 +12,7 @@ import {
   Zap, 
   ShieldCheck 
 } from "lucide-react";
+import { TechBadge } from "./shared/tech-badge";
 
 const DIVISIONS = [
   {
@@ -23,7 +24,7 @@ const DIVISIONS = [
     colorClass: "from-blue-600 to-cyan-500",
     glowColor: "rgba(53, 103, 232, 0.25)",
     bgGradient: "from-blue-900/20 via-slate-900/40 to-cyan-900/10",
-    shadowClass: "shadow-[0_0_50px_-12px_rgba(53,103,232,0.15)]",
+    shadowClass: "shadow-[0_0_50px_-12px_rgba(53, 103, 232, 0.15)]",
     techs: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     stats: [
       { label: "Performance Score", value: "99%", icon: Zap },
@@ -229,12 +230,7 @@ export default function Divisions() {
                     </h4>
                     <div className="flex flex-wrap gap-2.5">
                       {activeDiv.techs.map((tech, i) => (
-                        <span 
-                          key={i} 
-                          className="px-4 py-2 bg-[#123C6A] text-white text-xs font-bold uppercase tracking-wider rounded-full border border-[#10477C] hover:bg-[#1161AB] transition-colors font-sans"
-                        >
-                          {tech}
-                        </span>
+                        <TechBadge key={i} tech={tech} />
                       ))}
                     </div>
                   </div>
