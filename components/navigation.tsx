@@ -112,7 +112,7 @@ export default function Navigation() {
         {/* Hamburger Menu Button */}
         <button
           onClick={() => setIsOpen(true)}
-          className="relative group p-3 rounded-lg hover:bg-white/10 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#3567E8]/50"
+          className="relative group p-3 rounded-lg hover:bg-white/10 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#235ccf]/50"
           aria-label="Toggle menu"
         >
           <div className="flex flex-col justify-between w-6 h-5">
@@ -185,7 +185,7 @@ export default function Navigation() {
                 >
                   <Link 
                     href="/contact"
-                    className="mt-8 block w-full py-4 bg-[#3567E8] text-white text-center font-bold tracking-wide rounded-full text-base hover:bg-[#D9E7FF] hover:text-[#0D365F] transition-all duration-300 shadow-md hover:shadow-lg"
+                    className="mt-8 block w-full py-4 bg-[#235ccf] text-white text-center font-bold tracking-wide rounded-full text-base hover:bg-[#D9E7FF] hover:text-[#0D365F] transition-all duration-300 shadow-md hover:shadow-lg"
                     style={{ backgroundColor: 'var(--primary)' }}
                     onClick={() => setIsOpen(false)}
                   >

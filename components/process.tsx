@@ -46,7 +46,7 @@ export default function Process() {
               transition={{ delay: i * 0.1 }}
               className="flex flex-col items-center group"
             >
-              <div className="w-16 h-16 rounded-2xl bg-[#1161AB] border border-[#115EA5] flex items-center justify-center text-white font-black text-lg mb-4 group-hover:border-[#3567E8] group-hover:shadow-[0_0_15px_rgba(53,103,232,0.3)] transition-all duration-300">
+              <div className="w-16 h-16 rounded-2xl bg-[#1161AB] border border-[#115EA5] flex items-center justify-center text-white font-black text-lg mb-4 group-hover:border-[#235ccf] group-hover:shadow-[0_0_15px_rgba(53,103,232,0.3)] transition-all duration-300">
                 {item.step}
               </div>
               <span className="text-[#CEDDEA] group-hover:text-white font-bold uppercase tracking-widest text-xs transition-colors font-sans">

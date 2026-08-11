@@ -59,7 +59,7 @@ export default function Experience() {
         >
           <h2 className="text-[clamp(32px,5vw,64px)] font-black text-white leading-tight font-serif tracking-tighter">
             WORK <br />
-            <span className="text-[#3567E8] drop-shadow-[0_0_15px_rgba(53,103,232,0.15)]">EXPERIENCE.</span>
+            <span className="text-[#235ccf] drop-shadow-[0_0_15px_rgba(53,103,232,0.15)]">EXPERIENCE.</span>
           </h2>
         </motion.div>
 

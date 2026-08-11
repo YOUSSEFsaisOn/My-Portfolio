@@ -23,7 +23,7 @@ const values = [
     description: "My job doesn't end with development or deployment. I also provide ongoing support and maintenance to ensure that your project is up and running smoothly.",
     icon: Shield,
     color: "bg-[#123C6A]/40 border-[#10477C]/30",
-    iconColor: "text-[#3567E8]",
+    iconColor: "text-[#235ccf]",
   },
 ];
 
@@ -39,7 +39,7 @@ export default function Values() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex flex-col items-center text-center p-10 rounded-[2rem] border border-white/5 bg-[#10477C]/45 backdrop-blur-sm hover:border-[#3567E8]/30 transition-all duration-500 group"
+              className="flex flex-col items-center text-center p-10 rounded-[2rem] border border-white/5 bg-[#10477C]/45 backdrop-blur-sm hover:border-[#235ccf]/30 transition-all duration-500 group"
             >
               <div className={`w-16 h-16 rounded-full border ${value.color} flex items-center justify-center mb-8 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(53,103,232,0.2)] transition-all duration-500`}>
                 <value.icon className={`w-8 h-8 ${value.iconColor}`} />
