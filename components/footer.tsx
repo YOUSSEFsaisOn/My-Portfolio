@@ -17,6 +17,7 @@ import {
   Home
 } from "lucide-react";
 import { swiftScrollTo } from "@/lib/scroll";
+import Logo from "./shared/logo";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -100,62 +101,7 @@ export default function Footer() {
           <div className="md:col-span-5 space-y-6">
             <Link href="/" className="flex items-center gap-3 group w-fit">
               <div className="relative flex items-center justify-center p-1.5 overflow-visible">
-                <svg
-                  width="36"
-                  height="32"
-                  viewBox="0 0 100 90"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="drop-shadow-[0_0_8px_rgba(255,255,255,0.2)] filter transition-transform duration-300 group-hover:scale-105"
-                >
-                  <path
-                    d="M50 10 L85 45 L85 80 L15 80 L15 45 Z"
-                    stroke="#FFFFFF"
-                    strokeWidth="7"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    fill="none"
-                  />
-                  <path
-                    d="M32 46 C32 40, 42 40, 42 46 L42 62 C42 68, 32 68, 32 62 Z"
-                    stroke="#FFFFFF"
-                    strokeWidth="5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    fill="none"
-                  />
-                  <path
-                    d="M42 43 L42 62"
-                    stroke="#FFFFFF"
-                    strokeWidth="5"
-                    strokeLinecap="round"
-                    fill="none"
-                  />
-                  <path
-                    d="M48 55 C48 46, 58 46, 58 55 L48 55"
-                    stroke="#FFFFFF"
-                    strokeWidth="5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    fill="none"
-                  />
-                  <path
-                    d="M48 55 C48 64, 58 64, 58 55"
-                    stroke="#FFFFFF"
-                    strokeWidth="5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    fill="none"
-                  />
-                  <path
-                    d="M64 45 L70 62 L76 45"
-                    stroke="#FFFFFF"
-                    strokeWidth="5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    fill="none"
-                  />
-                </svg>
+                <Logo />
               </div>
               <span className="text-xl font-bold tracking-tight text-white font-sans">
                 The DevHouse
