@@ -16,13 +16,13 @@ export default function Footer() {
     { href: '/', label: 'Home', icon: Home },
     { href: '/consultation', label: 'Consultation', icon: MessageSquare },
     { href: '/careers', label: 'Careers', icon: Briefcase },
-    { href: '/portfolio', label: 'Portfolio', icon: Monitor },
+    // { href: '/portfolio', label: 'Portfolio', icon: Monitor },
     { href: '/contact', label: 'Contact Us', icon: Mail },
-    { href: '/about', label: 'About Us', icon: Users },
+    // { href: '/about', label: 'About Us', icon: Users },
   ]
 
   return (
-    <footer className="w-full bg-gradient-to-b from-[#0D365F] to-[#08223c] text-white border-t border-[#123C6A]/60 pt-16 pb-12 px-6 lg:px-16">
+    <footer className="w-full bg-gradient-to-b from-[#0D365F] to-[#08223c] text-white border-t border-[#123C6A]/60 pt-10 pb-2 px-6 lg:px-16">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
         
         {/* Brand Column */}
