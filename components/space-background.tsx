@@ -43,8 +43,8 @@ export default function SpaceBackground() {
       return x - Math.floor(x)
     }
 
-    // Soft Light Constellations / Particle Field with 3D Depth
-    const numParticles = 100
+    // Small glowing blue/white particles scattered across the hero background
+    const numParticles = 80
     const particles: Array<{
       x: number
       y: number
@@ -56,19 +56,19 @@ export default function SpaceBackground() {
 
     for (let i = 0; i < numParticles; i++) {
       const rVal = random()
-      let color = 'rgba(7, 151, 178, ' // Teal particles (#0797B2)
-      if (rVal < 0.5) {
-        color = 'rgba(217, 231, 255, ' // Soft blue (#D9E7FF)
-      } else if (rVal < 0.85) {
-        color = 'rgba(53, 103, 232, ' // CTA blue (#3567E8)
+      let color = 'rgba(79, 124, 255, ' // Accent blue (#4F7CFF)
+      if (rVal < 0.4) {
+        color = 'rgba(255, 255, 255, ' // Pure White
+      } else if (rVal < 0.75) {
+        color = 'rgba(47, 93, 255, ' // Secondary Blue (#2F5DFF)
       }
 
       particles.push({
         x: random() * width - width / 2,
         y: random() * height - height / 2,
         z: random() * 1000 + 10,
-        size: random() * 2.0 + 0.6,
-        speed: random() * 0.4 + 0.15,
+        size: random() * 1.5 + 0.4,
+        speed: random() * 0.3 + 0.1,
         color,
       })
     }
@@ -80,14 +80,14 @@ export default function SpaceBackground() {
     let targetMouseY = 0
 
     const handleMouseMove = (e: MouseEvent) => {
-      targetMouseX = (e.clientX - width / 2) * 0.15
-      targetMouseY = (e.clientY - height / 2) * 0.15
+      targetMouseX = (e.clientX - width / 2) * 0.12
+      targetMouseY = (e.clientY - height / 2) * 0.12
     }
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true })
 
     const render = (time: number) => {
-      ctx.fillStyle = '#080B14' // Background: #080B14
+      ctx.fillStyle = '#070B14' // Dark Navy background #070B14
       ctx.fillRect(0, 0, width, height)
 
       // Smooth mouse tracking
@@ -99,8 +99,8 @@ export default function SpaceBackground() {
         const p = particles[i]
 
         // Gentle drift animation over time
-        p.x += Math.sin(time * 0.0008 + p.z) * 0.08;
-        p.y += Math.cos(time * 0.0008 + p.x) * 0.08;
+        p.x += Math.sin(time * 0.0006 + p.z) * 0.05;
+        p.y += Math.cos(time * 0.0006 + p.x) * 0.05;
 
         // Wrap particles around X/Y bounds if they drift too far
         const maxOffset = width * 0.8;
@@ -118,15 +118,15 @@ export default function SpaceBackground() {
         const py = p.y * k + height / 2 + mouseY * (1.5 - p.z / 1000)
 
         // Fade out as it gets further
-        const opacity = Math.min(1, (1000 - p.z) / 300) * 0.5
+        const opacity = Math.min(1, (1000 - p.z) / 300) * 0.4
         const size = p.size * k
-        const glowSize = size * 3.5
+        const glowSize = size * 3.0
 
         if (px >= -glowSize && px <= width + glowSize && py >= -glowSize && py <= height + glowSize) {
           ctx.beginPath()
           const grad = ctx.createRadialGradient(px, py, 0, px, py, glowSize)
           grad.addColorStop(0, p.color + opacity + ')')
-          grad.addColorStop(0.3, p.color + opacity * 0.35 + ')')
+          grad.addColorStop(0.3, p.color + opacity * 0.3 + ')')
           grad.addColorStop(1, 'transparent')
           ctx.fillStyle = grad
           ctx.arc(px, py, glowSize, 0, Math.PI * 2)
@@ -152,7 +152,7 @@ export default function SpaceBackground() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 w-full h-full -z-10 pointer-events-none"
-      style={{ background: '#080B14' }}
+      style={{ background: '#070B14' }}
     />
   )
 }

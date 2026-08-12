@@ -23,8 +23,8 @@ export default function FloatingContact() {
               d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
               fill="none"
             />
-            {/* Soft blue text overlay for the rotating contact us, matching the dark theme */}
-            <text className="text-[8.5px] font-black uppercase tracking-[0.18em] fill-[#D9E7FF]">
+            {/* Soft dark text overlay or premium blue rotating text based on current section context */}
+            <text className="text-[8.5px] font-black uppercase tracking-[0.18em] fill-[#3B6DFF]">
               <textPath xlinkHref="#circlePath">
                 • CONTACT US • CONTACT US • CONTACT US •
               </textPath>

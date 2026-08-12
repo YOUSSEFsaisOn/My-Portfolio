@@ -9,7 +9,7 @@ export default function FloatingAi() {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 1.2, type: "spring", stiffness: 260, damping: 20 }}
-        className="w-14 h-14 bg-[#115EA5] rounded-2xl flex items-center justify-center shadow-[0_10px_30px_rgba(8,11,20,0.4)] border border-[#10477C] hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer group"
+        className="w-14 h-14 bg-white rounded-[16px] flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-[#E5E7EB] hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer group"
         onClick={() => {
           const el = document.getElementById("contact");
           if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -17,7 +17,7 @@ export default function FloatingAi() {
         aria-label="AI Consultation"
       >
         {/* Glowing aura around button */}
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-[#3567E8] via-[#0797B2] to-[#D9E7FF] opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-md -z-10" />
+        <div className="absolute inset-0 rounded-[16px] bg-gradient-to-tr from-[#4F7CFF] via-[#3B6DFF] to-[#2F5DFF] opacity-0 group-hover:opacity-25 transition-opacity duration-300 blur-md -z-10" />
 
         {/* Colorful gradient brain/AI SVG */}
         <svg
@@ -32,9 +32,9 @@ export default function FloatingAi() {
         >
           <defs>
             <linearGradient id="ai-brain-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#3567E8" />
-              <stop offset="50%" stopColor="#0797B2" />
-              <stop offset="100%" stopColor="#D9E7FF" />
+              <stop offset="0%" stopColor="#4F7CFF" />
+              <stop offset="50%" stopColor="#3B6DFF" />
+              <stop offset="100%" stopColor="#2F5DFF" />
             </linearGradient>
           </defs>
           {/* Left brain hemisphere */}
