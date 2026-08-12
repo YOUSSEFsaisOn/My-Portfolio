@@ -57,9 +57,9 @@ export default function Experience() {
           viewport={{ once: true }}
           className="mb-20"
         >
-          <h2 className="text-[clamp(32px,5vw,64px)] font-black text-white leading-tight font-serif tracking-tighter">
+          <h2 className="text-[clamp(32px,5vw,64px)] font-black text-[#111827] leading-tight font-serif tracking-tighter">
             WORK <br />
-            <span className="text-[#3567E8] drop-shadow-[0_0_15px_rgba(53,103,232,0.15)]">EXPERIENCE.</span>
+            <span className="text-[#3B82F6]">EXPERIENCE.</span>
           </h2>
         </motion.div>
 
@@ -71,25 +71,25 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group bg-[#115EA5] p-8 md:p-12 rounded-[2rem] border border-[#10477C] hover:border-[#123C6A] transition-all duration-500 shadow-xl shadow-blue-950/40"
+              className="group bg-[#FFFFFF] p-8 md:p-12 rounded-[1.5rem] border border-[#E5E7EB] hover:border-[#3B82F6]/30 transition-all duration-500 shadow-sm hover:shadow-md"
             >
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
                 <div className="space-y-4 max-w-3xl">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 bg-[#1161AB] rounded-lg text-white">
+                    <div className="p-2 bg-[#3B82F6]/10 rounded-lg text-[#3B82F6]">
                       <Briefcase size={20} />
                     </div>
-                    <span className="text-sm font-bold text-[#CEDDEA]/80 uppercase tracking-widest font-sans">
+                    <span className="text-sm font-bold text-[#6B7280] uppercase tracking-widest font-sans">
                       {exp.period}
                     </span>
                   </div>
-                  <h3 className="text-3xl font-black text-white font-serif tracking-tight">
+                  <h3 className="text-3xl font-black text-[#111827] font-serif tracking-tight">
                     {exp.position}
                   </h3>
-                  <p className="text-xl font-bold text-[#D9E7FF] font-sans">
+                  <p className="text-xl font-bold text-[#3B82F6] font-sans">
                     {exp.company}
                   </p>
-                  <p className="text-[#CEDDEA] leading-relaxed text-lg font-sans">
+                  <p className="text-[#6B7280] leading-relaxed text-lg font-sans">
                     {exp.description}
                   </p>
                 </div>

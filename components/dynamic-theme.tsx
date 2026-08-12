@@ -11,9 +11,9 @@ interface ThemeColors {
 
 const THEME_MAP: { [key: string]: ThemeColors } = {
   "/": {
-    primary: "#3567E8", // Home: Vibrant Blue
-    accent: "#D9E7FF",
-    ctaBlue: "#3567E8",
+    primary: "#3B82F6", // Home: Vibrant Blue
+    accent: "#F8F9FC",
+    ctaBlue: "#3B82F6",
   },
   "/about": {
     primary: "#8B5CF6", // About: Indigo/Purple

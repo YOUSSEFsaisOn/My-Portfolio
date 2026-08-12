@@ -38,8 +38,8 @@ export default function Navigation() {
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl transition-all duration-300 rounded-full border ${
         scrolled 
-          ? 'bg-[#0D4982]/85 backdrop-blur-md border-[#115EA5]/60 py-3.5 px-6 shadow-md shadow-slate-900/50' 
-          : 'bg-[#0D4982]/45 backdrop-blur-sm border-[#115EA5]/30 py-4 px-6 shadow-sm'
+          ? 'bg-[#070B14]/90 backdrop-blur-md border-white/10 py-3.5 px-6 shadow-lg shadow-black/30'
+          : 'bg-[#070B14]/45 backdrop-blur-sm border-white/10 py-4 px-6 shadow-sm'
       }`}
     >
       <div className="flex justify-between items-center">
@@ -112,7 +112,7 @@ export default function Navigation() {
         {/* Hamburger Menu Button */}
         <button
           onClick={() => setIsOpen(true)}
-          className="relative group p-3 rounded-lg hover:bg-white/10 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#3567E8]/50"
+          className="relative group p-3 rounded-lg hover:bg-white/10 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#3B82F6]/50"
           aria-label="Toggle menu"
         >
           <div className="flex flex-col justify-between w-6 h-5">
@@ -141,7 +141,7 @@ export default function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 h-screen w-full max-w-md bg-[#0D365F] border-l border-[#123C6A] z-[100] flex flex-col p-12 shadow-2xl"
+              className="fixed right-0 top-0 h-screen w-full max-w-md bg-[#070B14] border-l border-white/10 z-[100] flex flex-col p-12 shadow-2xl"
             >
               <div className="flex justify-between items-center mb-16">
                 <span className="text-xl font-bold tracking-tight text-white font-sans">
@@ -185,8 +185,7 @@ export default function Navigation() {
                 >
                   <Link 
                     href="/contact"
-                    className="mt-8 block w-full py-4 bg-[#3567E8] text-white text-center font-bold tracking-wide rounded-full text-base hover:bg-[#D9E7FF] hover:text-[#0D365F] transition-all duration-300 shadow-md hover:shadow-lg"
-                    style={{ backgroundColor: 'var(--primary)' }}
+                    className="mt-8 block w-full py-4 bg-gradient-to-r from-[#4F7CFF] to-[#2F5DFF] text-white text-center font-bold tracking-wide rounded-full text-base hover:shadow-[0_8px_24px_rgba(79,124,255,0.4)] transition-all duration-300 shadow-md hover:shadow-lg animate-pulse"
                     onClick={() => setIsOpen(false)}
                   >
                     Let&apos;s Talk
@@ -194,7 +193,7 @@ export default function Navigation() {
                 </motion.div>
               </div>
 
-              <div className="mt-auto text-xs text-[#CEDDEA]/60 border-t border-[#123C6A]/60 pt-6">
+              <div className="mt-auto text-xs text-[#CEDDEA]/60 border-t border-white/10 pt-6">
                 © {new Date().getFullYear()} The DevHouse. All rights reserved.
               </div>
             </motion.div>
