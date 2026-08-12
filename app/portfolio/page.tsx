@@ -9,6 +9,7 @@ import FloatingContact from "@/components/floating-contact";
 import FloatingAi from "@/components/floating-ai";
 import { TechBadgeGroup } from "@/components/shared/tech-badge";
 import { fadeInUp } from "@/lib/animations";
+import Footer from "@/components/footer";
 
 const PROJECTS = [
   {
@@ -207,6 +208,7 @@ export default function PortfolioPage() {
 
       <FloatingContact />
       <FloatingAi />
+      <Footer />
     </div>
   );
 }

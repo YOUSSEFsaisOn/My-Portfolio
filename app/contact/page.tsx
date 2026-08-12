@@ -8,6 +8,7 @@ import Navigation from "@/components/navigation";
 import FloatingContact from "@/components/floating-contact";
 import FloatingAi from "@/components/floating-ai";
 import { fadeInUp, commonWhileInView } from "@/lib/animations";
+import Footer from "@/components/footer";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -182,6 +183,7 @@ export default function ContactPage() {
 
       <FloatingContact />
       <FloatingAi />
+      <Footer />
     </div>
   );
 }
