@@ -39,9 +39,9 @@ export default function Skills() {
           viewport={{ once: true }}
           className="mb-20"
         >
-          <h2 className="text-[clamp(32px,5vw,64px)] font-black text-white leading-tight font-serif tracking-tighter">
+          <h2 className="text-[clamp(32px,5vw,64px)] font-black text-[#111827] leading-tight font-serif tracking-tighter">
             TECHNICAL <br />
-            <span className="text-[#3567E8] drop-shadow-[0_0_15px_rgba(53,103,232,0.15)]">EXPERTISE.</span>
+            <span className="text-[#3B82F6]">EXPERTISE.</span>
           </h2>
         </motion.div>
 
@@ -55,12 +55,12 @@ export default function Skills() {
               transition={{ delay: index * 0.05 }}
               className="space-y-6"
             >
-              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-[#D9E7FF] border-b border-[#123C6A] pb-4 font-sans">
+              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-[#3B82F6] border-b border-[#E5E7EB] pb-4 font-sans">
                 {cat.title}
               </h3>
               <ul className="space-y-3">
                 {cat.skills.map((skill, i) => (
-                  <li key={i} className="text-sm font-bold text-[#CEDDEA] hover:text-[#3567E8] transition-colors cursor-default font-sans">
+                  <li key={i} className="text-sm font-bold text-[#6B7280] hover:text-[#3B82F6] transition-colors cursor-default font-sans">
                     {skill}
                   </li>
                 ))}

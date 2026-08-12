@@ -56,11 +56,11 @@ export default function SpaceBackground() {
 
     for (let i = 0; i < numParticles; i++) {
       const rVal = random()
-      let color = 'rgba(7, 151, 178, ' // Teal particles (#0797B2)
+      let color = 'rgba(59, 130, 246, ' // Primary blue (#3B82F6)
       if (rVal < 0.5) {
-        color = 'rgba(217, 231, 255, ' // Soft blue (#D9E7FF)
+        color = 'rgba(248, 249, 252, ' // Soft light blue/gray (#F8F9FC)
       } else if (rVal < 0.85) {
-        color = 'rgba(53, 103, 232, ' // CTA blue (#3567E8)
+        color = 'rgba(79, 124, 255, ' // Accent blue (#4F7CFF)
       }
 
       particles.push({
@@ -87,7 +87,7 @@ export default function SpaceBackground() {
     window.addEventListener('mousemove', handleMouseMove, { passive: true })
 
     const render = (time: number) => {
-      ctx.fillStyle = '#080B14' // Background: #080B14
+      ctx.fillStyle = '#070B14' // Background: #070B14
       ctx.fillRect(0, 0, width, height)
 
       // Smooth mouse tracking
@@ -152,7 +152,7 @@ export default function SpaceBackground() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 w-full h-full -z-10 pointer-events-none"
-      style={{ background: '#080B14' }}
+      style={{ background: '#070B14' }}
     />
   )
 }

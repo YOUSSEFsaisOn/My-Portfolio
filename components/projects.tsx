@@ -45,10 +45,10 @@ export default function Projects() {
           viewport={{ once: true }}
           className="mb-20 text-center"
         >
-          <h2 className="text-[clamp(32px,5vw,64px)] font-black text-white leading-tight font-serif tracking-tighter mb-6">
-            FEATURED <span className="text-[#3567E8] drop-shadow-[0_0_15px_rgba(53,103,232,0.15)]">PROJECTS.</span>
+          <h2 className="text-[clamp(32px,5vw,64px)] font-black text-[#111827] leading-tight font-serif tracking-tighter mb-6">
+            FEATURED <span className="text-[#3B82F6]">PROJECTS.</span>
           </h2>
-          <p className="text-[#CEDDEA] max-w-2xl mx-auto text-lg font-sans">
+          <p className="text-[#6B7280] max-w-2xl mx-auto text-lg font-sans">
             A selection of platforms and applications I&apos;ve built, focusing on e-learning and full-stack solutions.
           </p>
         </motion.div>
@@ -61,7 +61,7 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group relative bg-[#115EA5] p-10 rounded-[3rem] border border-[#10477C] hover:border-[#123C6A] transition-all duration-500 shadow-lg shadow-blue-950/40 flex flex-col justify-between"
+              className="group relative bg-[#F8F9FC] p-10 rounded-[1.5rem] border border-[#E5E7EB] hover:border-[#3B82F6]/30 transition-all duration-500 shadow-sm hover:shadow-md flex flex-col justify-between"
             >
               <div>
                 <div className="flex justify-between items-start mb-8">
@@ -90,7 +90,7 @@ export default function Projects() {
                         href={item.href}
                         target={item.target}
                         rel={item.rel}
-                        className={idx === 0 ? "text-[#CEDDEA]/90 hover:text-white transition-colors duration-200" : "text-[#CEDDEA] hover:text-[#D9E7FF] transition-all duration-300"}
+                        className="text-[#6B7280] hover:text-[#3B82F6] transition-all duration-300"
                         aria-label={item.label}
                         title={item.title}
                       >
@@ -100,11 +100,11 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <h3 className="text-3xl font-black text-white font-serif mb-6 tracking-tight group-hover:text-[#D9E7FF] transition-colors">
+                <h3 className="text-3xl font-black text-[#111827] font-serif mb-6 tracking-tight group-hover:text-[#3B82F6] transition-colors">
                   {project.title}
                 </h3>
 
-                <p className="text-[#CEDDEA] leading-relaxed mb-8 font-sans">
+                <p className="text-[#6B7280] leading-relaxed mb-8 font-sans">
                   {project.description}
                 </p>
               </div>
@@ -115,7 +115,7 @@ export default function Projects() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-[#3567E8] text-white px-6 py-3.5 rounded-lg text-xs font-black uppercase tracking-widest hover:bg-[#254fbf] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-sm"
+                  className="inline-flex items-center justify-center bg-gradient-to-r from-[#4F7CFF] to-[#2F5DFF] text-white px-6 py-3.5 rounded-lg text-xs font-black uppercase tracking-widest hover:shadow-[0_4px_12px_rgba(79,124,255,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
                 >
                   Explore Project <span className="ml-2 font-bold font-sans">→</span>
                 </a>
