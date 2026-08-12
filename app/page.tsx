@@ -5,6 +5,7 @@ import Values from '@/components/values'
 import Process from '@/components/process'
 import FloatingContact from '@/components/floating-contact'
 import SpaceBackground from '@/components/space-background'
+import Footer from '@/components/footer'
 
 export default function Home() {
   return (
@@ -12,10 +13,11 @@ export default function Home() {
       <SpaceBackground />
       <Navigation />
       <Hero />
-      <Projects />
       <Values />
+      <Projects />
       <Process />
       <FloatingContact />
+      <Footer />
     </div>
   )
 }

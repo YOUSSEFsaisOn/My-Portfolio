@@ -7,6 +7,7 @@ import SpaceBackground from "@/components/space-background";
 import Navigation from "@/components/navigation";
 import FloatingContact from "@/components/floating-contact";
 import FloatingAi from "@/components/floating-ai";
+import Footer from "@/components/footer";
 import { fadeInUp, commonWhileInView } from "@/lib/animations";
 
 export default function ConsultationPage() {
@@ -183,6 +184,7 @@ export default function ConsultationPage() {
 
       <FloatingContact />
       <FloatingAi />
+      <Footer />
     </div>
   );
 }

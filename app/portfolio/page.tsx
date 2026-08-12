@@ -7,6 +7,7 @@ import SpaceBackground from "@/components/space-background";
 import Navigation from "@/components/navigation";
 import FloatingContact from "@/components/floating-contact";
 import FloatingAi from "@/components/floating-ai";
+import Footer from "@/components/footer";
 import { TechBadgeGroup } from "@/components/shared/tech-badge";
 import { fadeInUp } from "@/lib/animations";
 
@@ -207,6 +208,7 @@ export default function PortfolioPage() {
 
       <FloatingContact />
       <FloatingAi />
+      <Footer />
     </div>
   );
 }
