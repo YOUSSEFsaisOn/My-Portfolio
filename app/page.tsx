@@ -1,6 +1,6 @@
 import Hero from '@/components/hero'
 import Experience from '@/components/experience'
-import Projects from '@/components/projects'
+import SelectedWork from '@/components/selected-work'
 import Skills from '@/components/skills'
 import Contact from '@/components/contact'
 import Navigation from '@/components/navigation'
@@ -19,7 +19,7 @@ export default function Home() {
       <Values />
       <Experience />
       <Process />
-      <Projects />
+      <SelectedWork />
       <Skills />
       <Contact />
       <FloatingContact />
