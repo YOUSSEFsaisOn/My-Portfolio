@@ -8,7 +8,7 @@ import * as THREE from "three";
 /**
  * Rotating glowing orb with a wireframe shell and inner core.
  * Fully self-contained 3D scene rendered inside the hero section.
- * Tailored for a modern theme using teal and soft blue.
+ * Tailored for a premium SaaS theme using accent blue and soft lighting.
  */
 function HeroOrb() {
   const outerRef = useRef<THREE.Mesh>(null);
@@ -17,48 +17,48 @@ function HeroOrb() {
   useFrame((state, delta) => {
     const t = state.clock.elapsedTime;
     if (outerRef.current) {
-      outerRef.current.rotation.x += delta * 0.15;
-      outerRef.current.rotation.y += delta * 0.2;
+      outerRef.current.rotation.x += delta * 0.12;
+      outerRef.current.rotation.y += delta * 0.16;
     }
     if (wireRef.current) {
-      wireRef.current.rotation.x = -t * 0.1;
-      wireRef.current.rotation.y = t * 0.15;
+      wireRef.current.rotation.x = -t * 0.08;
+      wireRef.current.rotation.y = t * 0.12;
     }
   });
 
   return (
     <group>
-      {/* Soft pastel blue glowing distorted core */}
-      <Float speed={2} rotationIntensity={0.4} floatIntensity={1.2}>
+      {/* Premium blue glowing distorted core */}
+      <Float speed={1.5} rotationIntensity={0.3} floatIntensity={1.0}>
         <mesh ref={outerRef}>
           <sphereGeometry args={[1.4, 64, 64]} />
           <MeshDistortMaterial
-            color="#0797B2"
-            emissive="#0d365f"
-            emissiveIntensity={0.6}
-            roughness={0.1}
-            metalness={0.2}
-            distort={0.35}
-            speed={2}
+            color="#4F7CFF"
+            emissive="#070B14"
+            emissiveIntensity={0.5}
+            roughness={0.15}
+            metalness={0.3}
+            distort={0.3}
+            speed={1.5}
           />
         </mesh>
       </Float>
 
-      {/* Wireframe shell in deep midnight purple */}
+      {/* Wireframe shell in soft white/blue */}
       <mesh ref={wireRef}>
-        <icosahedronGeometry args={[2.1, 1]} />
+        <icosahedronGeometry args={[2.0, 1]} />
         <meshBasicMaterial
-          color="#D9E7FF"
+          color="#EBF1FF"
           wireframe
           transparent
-          opacity={0.15}
+          opacity={0.12}
         />
       </mesh>
 
       {/* Inner glowing core sphere */}
       <mesh>
         <sphereGeometry args={[0.7, 32, 32]} />
-        <meshBasicMaterial color="#ffffff" transparent opacity={0.9} />
+        <meshBasicMaterial color="#ffffff" transparent opacity={0.8} />
       </mesh>
     </group>
   );
@@ -79,18 +79,18 @@ export default function Hero3D() {
         dpr={[1, 2]}
         gl={{ antialias: true, alpha: true }}
       >
-        <ambientLight intensity={0.8} />
-        <pointLight position={[10, 10, 10]} intensity={1.5} color="#ffffff" />
-        <pointLight position={[-10, -5, -5]} intensity={1.0} color="#0D365F" />
+        <ambientLight intensity={0.9} />
+        <pointLight position={[10, 10, 10]} intensity={1.8} color="#ffffff" />
+        <pointLight position={[-10, -5, -5]} intensity={0.8} color="#0B1020" />
         <Suspense fallback={null}>
           <HeroOrb />
           <Sparkles
-            count={60}
-            scale={8}
-            size={2}
-            speed={0.4}
-            color="#D9E7FF"
-            opacity={0.25}
+            count={50}
+            scale={7}
+            size={1.5}
+            speed={0.3}
+            color="#EBF1FF"
+            opacity={0.2}
           />
         </Suspense>
       </Canvas>

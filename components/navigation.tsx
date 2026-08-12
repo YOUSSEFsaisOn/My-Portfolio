@@ -4,7 +4,16 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X } from 'lucide-react'
+import { 
+  X, 
+  Home, 
+  MessageSquare, 
+  Briefcase, 
+  Monitor, 
+  Mail, 
+  Users, 
+  ArrowUpDown 
+} from 'lucide-react'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -23,12 +32,12 @@ export default function Navigation() {
   }, [])
 
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/consultation', label: 'Consultation' },
-    { href: '/careers', label: 'Careers' },
-    { href: '/portfolio', label: 'Portfolio' },
-    { href: '/contact', label: 'Contact Us' },
-    { href: '/about', label: 'About Us' },
+    { href: '/', label: 'Home', icon: Home },
+    { href: '/consultation', label: 'Consultation', icon: MessageSquare },
+    { href: '/careers', label: 'Careers', icon: Briefcase },
+    { href: '/portfolio', label: 'Portfolio', icon: Monitor },
+    { href: '/contact', label: 'Contact Us', icon: Mail },
+    { href: '/about', label: 'About Us', icon: Users },
   ]
 
   return (
@@ -38,8 +47,8 @@ export default function Navigation() {
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl transition-all duration-300 rounded-full border ${
         scrolled 
-          ? 'bg-[#0D4982]/85 backdrop-blur-md border-[#115EA5]/60 py-3.5 px-6 shadow-md shadow-slate-900/50' 
-          : 'bg-[#0D4982]/45 backdrop-blur-sm border-[#115EA5]/30 py-4 px-6 shadow-sm'
+          ? 'bg-slate-900/80 backdrop-blur-md border-slate-700/50 py-3.5 px-6 shadow-lg shadow-black/40' 
+          : 'bg-slate-900/40 backdrop-blur-sm border-slate-700/30 py-4 px-6 shadow-md'
       }`}
     >
       <div className="flex justify-between items-center">
@@ -51,7 +60,7 @@ export default function Navigation() {
               viewBox="0 0 100 90"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="drop-shadow-[0_0_8px_rgba(53,103,232,0.3)] filter transition-transform duration-300 group-hover:scale-105"
+              className="drop-shadow-[0_0_8px_rgba(255,255,255,0.2)] filter transition-transform duration-300 group-hover:scale-105"
             >
               {/* Outer house outline */}
               <path
@@ -65,7 +74,7 @@ export default function Navigation() {
               {/* Inner 'dev' design inside house */}
               <path
                 d="M32 46 C32 40, 42 40, 42 46 L42 62 C42 68, 32 68, 32 62 Z"
-                stroke="var(--primary)"
+                stroke="#FFFFFF"
                 strokeWidth="5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -73,14 +82,14 @@ export default function Navigation() {
               />
               <path
                 d="M42 43 L42 62"
-                stroke="var(--primary)"
+                stroke="#FFFFFF"
                 strokeWidth="5"
                 strokeLinecap="round"
                 fill="none"
               />
               <path
                 d="M48 55 C48 46, 58 46, 58 55 L48 55"
-                stroke="var(--primary)"
+                stroke="#FFFFFF"
                 strokeWidth="5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -88,7 +97,7 @@ export default function Navigation() {
               />
               <path
                 d="M48 55 C48 64, 58 64, 58 55"
-                stroke="var(--primary)"
+                stroke="#FFFFFF"
                 strokeWidth="5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -96,7 +105,7 @@ export default function Navigation() {
               />
               <path
                 d="M64 45 L70 62 L76 45"
-                stroke="var(--primary)"
+                stroke="#FFFFFF"
                 strokeWidth="5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -104,7 +113,7 @@ export default function Navigation() {
               />
             </svg>
           </div>
-          <span className="text-lg font-bold tracking-tight text-white font-sans">
+          <span className="text-lg font-semibold tracking-tight text-white font-sans">
             The DevHouse
           </span>
         </Link>
@@ -112,92 +121,91 @@ export default function Navigation() {
         {/* Hamburger Menu Button */}
         <button
           onClick={() => setIsOpen(true)}
-          className="relative group p-3 rounded-lg hover:bg-white/10 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#3567E8]/50"
+          className="relative group p-3 rounded-full hover:bg-white/10 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-slate-400/50"
           aria-label="Toggle menu"
         >
-          <div className="flex flex-col justify-between w-6 h-5">
-            <span className="block h-0.5 w-full bg-white rounded-full transition-all duration-300 group-hover:bg-primary group-hover:w-4/5 origin-left"></span>
-            <span className="block h-0.5 w-full bg-white rounded-full transition-all duration-300 group-hover:bg-primary group-hover:w-full"></span>
-            <span className="block h-0.5 w-full bg-white rounded-full transition-all duration-300 group-hover:bg-primary group-hover:w-4/5 origin-right"></span>
+          <div className="flex flex-col justify-between w-6 h-4">
+            <span className="block h-0.5 w-full bg-white rounded-full transition-all duration-300 group-hover:w-4/5 origin-left"></span>
+            <span className="block h-0.5 w-full bg-white rounded-full transition-all duration-300 group-hover:w-full"></span>
+            <span className="block h-0.5 w-full bg-white rounded-full transition-all duration-300 group-hover:w-4/5 origin-right"></span>
           </div>
         </button>
       </div>
 
-      {/* Slide-out Menu Drawer Overlay */}
+      {/* Slide-out Central Floating Menu Modal/Drawer */}
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Backdrop */}
+            {/* Backdrop with dark gradient overlay matching image */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[99]"
+              className="fixed inset-0 bg-black/70 backdrop-blur-md z-[99]"
             />
-            {/* Drawer */}
-            <motion.div 
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 h-screen w-full max-w-md bg-[#0D365F] border-l border-[#123C6A] z-[100] flex flex-col p-12 shadow-2xl"
-            >
-              <div className="flex justify-between items-center mb-16">
-                <span className="text-xl font-bold tracking-tight text-white font-sans">
-                  The DevHouse
-                </span>
-                <button 
-                  onClick={() => setIsOpen(false)} 
-                  className="text-white hover:text-primary transition-colors p-2 cursor-pointer"
-                  aria-label="Close menu"
-                >
-                  <X size={24} />
-                </button>
-              </div>
+            
+            {/* Centered Modal Content Card matching the image design */}
+            <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 pointer-events-none">
+              <motion.div 
+                initial={{ scale: 0.95, opacity: 0, y: 20 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                exit={{ scale: 0.95, opacity: 0, y: 20 }}
+                transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                className="pointer-events-auto w-full max-w-xl bg-gradient-to-b from-slate-900/90 via-slate-900/95 to-slate-950/95 backdrop-blur-xl border border-slate-700/60 rounded-3xl p-6 shadow-2xl shadow-black/80 flex flex-col max-h-[90vh] overflow-y-auto"
+              >
+                {/* Navigation Links List */}
+                <div className="flex flex-col divide-y divide-slate-800/60 my-2">
+                  {navLinks.map((link, idx) => {
+                    const IconComponent = link.icon
+                    const isActive = pathname === link.href
 
-              <div className="flex flex-col gap-6 my-auto">
-                {navLinks.map((link, idx) => (
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.08 }}
-                    key={link.href}
-                  >
-                    <Link
-                      href={link.href}
-                      className={`text-3xl md:text-4xl font-bold tracking-tight font-sans transition-colors duration-300 block ${
-                        pathname === link.href
-                          ? 'text-white'
-                          : 'text-[#CEDDEA]/50 hover:text-white'
-                      }`}
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {link.label}
-                    </Link>
-                  </motion.div>
-                ))}
-                
+                    return (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: idx * 0.05 }}
+                        key={link.href}
+                      >
+                        <Link
+                          href={link.href}
+                          className={`flex items-center gap-4 py-4 px-4 rounded-2xl transition-all duration-200 group ${
+                            isActive
+                              ? 'bg-white/10 text-white font-medium'
+                              : 'text-slate-300 hover:text-white hover:bg-white/5'
+                          }`}
+                          onClick={() => setIsOpen(false)}
+                        >
+                          <span className="p-2 rounded-xl bg-slate-800/80 text-slate-300 group-hover:text-white group-hover:bg-slate-700 transition-colors">
+                            <IconComponent size={20} />
+                          </span>
+                          <span className="text-base font-medium tracking-wide">
+                            {link.label}
+                          </span>
+                        </Link>
+                      </motion.div>
+                    )
+                  })}
+                </div>
+
+                {/* Bottom Action Button matching 'Get Started' style */}
                 <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: navLinks.length * 0.08 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: navLinks.length * 0.05 }}
+                  className="mt-6 pt-4"
                 >
                   <Link 
                     href="/contact"
-                    className="mt-8 block w-full py-4 bg-[#3567E8] text-white text-center font-bold tracking-wide rounded-full text-base hover:bg-[#D9E7FF] hover:text-[#0D365F] transition-all duration-300 shadow-md hover:shadow-lg"
-                    style={{ backgroundColor: 'var(--primary)' }}
+                    className="flex items-center justify-center gap-2 w-full py-4 bg-white text-slate-950 font-semibold tracking-wide rounded-2xl text-base hover:bg-slate-100 transition-all duration-300 shadow-md hover:shadow-lg cursor-pointer"
                     onClick={() => setIsOpen(false)}
                   >
-                    Let&apos;s Talk
+                    <span>Get Started</span>
+                    <ArrowUpDown size={16} className="rotate-90 text-slate-700" />
                   </Link>
                 </motion.div>
-              </div>
-
-              <div className="mt-auto text-xs text-[#CEDDEA]/60 border-t border-[#123C6A]/60 pt-6">
-                © {new Date().getFullYear()} The DevHouse. All rights reserved.
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           </>
         )}
       </AnimatePresence>
