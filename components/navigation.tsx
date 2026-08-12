@@ -31,6 +31,7 @@ export default function Navigation() {
     { href: '/about', label: 'About Us' },
   ]
 
+  // Nav text should be white on transparent dark nav (over hero background), and dark/white appropriately
   return (
     <motion.nav 
       initial={{ y: -50, opacity: 0 }}
@@ -38,20 +39,20 @@ export default function Navigation() {
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl transition-all duration-300 rounded-full border ${
         scrolled 
-          ? 'bg-[#0D4982]/85 backdrop-blur-md border-[#115EA5]/60 py-3.5 px-6 shadow-md shadow-slate-900/50' 
-          : 'bg-[#0D4982]/45 backdrop-blur-sm border-[#115EA5]/30 py-4 px-6 shadow-sm'
+          ? 'bg-[#070B14]/90 backdrop-blur-md border-white/10 py-3 px-6 shadow-lg shadow-slate-950/20'
+          : 'bg-[#070B14]/40 backdrop-blur-sm border-white/5 py-4 px-6'
       }`}
     >
       <div className="flex justify-between items-center">
         <Link href="/" className="flex items-center gap-3 group">
           <div className="relative flex items-center justify-center p-1.5 overflow-visible">
             <svg
-              width="36"
-              height="32"
+              width="32"
+              height="28"
               viewBox="0 0 100 90"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="drop-shadow-[0_0_8px_rgba(53,103,232,0.3)] filter transition-transform duration-300 group-hover:scale-105"
+              className="drop-shadow-[0_0_8px_rgba(79,124,255,0.3)] filter transition-transform duration-300 group-hover:scale-105"
             >
               {/* Outer house outline */}
               <path
@@ -65,7 +66,7 @@ export default function Navigation() {
               {/* Inner 'dev' design inside house */}
               <path
                 d="M32 46 C32 40, 42 40, 42 46 L42 62 C42 68, 32 68, 32 62 Z"
-                stroke="var(--primary)"
+                stroke="#4F7CFF"
                 strokeWidth="5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -73,14 +74,14 @@ export default function Navigation() {
               />
               <path
                 d="M42 43 L42 62"
-                stroke="var(--primary)"
+                stroke="#4F7CFF"
                 strokeWidth="5"
                 strokeLinecap="round"
                 fill="none"
               />
               <path
                 d="M48 55 C48 46, 58 46, 58 55 L48 55"
-                stroke="var(--primary)"
+                stroke="#4F7CFF"
                 strokeWidth="5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -88,7 +89,7 @@ export default function Navigation() {
               />
               <path
                 d="M48 55 C48 64, 58 64, 58 55"
-                stroke="var(--primary)"
+                stroke="#4F7CFF"
                 strokeWidth="5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -96,7 +97,7 @@ export default function Navigation() {
               />
               <path
                 d="M64 45 L70 62 L76 45"
-                stroke="var(--primary)"
+                stroke="#4F7CFF"
                 strokeWidth="5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -104,21 +105,46 @@ export default function Navigation() {
               />
             </svg>
           </div>
-          <span className="text-lg font-bold tracking-tight text-white font-sans">
+          <span className="text-base font-bold tracking-tight text-white font-sans">
             The DevHouse
           </span>
         </Link>
 
-        {/* Hamburger Menu Button */}
+        {/* Navigation Menu Links (Hidden on Mobile, Displayed on Desktop) */}
+        <div className="hidden md:flex items-center gap-6">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`text-sm font-semibold transition-colors duration-200 ${
+                pathname === link.href ? 'text-[#4F7CFF]' : 'text-white/80 hover:text-white'
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+
+        {/* Book a Consultation Link (Desktop) */}
+        <div className="hidden md:block">
+          <Link
+            href="/consultation"
+            className="text-xs font-bold tracking-wide uppercase px-5 py-2.5 bg-gradient-to-b from-[#4F7CFF] to-[#2F5DFF] text-white rounded-[18px] hover:scale-105 active:scale-95 transition-all shadow-[0_4px_15px_rgba(79,124,255,0.25)]"
+          >
+            Let&apos;s Talk
+          </Link>
+        </div>
+
+        {/* Hamburger Menu Button for Mobile */}
         <button
           onClick={() => setIsOpen(true)}
-          className="relative group p-3 rounded-lg hover:bg-white/10 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#3567E8]/50"
+          className="md:hidden relative group p-2.5 rounded-lg hover:bg-white/5 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#3B6DFF]/50"
           aria-label="Toggle menu"
         >
-          <div className="flex flex-col justify-between w-6 h-5">
-            <span className="block h-0.5 w-full bg-white rounded-full transition-all duration-300 group-hover:bg-primary group-hover:w-4/5 origin-left"></span>
-            <span className="block h-0.5 w-full bg-white rounded-full transition-all duration-300 group-hover:bg-primary group-hover:w-full"></span>
-            <span className="block h-0.5 w-full bg-white rounded-full transition-all duration-300 group-hover:bg-primary group-hover:w-4/5 origin-right"></span>
+          <div className="flex flex-col justify-between w-5 h-4">
+            <span className="block h-0.5 w-full bg-white rounded-full transition-all duration-300 group-hover:bg-[#4F7CFF] group-hover:w-4/5 origin-left"></span>
+            <span className="block h-0.5 w-full bg-white rounded-full transition-all duration-300 group-hover:bg-[#4F7CFF] group-hover:w-full"></span>
+            <span className="block h-0.5 w-full bg-white rounded-full transition-all duration-300 group-hover:bg-[#4F7CFF] group-hover:w-4/5 origin-right"></span>
           </div>
         </button>
       </div>
@@ -141,7 +167,7 @@ export default function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 h-screen w-full max-w-md bg-[#0D365F] border-l border-[#123C6A] z-[100] flex flex-col p-12 shadow-2xl"
+              className="fixed right-0 top-0 h-screen w-full max-w-md bg-[#0B1020] border-l border-white/5 z-[100] flex flex-col p-12 shadow-2xl"
             >
               <div className="flex justify-between items-center mb-16">
                 <span className="text-xl font-bold tracking-tight text-white font-sans">
@@ -149,7 +175,7 @@ export default function Navigation() {
                 </span>
                 <button 
                   onClick={() => setIsOpen(false)} 
-                  className="text-white hover:text-primary transition-colors p-2 cursor-pointer"
+                  className="text-white hover:text-[#4F7CFF] transition-colors p-2 cursor-pointer"
                   aria-label="Close menu"
                 >
                   <X size={24} />
@@ -166,10 +192,10 @@ export default function Navigation() {
                   >
                     <Link
                       href={link.href}
-                      className={`text-3xl md:text-4xl font-bold tracking-tight font-sans transition-colors duration-300 block ${
+                      className={`text-2xl md:text-3xl font-bold tracking-tight font-sans transition-colors duration-300 block ${
                         pathname === link.href
                           ? 'text-white'
-                          : 'text-[#CEDDEA]/50 hover:text-white'
+                          : 'text-white/50 hover:text-white'
                       }`}
                       onClick={() => setIsOpen(false)}
                     >
@@ -185,8 +211,7 @@ export default function Navigation() {
                 >
                   <Link 
                     href="/contact"
-                    className="mt-8 block w-full py-4 bg-[#3567E8] text-white text-center font-bold tracking-wide rounded-full text-base hover:bg-[#D9E7FF] hover:text-[#0D365F] transition-all duration-300 shadow-md hover:shadow-lg"
-                    style={{ backgroundColor: 'var(--primary)' }}
+                    className="mt-8 block w-full py-4 bg-gradient-to-b from-[#4F7CFF] to-[#2F5DFF] text-white text-center font-bold tracking-wide rounded-[20px] text-sm hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-md hover:shadow-lg"
                     onClick={() => setIsOpen(false)}
                   >
                     Let&apos;s Talk
@@ -194,7 +219,7 @@ export default function Navigation() {
                 </motion.div>
               </div>
 
-              <div className="mt-auto text-xs text-[#CEDDEA]/60 border-t border-[#123C6A]/60 pt-6">
+              <div className="mt-auto text-xs text-white/40 border-t border-white/5 pt-6">
                 © {new Date().getFullYear()} The DevHouse. All rights reserved.
               </div>
             </motion.div>
