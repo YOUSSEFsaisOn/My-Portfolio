@@ -7,28 +7,28 @@ import SpaceBackground from "@/components/space-background";
 import Navigation from "@/components/navigation";
 import FloatingContact from "@/components/floating-contact";
 import FloatingAi from "@/components/floating-ai";
-import Footer from '@/components/footer'
+import Footer from "@/components/footer";
 import { fadeInUp, fadeInLeft, fadeInRight, commonWhileInView, staggerContainer, staggerItem } from "@/lib/animations";
 
 export default function AboutPage() {
   const values = [
     {
-      icon: <Terminal className="w-6 h-6 text-[#8B5CF6]" />,
+      icon: <Terminal className="w-6 h-6 text-[var(--primary)]" />,
       title: "Technical Excellence",
       description: "We write clean, well-tested, and performant code that scales seamlessly under production workloads.",
     },
     {
-      icon: <Shield className="w-6 h-6 text-[#8B5CF6]" />,
+      icon: <Shield className="w-6 h-6 text-[var(--primary)]" />,
       title: "Security First",
       description: "From role-based JWT auth schemas to secure API routes, we safeguard customer data at every level.",
     },
     {
-      icon: <Flame className="w-6 h-6 text-[#8B5CF6]" />,
+      icon: <Flame className="w-6 h-6 text-[var(--primary)]" />,
       title: "Driven by Innovation",
       description: "We proactively evaluate and adopt cutting-edge technologies to keep our partners ahead of the curve.",
     },
     {
-      icon: <Users className="w-6 h-6 text-[#8B5CF6]" />,
+      icon: <Users className="w-6 h-6 text-[var(--primary)]" />,
       title: "Absolute Transparency",
       description: "We communicate honestly, demo frequently, and treat our clients as long-term engineering partners.",
     },
@@ -55,11 +55,11 @@ export default function AboutPage() {
           variants={fadeInUp}
           className="space-y-6"
         >
-          <span className="text-xs font-black uppercase tracking-[0.3em] text-[#8B5CF6] font-sans">
+          <span className="text-xs font-black uppercase tracking-[0.3em] text-[var(--primary)] font-sans">
             Who We Are
           </span>
           <h1 className="text-[clamp(40px,7vw,80px)] font-black text-white leading-tight font-serif tracking-tighter">
-            DRIVEN BY <span className="text-[#8B5CF6] drop-shadow-[0_0_15px_rgba(139,92,246,0.15)]">INNOVATION.</span>
+            DRIVEN BY <span className="text-[var(--primary)] drop-shadow-[0_0_15px_rgba(139,92,246,0.15)]">INNOVATION.</span>
           </h1>
           <p className="text-[#CEDDEA] max-w-3xl mx-auto text-lg md:text-xl leading-relaxed font-sans font-medium">
             We are a high-performance software engineering firm specializing in pixel-perfect client experiences, robust enterprise backends, and highly secure web applications.
@@ -79,7 +79,7 @@ export default function AboutPage() {
           >
             <h2 className="text-3xl md:text-5xl font-black text-white font-serif tracking-tight leading-tight">
               Our Vision & <br />
-              <span className="text-[#8B5CF6]">Architectural Philosophy.</span>
+              <span className="text-[var(--primary)]">Architectural Philosophy.</span>
             </h2>
             <div className="space-y-6 text-[#CEDDEA] text-base md:text-lg leading-relaxed font-sans">
               <p>
@@ -96,7 +96,7 @@ export default function AboutPage() {
             whileInView="visible"
             viewport={commonWhileInView}
             variants={fadeInRight}
-            className="bg-[#115EA5] p-8 md:p-12 rounded-[2.5rem] border border-[#10477C] shadow-xl shadow-blue-950/80 space-y-8"
+            className="bg-[#0B1020]/45 backdrop-blur-[20px] p-8 md:p-12 rounded-[2rem] border border-white/10 shadow-xl space-y-8"
           >
             <h3 className="text-2xl font-black text-white font-serif uppercase tracking-tighter">
               What We Excel At
@@ -111,7 +111,7 @@ export default function AboutPage() {
                   transition={{ delay: i * 0.1, duration: 0.5 }}
                   className="flex items-start gap-4"
                 >
-                  <CheckCircle2 className="w-5 h-5 text-[#8B5CF6] shrink-0 mt-1" />
+                  <CheckCircle2 className="w-5 h-5 text-[var(--primary)] shrink-0 mt-1" />
                   <span className="text-[#CEDDEA] font-medium font-sans text-base">{benefit}</span>
                 </motion.li>
               ))}
@@ -121,7 +121,7 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values Section */}
-      <section className="py-24 px-6 bg-[#123C6A]/20 border-y border-[#123C6A]/30 relative z-10">
+      <section className="py-24 px-6 bg-black/30 border-y border-white/5 relative z-10">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -129,7 +129,7 @@ export default function AboutPage() {
             viewport={commonWhileInView}
             className="text-center mb-16 space-y-4"
           >
-            <span className="text-xs font-black uppercase tracking-[0.25em] text-[#8B5CF6] font-sans">
+            <span className="text-xs font-black uppercase tracking-[0.25em] text-[var(--primary)] font-sans">
               Guided Principles
             </span>
             <h2 className="text-3xl md:text-5xl font-black text-white font-serif tracking-tight">
@@ -148,9 +148,9 @@ export default function AboutPage() {
               <motion.div
                 key={idx}
                 variants={staggerItem}
-                className="p-8 bg-[#115EA5] rounded-3xl border border-[#10477C] space-y-6 flex flex-col justify-between hover:border-[#8B5CF6]/50 transition-colors duration-300"
+                className="p-8 bg-[#0B1020]/45 backdrop-blur-[20px] rounded-3xl border border-white/10 space-y-6 flex flex-col justify-between hover:border-[var(--primary)]/50 transition-colors duration-300"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#123C6A] flex items-center justify-center">
+                <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
                   {val.icon}
                 </div>
                 <div className="space-y-2">
@@ -169,9 +169,9 @@ export default function AboutPage() {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={commonWhileInView}
-          className="bg-[#115EA5] p-12 md:p-20 rounded-[3rem] border border-[#10477C] shadow-xl space-y-8 relative overflow-hidden"
+          className="bg-[#0B1020]/45 backdrop-blur-[20px] p-12 md:p-20 rounded-[2.5rem] border border-white/10 shadow-xl space-y-8 relative overflow-hidden"
         >
-          <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-gradient-to-br from-[#8B5CF6]/20 to-transparent rounded-full blur-[80px] pointer-events-none" />
+          <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-gradient-to-br from-[var(--primary)]/20 to-transparent rounded-full blur-[80px] pointer-events-none" />
           
           <h2 className="text-3xl md:text-5xl font-black text-white font-serif tracking-tight leading-tight">
             Elevate Your Product <br />
@@ -183,7 +183,10 @@ export default function AboutPage() {
           <div className="pt-4">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center bg-[#8B5CF6] text-white px-8 py-4 rounded-xl text-sm font-black uppercase tracking-widest hover:bg-[#7C3AED] transition-all duration-300 shadow-md shadow-purple-900/40 cursor-pointer"
+              className="inline-flex items-center justify-center bg-gradient-to-b from-[var(--primary)] to-[var(--primary)]/80 text-white px-8 py-4 rounded-xl text-sm font-black uppercase tracking-widest hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 shadow-lg shadow-[var(--primary)]/20 cursor-pointer"
+              style={{
+                backgroundImage: 'linear-gradient(to bottom, var(--primary), var(--primary))',
+              }}
             >
               Start Your Project Now <span className="ml-2 font-bold">→</span>
             </Link>
@@ -193,8 +196,7 @@ export default function AboutPage() {
 
       <FloatingContact />
       <FloatingAi />
-            <Footer />
-
+      <Footer />
     </div>
   );
 }

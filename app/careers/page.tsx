@@ -55,22 +55,22 @@ export default function CareersPage() {
 
   const perks = [
     {
-      icon: <Cpu className="w-5 h-5 text-[#F59E0B]" />,
+      icon: <Cpu className="w-5 h-5 text-[var(--primary)]" />,
       title: "Premium Tech Stack",
       description: "Work on Next.js 16+, TypeScript, Tailwind CSS 4, and .NET Core. No legacy code dragging you down.",
     },
     {
-      icon: <Award className="w-5 h-5 text-[#F59E0B]" />,
+      icon: <Award className="w-5 h-5 text-[var(--primary)]" />,
       title: "Execution-Driven",
       description: "We hate red tape. We prioritize raw technical talent, clean architecture, and product results.",
     },
     {
-      icon: <BookOpen className="w-5 h-5 text-[#F59E0B]" />,
+      icon: <BookOpen className="w-5 h-5 text-[var(--primary)]" />,
       title: "Dedicated Learning",
       description: "Annual tech conference tickets, premium books, and online learning courses fully reimbursed.",
     },
     {
-      icon: <Heart className="w-5 h-5 text-[#F59E0B]" />,
+      icon: <Heart className="w-5 h-5 text-[var(--primary)]" />,
       title: "Fluid Autonomy",
       description: "Flexible schedules, remote work freedom, and continuous trust in your work delivery.",
     },
@@ -98,11 +98,11 @@ export default function CareersPage() {
           variants={fadeInUp}
           className="space-y-6"
         >
-          <span className="text-xs font-black uppercase tracking-[0.3em] text-[#F59E0B] font-sans">
+          <span className="text-xs font-black uppercase tracking-[0.3em] text-[var(--primary)] font-sans">
             Work With Us
           </span>
           <h1 className="text-[clamp(40px,7vw,80px)] font-black text-white leading-tight font-serif tracking-tighter">
-            JOIN THE <span className="text-[#F59E0B] drop-shadow-[0_0_15px_rgba(245,158,11,0.15)]">DEVHOUSE.</span>
+            JOIN THE <span className="text-[var(--primary)] drop-shadow-[0_0_15px_rgba(245,158,11,0.15)]">DEVHOUSE.</span>
           </h1>
           <p className="text-[#CEDDEA] max-w-3xl mx-auto text-lg md:text-xl leading-relaxed font-sans font-medium">
             We are looking for exceptional engineers who obsess over pixel perfection, lightning-fast queries, and clean engineering logic.
@@ -113,7 +113,7 @@ export default function CareersPage() {
       {/* Culture Perks */}
       <section className="py-20 px-6 max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16 space-y-4">
-          <span className="text-xs font-black uppercase tracking-[0.25em] text-[#F59E0B]">
+          <span className="text-xs font-black uppercase tracking-[0.25em] text-[var(--primary)]">
             Team Benefits
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-white font-serif tracking-tight">
@@ -125,9 +125,9 @@ export default function CareersPage() {
           {perks.map((perk, idx) => (
             <div
               key={idx}
-              className="p-8 bg-[#115EA5] rounded-3xl border border-[#10477C] hover:border-[#F59E0B]/50 transition-colors duration-300 space-y-6 flex flex-col justify-between"
+              className="p-8 bg-[#0B1020]/45 backdrop-blur-[20px] rounded-3xl border border-white/10 hover:border-[var(--primary)]/50 transition-colors duration-300 space-y-6 flex flex-col justify-between"
             >
-              <div className="w-12 h-12 bg-[#123C6A] rounded-xl flex items-center justify-center">
+              <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center">
                 {perk.icon}
               </div>
               <div className="space-y-2">
@@ -142,7 +142,7 @@ export default function CareersPage() {
       {/* Job Board Section */}
       <section className="py-24 px-6 max-w-5xl mx-auto relative z-10">
         <div className="text-center mb-16 space-y-4">
-          <span className="text-xs font-black uppercase tracking-[0.25em] text-[#F59E0B]">
+          <span className="text-xs font-black uppercase tracking-[0.25em] text-[var(--primary)]">
             Current Roles
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-white font-serif tracking-tight">
@@ -157,11 +157,11 @@ export default function CareersPage() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={commonWhileInView}
-              className="bg-[#115EA5] p-8 md:p-12 rounded-[2.5rem] border border-[#10477C] space-y-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6"
+              className="bg-[#0B1020]/45 backdrop-blur-[20px] p-8 md:p-12 rounded-[2.5rem] border border-white/10 space-y-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6"
             >
               <div className="space-y-4 max-w-2xl">
                 <div>
-                  <span className="px-3.5 py-1 bg-[#123C6A] border border-[#10477C] text-xs font-black uppercase tracking-wider text-[#F59E0B] rounded-full font-sans">
+                  <span className="px-3.5 py-1 bg-white/5 border border-white/10 text-xs font-black uppercase tracking-wider text-[var(--primary)] rounded-full font-sans">
                     {job.department}
                   </span>
                 </div>
@@ -170,11 +170,11 @@ export default function CareersPage() {
                 </h3>
                 <div className="flex flex-wrap gap-6 text-sm text-[#CEDDEA] font-bold font-sans">
                   <span className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-[#F59E0B]" />
+                    <MapPin className="w-4 h-4 text-[var(--primary)]" />
                     {job.location}
                   </span>
                   <span className="flex items-center gap-2">
-                    <DollarSign className="w-4 h-4 text-[#F59E0B]" />
+                    <DollarSign className="w-4 h-4 text-[var(--primary)]" />
                     {job.salary}
                   </span>
                 </div>
@@ -194,7 +194,10 @@ export default function CareersPage() {
               <div className="shrink-0 w-full md:w-auto">
                 <button
                   onClick={() => setSelectedJob(selectedJob === job.id ? null : job.id)}
-                  className="w-full md:w-auto px-8 py-4 bg-[#F59E0B] text-white rounded-xl text-sm font-black uppercase tracking-widest hover:bg-[#D97706] transition-all duration-300 cursor-pointer text-center"
+                  className="w-full md:w-auto px-8 py-4 text-white rounded-xl text-sm font-black uppercase tracking-widest hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 cursor-pointer text-center"
+                  style={{
+                    backgroundImage: 'linear-gradient(to bottom, var(--primary), var(--primary))',
+                  }}
                 >
                   {selectedJob === job.id ? "Close Details" : "Apply Now"}
                 </button>
@@ -211,7 +214,7 @@ export default function CareersPage() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-8 bg-[#123C6A] p-8 md:p-12 rounded-[2.5rem] border border-[#115EA5] shadow-inner"
+              className="mt-8 bg-[#0B1020]/60 backdrop-blur-xl p-8 md:p-12 rounded-[2.5rem] border border-white/10 shadow-inner"
             >
               <h3 className="text-2xl font-black text-white font-serif mb-6">
                 Apply for {jobs.find((j) => j.id === selectedJob)?.title}
@@ -226,7 +229,7 @@ export default function CareersPage() {
                     <input
                       type="text"
                       required
-                      className="w-full bg-[#115EA5]/60 border border-[#10477C] rounded-xl px-4 py-3.5 focus:outline-none focus:border-[#F59E0B] transition-colors font-semibold text-white"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 focus:outline-none focus:border-[var(--primary)] transition-colors font-semibold text-white"
                       placeholder="Your Name"
                     />
                   </div>
@@ -237,7 +240,7 @@ export default function CareersPage() {
                     <input
                       type="email"
                       required
-                      className="w-full bg-[#115EA5]/60 border border-[#10477C] rounded-xl px-4 py-3.5 focus:outline-none focus:border-[#F59E0B] transition-colors font-semibold text-white"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 focus:outline-none focus:border-[var(--primary)] transition-colors font-semibold text-white"
                       placeholder="you@example.com"
                     />
                   </div>
@@ -250,7 +253,7 @@ export default function CareersPage() {
                   <input
                     type="url"
                     required
-                    className="w-full bg-[#115EA5]/60 border border-[#10477C] rounded-xl px-4 py-3.5 focus:outline-none focus:border-[#F59E0B] transition-colors font-semibold text-white"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 focus:outline-none focus:border-[var(--primary)] transition-colors font-semibold text-white"
                     placeholder="https://github.com/yourprofile"
                   />
                 </div>
@@ -262,14 +265,17 @@ export default function CareersPage() {
                   <textarea
                     rows={4}
                     required
-                    className="w-full bg-[#115EA5]/60 border border-[#10477C] rounded-xl px-4 py-3.5 focus:outline-none focus:border-[#F59E0B] transition-colors font-semibold text-white resize-none"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 focus:outline-none focus:border-[var(--primary)] transition-colors font-semibold text-white resize-none"
                     placeholder="Tell us what excites you about this role..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-4.5 bg-[#F59E0B] text-white rounded-xl font-black uppercase tracking-widest hover:bg-[#D97706] transition-all duration-300 flex items-center justify-center gap-3 shadow-md cursor-pointer"
+                  className="w-full py-4.5 text-white rounded-xl font-black uppercase tracking-widest hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-3 shadow-md cursor-pointer"
+                  style={{
+                    backgroundImage: 'linear-gradient(to bottom, var(--primary), var(--primary))',
+                  }}
                 >
                   {submitted ? (
                     <>

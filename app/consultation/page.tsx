@@ -21,17 +21,17 @@ export default function ConsultationPage() {
 
   const steps = [
     {
-      icon: <HelpCircle className="w-5 h-5 text-[#0797B2]" />,
+      icon: <HelpCircle className="w-5 h-5 text-[var(--primary)]" />,
       title: "1. Brief Discovery Call",
       description: "A snappy 30-minute dialogue to address your product vision, system bottlenecks, and execution schedule.",
     },
     {
-      icon: <Clock className="w-5 h-5 text-[#0797B2]" />,
+      icon: <Clock className="w-5 h-5 text-[var(--primary)]" />,
       title: "2. Technical Scoping",
       description: "We map out high-fidelity software requirements, database structure schema, and API integrations.",
     },
     {
-      icon: <Calendar className="w-5 h-5 text-[#0797B2]" />,
+      icon: <Calendar className="w-5 h-5 text-[var(--primary)]" />,
       title: "3. Architecture Design",
       description: "Get a comprehensive technical blueprint detailing standard system models, hosting scale, and budget.",
     },
@@ -50,11 +50,11 @@ export default function ConsultationPage() {
           variants={fadeInUp}
           className="space-y-6"
         >
-          <span className="text-xs font-black uppercase tracking-[0.3em] text-[#0797B2] font-sans">
+          <span className="text-xs font-black uppercase tracking-[0.3em] text-[var(--primary)] font-sans">
             Expert Advisory
           </span>
           <h1 className="text-[clamp(40px,7vw,80px)] font-black text-white leading-tight font-serif tracking-tighter">
-            CONSULTATION <span className="text-[#0797B2] drop-shadow-[0_0_15px_rgba(7,151,178,0.15)]">SERVICES.</span>
+            CONSULTATION <span className="text-[var(--primary)] drop-shadow-[0_0_15px_rgba(7,151,178,0.15)]">SERVICES.</span>
           </h1>
           <p className="text-[#CEDDEA] max-w-3xl mx-auto text-lg md:text-xl leading-relaxed font-sans font-medium">
             Accelerate your engineering decisions. Meet with our technical leads to scope, optimize, and blueprint your system architecture.
@@ -68,7 +68,7 @@ export default function ConsultationPage() {
           <div className="space-y-4">
             <h2 className="text-3xl md:text-5xl font-black text-white font-serif tracking-tight leading-tight">
               Our Structured <br />
-              <span className="text-[#0797B2]">Scoping Framework.</span>
+              <span className="text-[var(--primary)]">Scoping Framework.</span>
             </h2>
             <p className="text-[#CEDDEA]/90 text-base md:text-lg leading-relaxed font-sans">
               No guessing, no surprises. We leverage a structured framework to map out your digital products from early conception to secure, reliable cloud deployments.
@@ -83,9 +83,9 @@ export default function ConsultationPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={commonWhileInView}
                 transition={{ delay: idx * 0.1 }}
-                className="flex gap-4 p-6 bg-[#115EA5] rounded-2xl border border-[#10477C]"
+                className="flex gap-4 p-6 bg-[#0B1020]/45 backdrop-blur-[20px] rounded-2xl border border-white/10"
               >
-                <div className="p-3 bg-[#123C6A] rounded-xl shrink-0 h-fit">
+                <div className="p-3 bg-white/5 border border-white/10 rounded-xl shrink-0 h-fit">
                   {step.icon}
                 </div>
                 <div className="space-y-1">
@@ -102,9 +102,9 @@ export default function ConsultationPage() {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={commonWhileInView}
-          className="bg-[#115EA5] p-8 md:p-12 rounded-[2.5rem] border border-[#10477C] shadow-2xl relative overflow-hidden"
+          className="bg-[#0B1020]/45 backdrop-blur-[20px] p-8 md:p-12 rounded-[2.5rem] border border-white/10 shadow-2xl relative overflow-hidden"
         >
-          <div className="absolute top-0 right-0 w-[250px] h-[250px] bg-gradient-to-br from-[#0797B2]/20 to-transparent rounded-full blur-[80px] pointer-events-none" />
+          <div className="absolute top-0 right-0 w-[250px] h-[250px] bg-gradient-to-br from-[var(--primary)]/20 to-transparent rounded-full blur-[80px] pointer-events-none" />
 
           <h3 className="text-2xl font-black text-white font-serif tracking-tight mb-8">
             Request Strategy Call
@@ -118,7 +118,7 @@ export default function ConsultationPage() {
               <input
                 type="text"
                 required
-                className="w-full bg-[#123C6A]/60 border border-[#123C6A] rounded-xl px-4 py-3.5 focus:outline-none focus:border-[#0797B2] transition-colors font-semibold text-white"
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 focus:outline-none focus:border-[var(--primary)] transition-colors font-semibold text-white"
                 placeholder="E.g. Jane Doe"
               />
             </div>
@@ -130,7 +130,7 @@ export default function ConsultationPage() {
               <input
                 type="email"
                 required
-                className="w-full bg-[#123C6A]/60 border border-[#123C6A] rounded-xl px-4 py-3.5 focus:outline-none focus:border-[#0797B2] transition-colors font-semibold text-white"
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 focus:outline-none focus:border-[var(--primary)] transition-colors font-semibold text-white"
                 placeholder="jane@company.com"
               />
             </div>
@@ -141,13 +141,13 @@ export default function ConsultationPage() {
               </label>
               <select
                 required
-                className="w-full bg-[#123C6A] border border-[#123C6A] rounded-xl px-4 py-3.5 focus:outline-none focus:border-[#0797B2] transition-colors font-semibold text-[#CEDDEA]"
+                className="w-full bg-[#070B14] border border-white/10 rounded-xl px-4 py-3.5 focus:outline-none focus:border-[var(--primary)] transition-colors font-semibold text-[#CEDDEA]"
               >
-                <option value="">Select an option</option>
-                <option value="scaling">Scaling Frontend / React Platforms</option>
-                <option value="backend">Robust .NET API Development</option>
-                <option value="custom">Custom Web Application Scoping</option>
-                <option value="integrations">Third-party Payment & Zoom Integrations</option>
+                <option value="" className="bg-[#070B14]">Select an option</option>
+                <option value="scaling" className="bg-[#070B14]">Scaling Frontend / React Platforms</option>
+                <option value="backend" className="bg-[#070B14]">Robust .NET API Development</option>
+                <option value="custom" className="bg-[#070B14]">Custom Web Application Scoping</option>
+                <option value="integrations" className="bg-[#070B14]">Third-party Payment & Zoom Integrations</option>
               </select>
             </div>
 
@@ -157,14 +157,17 @@ export default function ConsultationPage() {
               </label>
               <textarea
                 rows={3}
-                className="w-full bg-[#123C6A]/60 border border-[#123C6A] rounded-xl px-4 py-3.5 focus:outline-none focus:border-[#0797B2] transition-colors font-semibold text-white resize-none"
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3.5 focus:outline-none focus:border-[var(--primary)] transition-colors font-semibold text-white resize-none"
                 placeholder="Give us a brief brief of what you want to achieve"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full py-4.5 bg-[#0797B2] text-white rounded-xl font-black uppercase tracking-widest hover:bg-[#068096] transition-all duration-300 flex items-center justify-center gap-3 shadow-md shadow-teal-900/40 cursor-pointer"
+              className="w-full py-4.5 text-white rounded-xl font-black uppercase tracking-widest hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-3 shadow-md cursor-pointer"
+              style={{
+                backgroundImage: 'linear-gradient(to bottom, var(--primary), var(--primary))',
+              }}
             >
               {submitted ? (
                 <>
