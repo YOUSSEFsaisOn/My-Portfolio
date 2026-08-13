@@ -6,7 +6,6 @@ import { ExternalLink, Github, GraduationCap, Server, Lock } from "lucide-react"
 import SpaceBackground from "@/components/space-background";
 import Navigation from "@/components/navigation";
 import FloatingContact from "@/components/floating-contact";
-import FloatingAi from "@/components/floating-ai";
 import { TechBadgeGroup } from "@/components/shared/tech-badge";
 import { fadeInUp } from "@/lib/animations";
 import Footer from "@/components/footer";
@@ -207,7 +206,6 @@ export default function PortfolioPage() {
       </section>
 
       <FloatingContact />
-      <FloatingAi />
       <Footer />
     </div>
   );

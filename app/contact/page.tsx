@@ -6,7 +6,6 @@ import { Mail, Phone, Linkedin, Send, CheckCircle2, MapPin } from "lucide-react"
 import SpaceBackground from "@/components/space-background";
 import Navigation from "@/components/navigation";
 import FloatingContact from "@/components/floating-contact";
-import FloatingAi from "@/components/floating-ai";
 import { fadeInUp, commonWhileInView } from "@/lib/animations";
 import Footer from "@/components/footer";
 
@@ -182,7 +181,6 @@ export default function ContactPage() {
       </section>
 
       <FloatingContact />
-      <FloatingAi />
       <Footer />
     </div>
   );
