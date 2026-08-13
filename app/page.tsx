@@ -6,6 +6,8 @@ import Process from '@/components/process'
 import FloatingContact from '@/components/floating-contact'
 import SpaceBackground from '@/components/space-background'
 import Footer from '@/components/footer'
+import Newbusiness from '@/components/new-business'
+import Lms from '@/components/lms'
 
 export default function Home() {
   return (
@@ -16,6 +18,8 @@ export default function Home() {
       <Projects />
       <Values />
       <Process />
+      <Newbusiness/>
+      <Lms/>
       <Footer />
       <FloatingContact />
     </div>

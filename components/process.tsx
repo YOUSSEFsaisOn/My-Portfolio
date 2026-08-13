@@ -1,60 +1,142 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Rocket } from "lucide-react";
+
+const STEPS = [
+  {
+    title: "Book a Free Consultation",
+    subtitle: "Your journey starts here — no cost, no commitment.",
+    points: [
+      "Schedule a consultation session with us — it's quick and free.",
+      "Explain your needs and business processes in detail so we fully understand your vision.",
+    ],
+  },
+  {
+    title: "Requirements & Planning",
+    subtitle: "We define the solution's scope together.",
+    points: [
+      "Finalize the project requirements and outline the solution.",
+      "Agree on acceptance criteria, timeline, and key milestones.",
+      "Set a clear budget that fits your needs and expectations.",
+    ],
+  },
+  {
+    title: "Secure Your Spot",
+    subtitle: "Reserve our development resources with a deposit.",
+    points: [
+      "Pay an agreed-upon deposit to kickstart the project.",
+      "Your project is now locked in our schedule — development begins immediately.",
+      "All transactions are secure and transparent.",
+    ],
+  },
+  {
+    title: "Development & Updates",
+    subtitle: "We build your solution and keep you in the loop.",
+    points: [
+      "Our team starts building based on the agreed plan.",
+      "You receive regular progress updates and previews.",
+      "We adjust based on your feedback before the final delivery.",
+    ],
+  },
+  {
+    title: "Launch & Review",
+    subtitle: "Your solution goes live — time to test it out.",
+    points: [
+      "We deploy your solution to a live environment.",
+      "You test it thoroughly and share your feedback.",
+      "We implement final tweaks to make sure it's perfect.",
+    ],
+  },
+  {
+    title: "Ongoing Support",
+    subtitle: "We stay with you even after launch.",
+    points: [
+      "Get access to post-launch support for a smooth transition.",
+      "We handle maintenance, updates, and optimizations.",
+      "Your success is our priority — we grow with you.",
+    ],
+  },
+];
 
 export default function Process() {
   return (
-    <section id="process" className="py-28 bg-[#F8F9FC] border-y border-[#E5E7EB] relative overflow-hidden">
-      {/* Soft background glow */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-[#4F7CFF]/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-[80px]" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#2F5DFF]/5 rounded-full translate-x-1/3 translate-y-1/3 blur-[80px]" />
+    <section id="process" className="py-24 md:py-32 relative overflow-hidden bg-[#0a1f3d]">
+      {/* Blue gradient background matching the image */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0d5aa3] via-[#0a3a6e] to-[#071a33]" />
+      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#0d7bc9]/20 rounded-full -translate-x-1/4 -translate-y-1/4 blur-[120px]" />
 
-      <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-        <span className="text-[10px] font-bold tracking-[0.25em] text-[#3B6DFF] uppercase mb-4 block">
-          METHODOLOGY
-        </span>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl font-black text-[#111827] mb-6 font-serif tracking-tighter"
-        >
-          The Typical Cycle at Yousef&apos;s Lab
-        </motion.h2>
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-16 md:mb-20">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-[10px] font-semibold tracking-[0.25em] text-white/40 uppercase mb-4 block"
+          >
+            METHODOLOGY
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-3xl md:text-5xl font-bold text-white mb-5 tracking-tight"
+          >
+            The Typical Cycle at The DevHouse
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-white/50 text-base md:text-lg leading-relaxed max-w-2xl mx-auto"
+          >
+            Our proven development process ensures quality and client satisfaction at every step. From initial discovery to final launch.
+          </motion.p>
+        </div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-[#6B7280] text-base md:text-lg leading-relaxed max-w-2xl mx-auto font-sans"
-        >
-          Our proven development process ensures quality and client satisfaction at every step. From initial discovery to final launch.
-        </motion.p>
-
-        {/* Process steps */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-          {[
-            { label: "Discovery", step: "01" },
-            { label: "Design", step: "02" },
-            { label: "Development", step: "03" },
-            { label: "Launch", step: "04" }
-          ].map((item, i) => (
+        {/* Cards Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {STEPS.map((step, i) => (
             <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              key={step.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="flex flex-col items-center group"
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="bg-[#0d3a6b]/40 backdrop-blur-xl rounded-[2rem] border border-white/[0.08] p-8 md:p-10"
             >
-              <div className="w-16 h-16 rounded-[20px] bg-white border border-[#E5E7EB] flex items-center justify-center text-[#3B6DFF] font-black text-lg mb-4 shadow-[0_4px_15px_rgba(0,0,0,0.02)] group-hover:border-[#3B6DFF] group-hover:shadow-[0_8px_25px_rgba(79,124,255,0.15)] group-hover:scale-105 transition-all duration-300">
-                {item.step}
+              {/* Icon */}
+              <div className="flex justify-center mb-6">
+                <div className="w-12 h-12 rounded-full bg-white/5 border border-white/[0.1] flex items-center justify-center">
+                  <Rocket className="w-5 h-5 text-white/80" />
+                </div>
               </div>
-              <span className="text-[#6B7280] group-hover:text-[#111827] font-bold uppercase tracking-widest text-[10px] md:text-xs transition-colors font-sans">
-                {item.label}
-              </span>
+
+              {/* Title */}
+              <h3 className="text-xl font-semibold text-white text-center mb-3">
+                {step.title}
+              </h3>
+
+              {/* Subtitle */}
+              <p className="text-white/60 text-sm text-center mb-6 leading-relaxed">
+                {step.subtitle}
+              </p>
+
+              {/* Bullet Points */}
+              <ul className="space-y-3">
+                {step.points.map((point, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-left">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white/50 mt-2 shrink-0" />
+                    <span className="text-white/60 text-sm leading-relaxed">
+                      {point}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </div>
