@@ -2,12 +2,11 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { HelpCircle, Clock, Calendar, Send, CheckCircle2 } from "lucide-react";
-import SpaceBackground from "@/components/space-background";
+import { ChevronDown, Calendar, Clock } from "lucide-react";
 import Navigation from "@/components/navigation";
 import FloatingContact from "@/components/floating-contact";
-import { fadeInUp, commonWhileInView } from "@/lib/animations";
 import Footer from "@/components/footer";
+import { fadeInUp, fadeInLeft, fadeInRight, commonWhileInView } from "@/lib/animations";
 
 export default function ConsultationPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -18,171 +17,169 @@ export default function ConsultationPage() {
     setTimeout(() => setSubmitted(false), 3500);
   };
 
-  const steps = [
-    {
-      icon: <HelpCircle className="w-5 h-5 text-[#0797B2]" />,
-      title: "1. Brief Discovery Call",
-      description: "A snappy 30-minute dialogue to address your product vision, system bottlenecks, and execution schedule.",
-    },
-    {
-      icon: <Clock className="w-5 h-5 text-[#0797B2]" />,
-      title: "2. Technical Scoping",
-      description: "We map out high-fidelity software requirements, database structure schema, and API integrations.",
-    },
-    {
-      icon: <Calendar className="w-5 h-5 text-[#0797B2]" />,
-      title: "3. Architecture Design",
-      description: "Get a comprehensive technical blueprint detailing standard system models, hosting scale, and budget.",
-    },
-  ];
-
   return (
-    <div className="bg-background text-foreground min-h-screen relative overflow-hidden">
-      <SpaceBackground />
-      <Navigation />
+    <div className="min-h-screen bg-white text-neutral-800">
+      {/* Navigation */}
+      <div className="fixed top-0 left-0 right-0 z-50">
+        <Navigation />
+      </div>
 
-      {/* Hero Section */}
-      <section className="pt-48 pb-20 px-6 max-w-7xl mx-auto text-center relative z-10">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeInUp}
-          className="space-y-6"
+      {/* Hero Section with Video Background */}
+      <section className="relative h-[55vh] min-h-[400px] w-full overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
         >
-          <span className="text-xs font-black uppercase tracking-[0.3em] text-[#0797B2] font-sans">
-            Expert Advisory
-          </span>
-          <h1 className="text-[clamp(40px,7vw,80px)] font-black text-white leading-tight font-serif tracking-tighter">
-            CONSULTATION <span className="text-[#0797B2] drop-shadow-[0_0_15px_rgba(7,151,178,0.15)]">SERVICES.</span>
-          </h1>
-          <p className="text-[#CEDDEA] max-w-3xl mx-auto text-lg md:text-xl leading-relaxed font-sans font-medium">
-            Accelerate your engineering decisions. Meet with our technical leads to scope, optimize, and blueprint your system architecture.
-          </p>
-        </motion.div>
+          <source src="/8426049-uhd_3840_2160_25fps.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/45" />
       </section>
 
-      {/* Scoping Pillars */}
-      <section className="py-20 px-6 max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-16 items-center">
-        <div className="space-y-10">
-          <div className="space-y-4">
-            <h2 className="text-3xl md:text-5xl font-black text-white font-serif tracking-tight leading-tight">
-              Our Structured <br />
-              <span className="text-[#0797B2]">Scoping Framework.</span>
-            </h2>
-            <p className="text-[#CEDDEA]/90 text-base md:text-lg leading-relaxed font-sans">
-              No guessing, no surprises. We leverage a structured framework to map out your digital products from early conception to secure, reliable cloud deployments.
-            </p>
-          </div>
-
-          <div className="space-y-6 font-sans">
-            {steps.map((step, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={commonWhileInView}
-                transition={{ delay: idx * 0.1 }}
-                className="flex gap-4 p-6 bg-[#115EA5] rounded-2xl border border-[#10477C]"
-              >
-                <div className="p-3 bg-[#123C6A] rounded-xl shrink-0 h-fit">
-                  {step.icon}
-                </div>
-                <div className="space-y-1">
-                  <h3 className="text-lg font-bold text-white font-serif">{step.title}</h3>
-                  <p className="text-sm text-[#CEDDEA]/80 leading-relaxed">{step.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+      {/* Content Section */}
+      <section className="relative z-10 bg-white -mt-16 rounded-t-[2rem] px-6 pt-16 pb-24">
+        <div className="max-w-3xl mx-auto text-center space-y-5 mb-16">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl lg:text-5xl font-normal text-neutral-900 tracking-tight"
+            style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+          >
+            The DevHouse Consultation Program
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-neutral-500 text-base md:text-lg leading-relaxed max-w-3xl mx-auto"
+          >
+            The DevHouse consultation program is, first and foremost, an effort to give back to the community by making our knowledge available through a consultation session. This also serves as a low-commitment way to get your questions answered. We are happy to answer any questions you have about our products and services.
+          </motion.p>
         </div>
 
-        {/* Dynamic Booking/Request Form Container */}
+        {/* Form Card */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={commonWhileInView}
-          className="bg-[#115EA5] p-8 md:p-12 rounded-[2.5rem] border border-[#10477C] shadow-2xl relative overflow-hidden"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="max-w-3xl mx-auto bg-white rounded-2xl border border-neutral-100 shadow-sm p-8 md:p-12"
         >
-          <div className="absolute top-0 right-0 w-[250px] h-[250px] bg-gradient-to-br from-[#0797B2]/20 to-transparent rounded-full blur-[80px] pointer-events-none" />
+          <h2 className="text-lg font-semibold text-neutral-900 mb-10">
+            Schedule Your Consultation
+          </h2>
 
-          <h3 className="text-2xl font-black text-white font-serif tracking-tight mb-8">
-            Request Strategy Call
-          </h3>
-
-          <form onSubmit={handleSubmit} className="space-y-6 font-sans relative z-10">
+          <form onSubmit={handleSubmit} className="space-y-8">
+            {/* Full Name */}
             <div className="space-y-2">
-              <label className="text-xs font-black uppercase tracking-wider text-[#CEDDEA]/80">
-                Full Name
+              <label className="block text-sm text-neutral-600">
+                Full Name <span className="text-neutral-400">*</span>
               </label>
               <input
                 type="text"
                 required
-                className="w-full bg-[#123C6A]/60 border border-[#123C6A] rounded-xl px-4 py-3.5 focus:outline-none focus:border-[#0797B2] transition-colors font-semibold text-white"
-                placeholder="E.g. Jane Doe"
+                placeholder="Enter your name"
+                className="w-full border-0 border-b border-neutral-200 bg-transparent px-0 py-2.5 text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-400 focus:outline-none focus:ring-0 transition-colors"
               />
             </div>
 
+            {/* Email Address */}
             <div className="space-y-2">
-              <label className="text-xs font-black uppercase tracking-wider text-[#CEDDEA]/80">
-                Business Email
+              <label className="block text-sm text-neutral-600">
+                Email Address <span className="text-neutral-400">*</span>
               </label>
               <input
                 type="email"
                 required
-                className="w-full bg-[#123C6A]/60 border border-[#123C6A] rounded-xl px-4 py-3.5 focus:outline-none focus:border-[#0797B2] transition-colors font-semibold text-white"
-                placeholder="jane@company.com"
+                placeholder="example@domain.com"
+                className="w-full border-0 border-b border-neutral-200 bg-transparent px-0 py-2.5 text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-400 focus:outline-none focus:ring-0 transition-colors"
               />
             </div>
 
+            {/* Phone with Country Code */}
             <div className="space-y-2">
-              <label className="text-xs font-black uppercase tracking-wider text-[#CEDDEA]/80">
-                Primary Challenge
+              <div className="flex items-center border-b border-neutral-200">
+                <div className="flex items-center gap-2 pr-4 shrink-0">
+                  <span className="text-lg">🇪🇬</span>
+                  <ChevronDown className="w-3.5 h-3.5 text-neutral-400" />
+                  <span className="text-neutral-900 text-base">+20</span>
+                </div>
+                <input
+                  type="tel"
+                  placeholder=""
+                  className="w-full border-0 bg-transparent px-0 py-2.5 text-neutral-900 focus:outline-none focus:ring-0"
+                />
+              </div>
+            </div>
+
+            {/* Subject */}
+            <div className="space-y-2">
+              <label className="block text-sm text-neutral-600">
+                Subject <span className="text-neutral-400">*</span>
               </label>
-              <select
+              <input
+                type="text"
                 required
-                className="w-full bg-[#123C6A] border border-[#123C6A] rounded-xl px-4 py-3.5 focus:outline-none focus:border-[#0797B2] transition-colors font-semibold text-[#CEDDEA]"
-              >
-                <option value="">Select an option</option>
-                <option value="scaling">Scaling Frontend / React Platforms</option>
-                <option value="backend">Robust .NET API Development</option>
-                <option value="custom">Custom Web Application Scoping</option>
-                <option value="integrations">Third-party Payment & Zoom Integrations</option>
-              </select>
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-xs font-black uppercase tracking-wider text-[#CEDDEA]/80">
-                Project Context (Optional)
-              </label>
-              <textarea
-                rows={3}
-                className="w-full bg-[#123C6A]/60 border border-[#123C6A] rounded-xl px-4 py-3.5 focus:outline-none focus:border-[#0797B2] transition-colors font-semibold text-white resize-none"
-                placeholder="Give us a brief brief of what you want to achieve"
+                placeholder="What's this consultation about?"
+                className="w-full border-0 border-b border-neutral-200 bg-transparent px-0 py-2.5 text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-400 focus:outline-none focus:ring-0 transition-colors"
               />
             </div>
 
-            <button
-              type="submit"
-              className="w-full py-4.5 bg-[#0797B2] text-white rounded-xl font-black uppercase tracking-widest hover:bg-[#068096] transition-all duration-300 flex items-center justify-center gap-3 shadow-md shadow-teal-900/40 cursor-pointer"
-            >
-              {submitted ? (
-                <>
-                  <CheckCircle2 size={20} />
-                  Call Request Received
-                </>
-              ) : (
-                <>
-                  Schedule Free Session
-                  <Send size={16} />
-                </>
-              )}
-            </button>
+            {/* Preferred Date & Time */}
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-2">
+                <label className="block text-sm text-neutral-600">
+                  Preferred Date
+                </label>
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder="mm/dd/yyyy"
+                    onFocus={(e) => (e.target.type = "date")}
+                    onBlur={(e) => {
+                      if (!e.target.value) e.target.type = "text";
+                    }}
+                    className="w-full border-0 border-b border-neutral-200 bg-transparent px-0 py-2.5 text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-400 focus:outline-none focus:ring-0 transition-colors"
+                  />
+                  <Calendar className="absolute right-0 top-2.5 w-4 h-4 text-neutral-400 pointer-events-none" />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="block text-sm text-neutral-600">
+                  Preferred Time
+                </label>
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder="--:-- --"
+                    onFocus={(e) => (e.target.type = "time")}
+                    onBlur={(e) => {
+                      if (!e.target.value) e.target.type = "text";
+                    }}
+                    className="w-full border-0 border-b border-neutral-200 bg-transparent px-0 py-2.5 text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-400 focus:outline-none focus:ring-0 transition-colors"
+                  />
+                  <Clock className="absolute right-0 top-2.5 w-4 h-4 text-neutral-400 pointer-events-none" />
+                </div>
+              </div>
+            </div>
+
+            {/* Submit Button */}
+            <div className="pt-6">
+              <button
+                type="submit"
+                className="w-full md:w-auto px-10 py-3.5 bg-neutral-900 text-white text-sm font-medium rounded-lg hover:bg-neutral-800 transition-colors duration-300"
+              >
+                {submitted ? "Request Submitted!" : "Schedule Consultation"}
+              </button>
+            </div>
           </form>
         </motion.div>
       </section>
 
       <FloatingContact />
-      <Footer />
     </div>
   );
 }
