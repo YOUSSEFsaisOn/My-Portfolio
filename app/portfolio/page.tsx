@@ -19,7 +19,7 @@ const PROJECTS = [
     tech: ["Next.js", ".NET", "React Query", "Paymob", "Bunny.net"],
     link: "https://compass.college/",
     category: "E-Learning",
-    icon: <GraduationCap className="w-5 h-5 text-[#EC4899]" />,
+    icon: <GraduationCap className="w-5 h-5 text-[var(--primary)]" />,
   },
   {
     title: "ET Engineering Academy",
@@ -28,7 +28,7 @@ const PROJECTS = [
     tech: ["Next.js", ".NET", "TypeScript", "React Query", "Bunny.net"],
     link: "https://etengineeringacademy.com",
     category: "E-Learning",
-    icon: <GraduationCap className="w-5 h-5 text-[#EC4899]" />,
+    icon: <GraduationCap className="w-5 h-5 text-[var(--primary)]" />,
   },
   {
     title: "Notes Management App",
@@ -37,7 +37,7 @@ const PROJECTS = [
     tech: ["React.js", ".NET", "JWT", "Tailwind CSS"],
     link: "#",
     category: "Full-Stack",
-    icon: <Server className="w-5 h-5 text-[#EC4899]" />,
+    icon: <Server className="w-5 h-5 text-[var(--primary)]" />,
   },
   {
     title: "Firebase Auth System",
@@ -46,7 +46,7 @@ const PROJECTS = [
     tech: ["React", "Firebase", "Auth", "Security"],
     link: "#",
     category: "Auth & Security",
-    icon: <Lock className="w-5 h-5 text-[#EC4899]" />,
+    icon: <Lock className="w-5 h-5 text-[var(--primary)]" />,
   },
 ];
 
@@ -72,12 +72,12 @@ export default function PortfolioPage() {
           variants={fadeInUp}
           className="space-y-6"
         >
-          <span className="text-xs font-black uppercase tracking-[0.3em] text-[#EC4899] font-sans">
+          <span className="text-xs font-black uppercase tracking-[0.3em] text-[var(--primary)] font-sans">
             Our Work
           </span>
           <h1 className="text-[clamp(40px,7vw,80px)] font-black text-white leading-tight font-serif tracking-tighter">
             CASE STUDIES & <br />
-            <span className="text-[#EC4899] drop-shadow-[0_0_15px_rgba(236,72,153,0.15)]">PRODUCTIONS.</span>
+            <span className="text-[var(--primary)] drop-shadow-[0_0_15px_rgba(236,72,153,0.15)]">PRODUCTIONS.</span>
           </h1>
           <p className="text-[#CEDDEA] max-w-2xl mx-auto text-lg font-sans">
             A comprehensive look at our modern e-learning applications, highly secure database structures, and high-performance frontend interfaces.
@@ -87,7 +87,7 @@ export default function PortfolioPage() {
 
       {/* Category Filter Handles */}
       <section className="py-8 px-6 relative z-20">
-        <div className="max-w-xl mx-auto bg-[#123C6A]/60 backdrop-blur-md p-1.5 rounded-2xl border border-[#115EA5]/30 flex flex-wrap justify-between items-center gap-1 shadow-sm">
+        <div className="max-w-xl mx-auto bg-[#0B1020]/60 backdrop-blur-md p-1.5 rounded-2xl border border-white/10 flex flex-wrap justify-between items-center gap-1 shadow-sm">
           {CATEGORIES.map((cat) => (
             <button
               key={cat}
@@ -101,7 +101,10 @@ export default function PortfolioPage() {
               {selectedCategory === cat && (
                 <motion.div
                   layoutId="activeCategoryHandle"
-                  className="absolute inset-0 bg-[#EC4899] rounded-xl shadow-md border border-white/10 -z-10"
+                  className="absolute inset-0 rounded-xl shadow-md border border-white/10 -z-10"
+                  style={{
+                    backgroundColor: "var(--primary)",
+                  }}
                   transition={{ type: "spring", stiffness: 380, damping: 30 }}
                 />
               )}
@@ -126,12 +129,12 @@ export default function PortfolioPage() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4 }}
                 key={project.title}
-                className="group relative bg-[#115EA5] p-8 md:p-12 rounded-[2.5rem] border border-[#10477C] hover:border-[#EC4899]/30 transition-all duration-500 shadow-lg shadow-blue-950/40 flex flex-col justify-between"
+                className="group relative bg-[#0B1020]/45 backdrop-blur-[20px] p-8 md:p-12 rounded-[2.5rem] border border-white/10 hover:border-[var(--primary)]/30 transition-all duration-500 shadow-lg shadow-blue-950/40 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex justify-between items-start mb-8">
                     <div className="flex items-center gap-2.5">
-                      <div className="p-2 bg-[#123C6A] rounded-xl">
+                      <div className="p-2 bg-white/5 border border-white/10 rounded-xl">
                         {project.icon}
                       </div>
                       <span className="text-xs font-black uppercase tracking-wider text-[#CEDDEA]/60 font-sans">
@@ -161,7 +164,7 @@ export default function PortfolioPage() {
                           href={item.href}
                           target={item.target}
                           rel={item.rel}
-                          className="text-[#CEDDEA]/80 hover:text-[#EC4899] transition-colors duration-200"
+                          className="text-[#CEDDEA]/80 hover:text-[var(--primary)] transition-colors duration-200"
                           aria-label={item.label}
                           title={item.title}
                         >
@@ -186,12 +189,15 @@ export default function PortfolioPage() {
                     <TechBadgeGroup techs={project.tech} />
                   </div>
 
-                  <div className="pt-2 border-t border-[#123C6A]/60 flex items-center justify-between">
+                  <div className="pt-2 border-t border-white/5 flex items-center justify-between">
                     <a
                       href={project.link === "#" ? undefined : project.link}
                       target={project.link === "#" ? undefined : "_blank"}
                       rel={project.link === "#" ? undefined : "noopener noreferrer"}
-                      className="inline-flex items-center justify-center bg-[#EC4899] text-white px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-[#DB2777] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-sm"
+                      className="inline-flex items-center justify-center text-white px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 shadow-sm"
+                      style={{
+                        backgroundImage: 'linear-gradient(to bottom, var(--primary), var(--primary))',
+                      }}
                     >
                       Launch Case Study <span className="ml-2 font-bold font-sans">→</span>
                     </a>

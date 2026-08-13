@@ -53,11 +53,11 @@ export default function ContactPage() {
           variants={fadeInUp}
           className="space-y-6"
         >
-          <span className="text-xs font-black uppercase tracking-[0.3em] text-[#10B981] font-sans">
+          <span className="text-xs font-black uppercase tracking-[0.3em] text-[var(--primary)] font-sans">
             Contact Us
           </span>
           <h1 className="text-[clamp(40px,7vw,80px)] font-black text-white leading-tight font-serif tracking-tighter">
-            GET IN <span className="text-[#10B981] drop-shadow-[0_0_15px_rgba(16,185,129,0.15)]">TOUCH.</span>
+            GET IN <span className="text-[var(--primary)] drop-shadow-[0_0_15px_rgba(16,185,129,0.15)]">TOUCH.</span>
           </h1>
           <p className="text-[#CEDDEA] max-w-2xl mx-auto text-lg font-sans">
             Ready to design, secure, and accelerate your next engineering project? Leave your details below and a developer will connect with you directly.
@@ -79,16 +79,16 @@ export default function ContactPage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={commonWhileInView}
                   transition={{ delay: index * 0.1 }}
-                  className="flex items-center gap-6 group bg-[#115EA5]/30 p-6 rounded-2xl border border-[#10477C]/60 hover:bg-[#115EA5]/65 transition-all duration-300"
+                  className="flex items-center gap-6 group bg-[#0B1020]/45 backdrop-blur-[20px] p-6 rounded-2xl border border-white/10 hover:bg-[#0B1020]/65 transition-all duration-300"
                 >
-                  <div className="w-14 h-14 bg-[#1161AB] border border-[#10477C] rounded-xl flex items-center justify-center text-white group-hover:bg-[#10B981] group-hover:text-white transition-all duration-300">
+                  <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-white group-hover:bg-[var(--primary)] group-hover:text-white transition-all duration-300">
                     {method.icon}
                   </div>
                   <div>
                     <p className="text-xs font-black uppercase tracking-widest text-[#CEDDEA]/60 mb-0.5 font-sans">
                       {method.label}
                     </p>
-                    <p className="text-lg font-bold text-white group-hover:text-[#10B981] transition-colors font-sans break-all">
+                    <p className="text-lg font-bold text-white group-hover:text-[var(--primary)] transition-colors font-sans break-all">
                       {method.value}
                     </p>
                   </div>
@@ -97,9 +97,9 @@ export default function ContactPage() {
             </div>
 
             {/* Location block */}
-            <div className="p-8 bg-[#123C6A]/50 rounded-[2rem] border border-[#115EA5]/30 space-y-4 font-sans">
+            <div className="p-8 bg-[#0B1020]/45 backdrop-blur-[20px] rounded-[2rem] border border-white/10 space-y-4 font-sans">
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-[#10B981]/15 rounded-lg text-[#10B981]">
+                <div className="p-2 bg-white/5 rounded-lg text-[var(--primary)]">
                   <MapPin size={20} />
                 </div>
                 <h3 className="text-lg font-black text-white uppercase tracking-tighter font-serif">
@@ -117,7 +117,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={commonWhileInView}
-            className="lg:col-span-7 bg-[#115EA5] p-8 md:p-14 rounded-[3rem] text-white border border-[#10477C] shadow-xl"
+            className="lg:col-span-7 bg-[#0B1020]/45 backdrop-blur-[20px] p-8 md:p-14 rounded-[3rem] text-white border border-white/10 shadow-xl"
           >
             <h3 className="text-2xl font-black text-white font-serif mb-8 tracking-tight">
               Submit Your Proposal
@@ -131,7 +131,7 @@ export default function ContactPage() {
                 <input
                   type="text"
                   required
-                  className="w-full bg-transparent border-b border-[#123C6A] py-3 focus:outline-none focus:border-[#10B981] transition-colors font-semibold text-lg text-white"
+                  className="w-full bg-transparent border-b border-white/10 py-3 focus:outline-none focus:border-[var(--primary)] transition-colors font-semibold text-lg text-white"
                   placeholder="E.g. Jane Doe"
                 />
               </div>
@@ -143,7 +143,7 @@ export default function ContactPage() {
                 <input
                   type="email"
                   required
-                  className="w-full bg-transparent border-b border-[#123C6A] py-3 focus:outline-none focus:border-[#10B981] transition-colors font-semibold text-lg text-white"
+                  className="w-full bg-transparent border-b border-white/10 py-3 focus:outline-none focus:border-[var(--primary)] transition-colors font-semibold text-lg text-white"
                   placeholder="jane@company.com"
                 />
               </div>
@@ -155,14 +155,17 @@ export default function ContactPage() {
                 <textarea
                   required
                   rows={4}
-                  className="w-full bg-transparent border-b border-[#123C6A] py-3 focus:outline-none focus:border-[#10B981] transition-colors font-semibold text-lg text-white resize-none"
+                  className="w-full bg-transparent border-b border-white/10 py-3 focus:outline-none focus:border-[var(--primary)] transition-colors font-semibold text-lg text-white resize-none"
                   placeholder="Tell us about the product and target launch date..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-5 bg-[#10B981] text-white rounded-xl font-black uppercase tracking-widest hover:bg-[#059669] transition-all duration-300 flex items-center justify-center gap-3 shadow-md cursor-pointer"
+                className="w-full py-5 text-white rounded-xl font-black uppercase tracking-widest hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-3 shadow-md cursor-pointer"
+                style={{
+                  backgroundImage: 'linear-gradient(to bottom, var(--primary), var(--primary))',
+                }}
               >
                 {submitted ? (
                   <>

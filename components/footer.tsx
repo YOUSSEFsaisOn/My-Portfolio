@@ -22,7 +22,7 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="w-full bg-gradient-to-b from-[#0D365F] to-[#08223c] text-white border-t border-[#123C6A]/60 pt-10 pb-2 px-6 lg:px-16">
+    <footer className="w-full bg-gradient-to-b from-[#0B1020] to-[#070B14] text-white border-t border-white/5 pt-16 pb-8 px-6 lg:px-16">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
         
         {/* Brand Column */}
@@ -107,7 +107,7 @@ export default function Footer() {
                     href={link.href}
                     className="flex items-center gap-2 text-[#CEDDEA]/70 hover:text-white text-sm transition-colors duration-200 group"
                   >
-                    <IconComponent size={16} className="text-[#115EA5] group-hover:text-white transition-colors" />
+                    <IconComponent size={16} className="text-[var(--primary)] group-hover:text-white transition-colors" />
                     <span>{link.label}</span>
                   </Link>
                 </li>
@@ -124,7 +124,10 @@ export default function Footer() {
           </p>
           <Link 
             href="/contact"
-            className="inline-flex items-center gap-2 px-5 py-3 bg-[#3567E8] text-white font-medium rounded-xl text-sm hover:bg-[#D9E7FF] hover:text-[#0D365F] transition-all duration-300 shadow-md"
+            className="inline-flex items-center gap-2 px-5 py-3 text-white font-medium rounded-xl text-sm hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 shadow-md"
+            style={{
+              backgroundImage: 'linear-gradient(to bottom, var(--primary), var(--primary))',
+            }}
           >
             <span>Let&apos;s Talk</span>
             <ArrowUpRight size={16} />
@@ -145,7 +148,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="max-w-7xl mx-auto border-t border-[#123C6A]/60 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#CEDDEA]/60">
+      <div className="max-w-7xl mx-auto border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#CEDDEA]/60">
         <p>© {new Date().getFullYear()} The DevHouse. All rights reserved.</p>
         <div className="flex gap-6">
           <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
