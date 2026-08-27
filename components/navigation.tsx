@@ -36,7 +36,6 @@ export default function Navigation() {
     { href: '/about', label: 'About Us', icon: Users },
   ]
 
-  // Helper to close menu
   const closeMenu = () => setIsOpen(false)
 
   return (
@@ -134,13 +133,13 @@ export default function Navigation() {
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Backdrop – click to close */}
+            {/* Backdrop – click to close - REMOVED BACKGROUND */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={closeMenu}
-              className="fixed inset-0 z-[99] bg-black/70 backdrop-blur-md"
+              className="fixed inset-0 z-[99]"
             />
 
             {/* Panel */}
@@ -151,30 +150,29 @@ export default function Navigation() {
                 animate={{ y: 0, opacity: 1, scale: 1 }}
                 exit={{ y: -16, opacity: 0, scale: 0.98 }}
                 transition={{ duration: 0.25 }}
-                // Close when mouse leaves the whole panel
                 onMouseLeave={closeMenu}
-                className="pointer-events-auto w-full max-w-[600px] rounded-[28px] border border-white/12 bg-[#05060d]/95 shadow-[0_30px_80px_rgba(0,0,0,0.85)] backdrop-blur-2xl overflow-hidden"
+                className="pointer-events-auto w-full max-w-[600px] rounded-[28px] border border-white/20 bg-transparent shadow-2xl shadow-black/30 overflow-hidden"
               >
-                {/* Header + close */}
-                <div className="flex items-center justify-between px-6 pt-5 pb-4 border-b border-white/10">
+                {/* Header + close - TRANSPARENT BACKGROUND */}
+                <div className="flex items-center justify-between px-6 pt-5 pb-4">
                   <div className="flex flex-col gap-0.5">
-                    <span className="text-xs uppercase tracking-[0.35em] text-white/35">
+                    <span className="text-xs uppercase tracking-[0.35em] text-white/60">
                       Menu
                     </span>
-                    <span className="text-sm text-white/70">
+                    <span className="text-sm text-white/80">
                       Explore Untra
                     </span>
                   </div>
                   <button
                     onClick={closeMenu}
-                    className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-white/80 hover:text-white transition-colors"
+                    className="p-2 rounded-full bg-white/20 hover:bg-white/30 text-white transition-colors backdrop-blur-sm"
                     aria-label="Close menu"
                   >
                     <X size={18} />
                   </button>
                 </div>
 
-                {/* Links */}
+                {/* Links - TRANSPARENT BACKGROUND */}
                 <div className="px-6 py-3">
                   {navLinks.map((link, idx) => {
                     const IconComponent = link.icon
@@ -192,14 +190,18 @@ export default function Navigation() {
                           onClick={closeMenu}
                           className={`flex items-center gap-4 py-3.5 px-2 rounded-2xl transition-all duration-150 group ${
                             isActive
-                              ? 'bg-white/10 text-white shadow-sm shadow-black/40'
-                              : 'text-white/75 hover:text-white hover:bg-white/5'
+                              ? 'bg-white/20 text-white backdrop-blur-sm shadow-lg'
+                              : 'text-white/80 hover:text-white hover:bg-white/10'
                           }`}
                         >
-                          <span className="flex items-center justify-center w-10 h-10 rounded-xl border border-white/12 bg-white/5 group-hover:bg-white/10 group-hover:border-white/20 group-hover:translate-x-[1px] transition-all">
+                          <span className={`flex items-center justify-center w-10 h-10 rounded-xl border backdrop-blur-sm transition-all ${
+                            isActive
+                              ? 'border-white/30 bg-white/20'
+                              : 'border-white/20 bg-white/10 group-hover:bg-white/20 group-hover:border-white/30'
+                          }`}>
                             <IconComponent size={20} />
                           </span>
-                          <span className="text-[16px] font-semibold tracking-tight group-hover:translate-x-[2px] transition-transform">
+                          <span className="text-[16px] font-semibold tracking-tight">
                             {link.label}
                           </span>
                         </Link>
@@ -208,12 +210,12 @@ export default function Navigation() {
                   })}
                 </div>
 
-                {/* Footer button */}
-                <div className="px-6 pb-5 pt-3 border-t border-white/10">
+                {/* Footer button - TRANSPARENT BACKGROUND */}
+                <div className="px-6 pb-5 pt-3">
                   <Link
                     href="/contact"
                     onClick={closeMenu}
-                    className="flex items-center justify-center gap-2 w-full rounded-2xl bg-white text-black py-3.5 text-[15px] font-semibold tracking-tight shadow-lg shadow-black/40 hover:bg-white/90 hover:shadow-xl transition-all duration-150"
+                    className="flex items-center justify-center gap-2 w-full rounded-2xl bg-white/20 backdrop-blur-sm text-white py-3.5 text-[15px] font-semibold tracking-tight shadow-lg shadow-black/40 hover:bg-white/30 hover:shadow-xl transition-all duration-150 border border-white/20"
                   >
                     <span>Get Started</span>
                     <ArrowUpDown size={16} className="rotate-90" />
