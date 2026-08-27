@@ -14,19 +14,19 @@ const FEATURES = [
     icon: <Building2 className="w-6 h-6 text-sky-500" />,
     title: "For Established Businesses",
     description:
-      "If you are already a well established business, we can optimize and automate your business cycle and help you grow.",
+      "Already running a well-established business? We optimize and automate your LMS and internal systems to help you scale faster.",
   },
   {
     icon: <Clock className="w-6 h-6 text-sky-500" />,
     title: "Save Time & Money",
     description:
-      "We are 100% hassle free. We take care of everything from planning to implementation to ongoing maintenance, so you can focus on the things that matter to you.",
+      "We're 100% hassle-free. We handle everything from planning to implementation to ongoing maintenance, so you can focus on what matters to you.",
   },
   {
     icon: <Rocket className="w-6 h-6 text-sky-500" />,
     title: "For New Businesses",
     description:
-      "If you are a new business or just starting out, we can turn your ideas into reality, fast and reliably because we already know what works and what doesn't.",
+      "Just starting out? We turn your idea into a real, working LMS or software product — fast and reliably, because we already know what works and what doesn't.",
   },
 ];
 
@@ -43,7 +43,7 @@ export default function WhyChooseUs() {
             transition={{ duration: 0.6 }}
             className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4 tracking-tight"
           >
-            Why Choose The DevHouse
+            Why Choose ultron
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -52,7 +52,7 @@ export default function WhyChooseUs() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-neutral-500 text-base md:text-lg max-w-2xl mx-auto"
           >
-            Discover how we transform businesses through innovative software solutions
+           Discover how we transform businesses through intelligent LMS and software solutions.
           </motion.p>
         </div>
 

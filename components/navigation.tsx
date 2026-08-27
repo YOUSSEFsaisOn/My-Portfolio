@@ -112,7 +112,7 @@ export default function Navigation() {
             </svg>
           </div>
           <span className="text-[17px] font-medium tracking-tight text-white/80 group-hover:text-white transition-colors">
-            The DevHouse
+           Untra
           </span>
         </Link>
 
@@ -162,7 +162,7 @@ export default function Navigation() {
                       Menu
                     </span>
                     <span className="text-sm text-white/70">
-                      Explore The DevHouse
+                      Explore Untra
                     </span>
                   </div>
                   <button

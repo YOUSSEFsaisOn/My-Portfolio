@@ -18,22 +18,25 @@ export default function AboutPage() {
     {
       icon: <Lightbulb className="w-5 h-5 text-white/70" />,
       title: "Innovation",
-      description: "We constantly push boundaries to create cutting-edge solutions",
+      description:
+        "We constantly push boundaries to create cutting-edge LMS and software solutions",
     },
     {
       icon: <Sparkles className="w-5 h-5 text-white/70" />,
       title: "Quality",
-      description: "Excellence is not an act, it is a habit in everything we do",
+      description:
+        "Excellence is not an act, it is a habit in everything we do",
     },
     {
       icon: <Users className="w-5 h-5 text-white/70" />,
       title: "Collaboration",
-      description: "We believe the best ideas come from diverse perspectives",
+      description: "We believe the best ideas come from diverse perspectives.",
     },
     {
       icon: <Shield className="w-5 h-5 text-white/70" />,
       title: "Integrity",
-      description: "Trust and transparency form the foundation of our relationships",
+      description:
+        "Trust and transparency form the foundation of our relationships",
     },
   ];
 
@@ -69,7 +72,7 @@ export default function AboutPage() {
           className="text-center"
         >
           <h1 className="text-[clamp(36px,7vw,72px)] font-light text-white leading-tight tracking-normal">
-            About TheDevHouse
+            About ultron
           </h1>
         </motion.div>
       </section>
@@ -91,17 +94,17 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-5 text-white/80 text-base md:text-[17px] leading-[1.8] font-sans font-normal">
                 <p>
-                  We started with a simple mission: to create exceptional digital
-                  experiences that empower businesses and turn ideas into reality.
-                  We began operating remotely in 2021, building a strong
+                  We started with a simple mission to build LMS and software
+                  solutions that empower businesses and turn ideas into reality.
+                  We began operating remotely in 2025, building a strong
                   foundation and collaborating across borders.
                 </p>
                 <p>
-                  In 2023, we established our onsite office in Cairo, Heliopolis,
-                  bringing our talented team of developers, designers, and
-                  strategists together under one roof. Today, we are passionate
-                  about solving complex challenges with elegant, scalable
-                  solutions.
+                  In 2026, we officially established ultron, bringing our
+                  talented team of developers, designers, and strategists
+                  together under one roof. Today, we're passionate about
+                  solving complex challenges with elegant, scalable LMS and
+                  software solutions.
                 </p>
               </div>
             </motion.div>
@@ -204,7 +207,8 @@ export default function AboutPage() {
               Ready to Work With Us?
             </h2>
             <p className="text-white/45 max-w-lg mx-auto text-base md:text-lg leading-relaxed font-sans">
-              Let&apos;s collaborate to build something amazing for your business
+              Let&apos;s collaborate to build something amazing for your
+              business
             </p>
             <div className="pt-6">
               <Link

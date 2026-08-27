@@ -17,7 +17,7 @@ const robotoSlab = Roboto_Slab({
 });
 
 export const metadata: Metadata = {
-  title: "The DevHouse - Premium Software Portfolio",
+  title: "ultrone - Premium Software Portfolio",
   description:
     "Premium software development company specializing in React.js, Next.js, and .NET. Partner with us to engineer robust digital solutions.",
   icons: {

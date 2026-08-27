@@ -48,7 +48,7 @@ export default function ConsultationPage() {
             className="text-3xl md:text-4xl lg:text-5xl font-normal text-neutral-900 tracking-tight"
             style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
           >
-            The DevHouse Consultation Program
+            ultron Consultation Program
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -56,7 +56,7 @@ export default function ConsultationPage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-neutral-500 text-base md:text-lg leading-relaxed max-w-3xl mx-auto"
           >
-            The DevHouse consultation program is, first and foremost, an effort to give back to the community by making our knowledge available through a consultation session. This also serves as a low-commitment way to get your questions answered. We are happy to answer any questions you have about our products and services.
+            The ultron consultation program is, first and foremost, an effort to give back to the community by making our knowledge available through a consultation session. This also serves as a low-commitment way to get your questions answered. We are happy to answer any questions you have about our products and services.
           </motion.p>
         </div>
 

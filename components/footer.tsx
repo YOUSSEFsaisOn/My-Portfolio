@@ -87,11 +87,11 @@ export default function Footer() {
               </svg>
             </div>
             <span className="text-xl font-bold tracking-tight text-white font-sans">
-              The DevHouse
+              Untra
             </span>
           </Link>
           <p className="text-[#CEDDEA]/70 text-sm leading-relaxed">
-            Building exceptional digital experiences, scalable software, and bringing your innovative ideas to life with precision and speed.
+            Building exceptional digital experiences, scalable LMS platforms, and bringing your innovative ideas to life with precision and speed.
           </p>
         </div>
 
@@ -135,10 +135,10 @@ export default function Footer() {
         <div>
           <h3 className="text-white font-semibold text-base mb-6 tracking-wide">Office</h3>
           <p className="text-[#CEDDEA]/70 text-sm leading-relaxed mb-4">
-            Working globally with startups, scale-ups, and enterprises to shape the future of technology.
+            Working globally with startups, scale-ups, and enterprises to shape the future of learning technology.
           </p>
           <div className="text-xs text-[#CEDDEA]/50">
-            support@thedevhouse.com
+            support@untra.com
           </div>
         </div>
 
@@ -146,7 +146,7 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="max-w-7xl mx-auto border-t border-[#123C6A]/60 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#CEDDEA]/60">
-        <p>© {new Date().getFullYear()} The DevHouse. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Untra. All rights reserved.</p>
         <div className="flex gap-6">
           <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
           <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>

@@ -76,7 +76,6 @@ export default function Process() {
             transition={{ duration: 0.6 }}
             className="text-[10px] font-semibold tracking-[0.25em] text-white/40 uppercase mb-4 block"
           >
-            METHODOLOGY
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -85,7 +84,7 @@ export default function Process() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl md:text-5xl font-bold text-white mb-5 tracking-tight"
           >
-            The Typical Cycle at The DevHouse
+            The Typical Cycle at Untra   
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -94,7 +93,7 @@ export default function Process() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-white/50 text-base md:text-lg leading-relaxed max-w-2xl mx-auto"
           >
-            Our proven development process ensures quality and client satisfaction at every step. From initial discovery to final launch.
+             Our proven development process ensures quality and client satisfaction at every step — from initial discovery to final launch.
           </motion.p>
         </div>
 

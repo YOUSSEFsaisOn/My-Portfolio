@@ -87,77 +87,6 @@ const ALL_PROJECTS = [
       </div>
     )
   },
-  {
-    title: "Notes Management App",
-    description:
-      "Developed a full-stack notes management application with CRUD functionality using Next.js and .NET Web API. Implemented secure authentication and protected routes with JWT.",
-    tech: ["React.js", ".NET", "JWT", "Tailwind CSS"],
-    link: "#",
-    mockup: (
-      <div className="relative w-full h-[220px] rounded-xl overflow-hidden border border-[#E5E7EB] bg-slate-50 flex flex-col shadow-inner">
-        {/* Browser header */}
-        <div className="flex items-center gap-1.5 px-4 py-2.5 bg-white border-b border-[#E5E7EB]">
-          <span className="w-2.5 h-2.5 rounded-full bg-rose-400" />
-          <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
-          <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
-          <span className="ml-4 text-[10px] font-medium text-slate-400 font-sans tracking-wide truncate">localhost:3000</span>
-        </div>
-        {/* Mockup screen content */}
-        <div className="flex-1 p-5 flex flex-col gap-3 bg-[#F8F9FC]">
-          <div className="flex justify-between items-center">
-            <div className="h-4 w-16 bg-[#3B6DFF]/20 rounded" />
-            <div className="h-4 w-10 bg-slate-200 rounded" />
-          </div>
-          <div className="grid grid-cols-3 gap-3 flex-1 overflow-hidden">
-            <div className="rounded bg-white border border-[#E5E7EB] p-2 flex flex-col gap-1.5">
-              <div className="h-2 w-10 bg-[#3B6DFF] rounded" />
-              <div className="h-1.5 w-full bg-slate-100 rounded" />
-              <div className="h-1.5 w-4/5 bg-slate-100 rounded" />
-            </div>
-            <div className="rounded bg-white border border-[#E5E7EB] p-2 flex flex-col gap-1.5">
-              <div className="h-2 w-12 bg-amber-400 rounded" />
-              <div className="h-1.5 w-full bg-slate-100 rounded" />
-              <div className="h-1.5 w-2/3 bg-slate-100 rounded" />
-            </div>
-            <div className="rounded bg-white border border-[#E5E7EB] p-2 flex flex-col gap-1.5">
-              <div className="h-2 w-8 bg-emerald-400 rounded" />
-              <div className="h-1.5 w-full bg-slate-100 rounded" />
-              <div className="h-1.5 w-1/2 bg-slate-100 rounded" />
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  },
-  {
-    title: "Firebase Auth System",
-    description:
-      "Built a secure authentication app with Google Sign-In and Email/Password login using Firebase Authentication.",
-    tech: ["React", "Firebase", "Auth", "Security"],
-    link: "#",
-    mockup: (
-      <div className="relative w-full h-[220px] rounded-xl overflow-hidden border border-[#E5E7EB] bg-slate-50 flex flex-col shadow-inner">
-        {/* Browser header */}
-        <div className="flex items-center gap-1.5 px-4 py-2.5 bg-white border-b border-[#E5E7EB]">
-          <span className="w-2.5 h-2.5 rounded-full bg-rose-400" />
-          <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
-          <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
-          <span className="ml-4 text-[10px] font-medium text-slate-400 font-sans tracking-wide truncate">auth-system.web.app</span>
-        </div>
-        {/* Mockup screen content */}
-        <div className="flex-1 p-5 flex items-center justify-center bg-[#F8F9FC]">
-          <div className="w-[160px] rounded-lg bg-white shadow-md border border-[#E5E7EB] p-4 flex flex-col gap-2.5 items-center">
-            <div className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center">
-              <span className="text-[8px] font-bold">🔒</span>
-            </div>
-            <div className="h-2.5 w-16 bg-slate-200 rounded" />
-            <div className="h-5 w-full bg-[#3B6DFF]/10 rounded border border-[#3B6DFF]/15 flex items-center justify-center text-[8px] text-[#3B6DFF] font-bold">Google Sign-In</div>
-            <div className="h-5 w-full bg-[#3B6DFF] rounded flex items-center justify-center text-[8px] text-white font-bold">Sign In with Email</div>
-          </div>
-        </div>
-      </div>
-    )
-  },
 ];
 
 export default function Projects() {
@@ -170,14 +99,13 @@ export default function Projects() {
           viewport={{ once: true }}
           className="mb-24 text-center"
         >
-          <span className="text-[10px] font-bold tracking-[0.25em] text-[#3B6DFF] uppercase mb-4 block">
-            PORTFOLIO
-          </span>
           <h2 className="text-[clamp(36px,5.5vw,72px)] font-black text-[#111827] leading-tight font-serif tracking-tighter mb-6">
             The Proof is Live
           </h2>
           <p className="text-[#6B7280] max-w-2xl mx-auto text-base md:text-lg font-sans">
-            Not mockups. Not demos. Production systems running real businesses — right now.
+            Not mockups. Not demos. Production systems running real
+            <br></br>
+            <span className="text-[#3B6DFF] font-bold"> businesses </span>— right now.
           </p>
         </motion.div>
 

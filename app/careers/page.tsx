@@ -54,7 +54,7 @@ export default function CareersPage() {
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-5xl font-normal text-neutral-900 tracking-tight"
           >
-            Careers at The DevHouse
+            Careers at ultron
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -62,7 +62,7 @@ export default function CareersPage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-neutral-500 text-base md:text-lg leading-relaxed max-w-2xl mx-auto"
           >
-            Here at The DevHouse, we are always looking for talented people to join our team! If you are interested in joining our team, please fill out the form below.
+            Here at ultron, we are always looking for talented people to join our team! If you are interested in joining our team, please fill out the form below.
           </motion.p>
         </div>
 

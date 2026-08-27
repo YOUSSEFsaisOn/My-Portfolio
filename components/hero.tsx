@@ -14,7 +14,10 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center pt-32 pb-24 px-6 relative overflow-hidden bg-transparent z-10">
+    <section
+      id="hero"
+      className="min-h-screen flex items-center justify-center pt-32 pb-24 px-6 relative overflow-hidden bg-transparent z-10"
+    >
       {/* Soft light glow behind hero content */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
@@ -127,7 +130,7 @@ export default function Hero() {
           className="mb-8"
         >
           <span className="text-white/60 text-xs font-semibold uppercase tracking-[0.4em] select-none">
-            The DevHouse
+            ultron 
           </span>
         </motion.div>
 
@@ -137,9 +140,9 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.25 }}
           className="text-base md:text-lg text-[#CEDDEA] mb-12 max-w-2xl mx-auto leading-relaxed font-sans"
         >
-          We design and build custom software that becomes the operational
-          backbone of your business — replacing fragmented tools with a single,
-          intelligent system built around how you actually work.
+          We design and build custom LMS and software solutions that become the
+          operational backbone of your business — replacing scattered tools with
+          a single, intelligent system built around how you actually work.
         </motion.p>
 
         <motion.div
@@ -148,10 +151,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex justify-center items-center"
         >
-          <Link
-            href="#contact"
-            className="btn-premium rounded-[24px]"
-          >
+          <Link href="#contact" className="btn-premium rounded-[24px]">
             Book a Consultation
           </Link>
         </motion.div>
