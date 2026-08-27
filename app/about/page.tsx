@@ -102,7 +102,7 @@ export default function AboutPage() {
                 <p>
                   In 2026, we officially established ultron, bringing our
                   talented team of developers, designers, and strategists
-                  together under one roof. Today, we're passionate about
+                  together under one roof. Today, we&apos;re passionate about
                   solving complex challenges with elegant, scalable LMS and
                   software solutions.
                 </p>

@@ -12,18 +12,19 @@ import {
   Mail,
   Users,
   ArrowRight,
+  type LucideIcon,
 } from 'lucide-react'
 
 const SWIFT = [0.32, 0.72, 0, 1] as const
 
-const NAV_LINKS = [
+const NAV_LINKS: { href: string; label: string; icon: LucideIcon; exact?: boolean }[] = [
   { href: '/', label: 'Home', icon: Home, exact: true },
   { href: '/consultation', label: 'Consultation', icon: MessageSquare },
   { href: '/careers', label: 'Careers', icon: Briefcase },
   { href: '/portfolio', label: 'Portfolio', icon: Monitor },
   { href: '/contact', label: 'Contact Us', icon: Mail },
   { href: '/about', label: 'About Us', icon: Users },
-] as const
+]
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -158,8 +159,8 @@ export default function Navigation() {
               aria-label="Navigation"
               initial={{ y: -12, opacity: 0, scale: 0.97 }}
               animate={{ y: 0, opacity: 1, scale: 1 }}
-              exit={{ y: -8, opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.22, ease: SWIFT, exit: { duration: 0.14, ease: [0.4, 0, 1, 1] } }}
+              exit={{ y: -8, opacity: 0, scale: 0.98, transition: { duration: 0.14, ease: [0.4, 0, 1, 1] } }}
+              transition={{ duration: 0.22, ease: SWIFT }}
               className="pointer-events-auto w-full max-w-[640px] rounded-[28px] border border-white/15 bg-gradient-to-b from-black/70 via-black/50 to-black/20 shadow-[0_20px_60px_rgba(0,0,0,0.35)] backdrop-blur-2xl overflow-hidden"
             >
               <nav className="px-4 py-4">
