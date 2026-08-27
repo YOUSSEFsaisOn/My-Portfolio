@@ -84,7 +84,7 @@ export default function Process() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl md:text-5xl font-bold text-white mb-5 tracking-tight"
           >
-            The Typical Cycle at Untra   
+            The Typical Cycle at ultron   
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

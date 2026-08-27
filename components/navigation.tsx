@@ -15,6 +15,9 @@ import {
   ArrowUpDown
 } from 'lucide-react'
 
+// Apple-style "swift" easing — snappy start, soft settle
+const swift = [0.32, 0.72, 0, 1] as const
+
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -26,6 +29,19 @@ export default function Navigation() {
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Escape to close, lock body scroll while menu is open
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsOpen(false)
+    }
+    window.addEventListener('keydown', handleKey)
+    document.body.style.overflow = isOpen ? 'hidden' : ''
+    return () => {
+      window.removeEventListener('keydown', handleKey)
+      document.body.style.overflow = ''
+    }
+  }, [isOpen])
 
   const navLinks = [
     { href: '/', label: 'Home', icon: Home },
@@ -39,141 +55,144 @@ export default function Navigation() {
   const closeMenu = () => setIsOpen(false)
 
   return (
-    <motion.nav
-      initial={{ y: -30, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl rounded-full border transition-all duration-300 ${
-        scrolled
-          ? 'bg-black/45 backdrop-blur-xl border-white/10 shadow-2xl shadow-black/50 py-3 px-5'
-          : 'bg-black/30 backdrop-blur-md border-white/10 shadow-lg shadow-black/30 py-3.5 px-5'
-      }`}
-    >
-      <div className="flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative flex items-center justify-center">
-            <svg
-              width="36"
-              height="32"
-              viewBox="0 0 100 90"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="drop-shadow-[0_0_10px_rgba(255,255,255,0.18)] transition-transform duration-300 group-hover:scale-105"
-            >
-              <path
-                d="M50 10 L85 45 L85 80 L15 80 L15 45 Z"
-                stroke="#FFFFFF"
-                strokeWidth="7"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+    // Fragment root — the nav pill and the dropdown menu are siblings.
+    // The menu is NOT nested inside <nav>, so it can't inherit or be
+    // constrained by the pill's small size/shape.
+    <>
+      <motion.nav
+        initial={{ y: -30, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, ease: swift }}
+        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl rounded-full border transition-all duration-300 ${
+          scrolled
+            ? 'bg-black/45 backdrop-blur-xl border-white/10 shadow-2xl shadow-black/50 py-3 px-5'
+            : 'bg-black/30 backdrop-blur-md border-white/10 shadow-lg shadow-black/30 py-3.5 px-5'
+        }`}
+      >
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative flex items-center justify-center">
+              <svg
+                width="36"
+                height="32"
+                viewBox="0 0 100 90"
                 fill="none"
-              />
-              <path
-                d="M32 46 C32 40, 42 40, 42 46 L42 62 C42 68, 32 68, 32 62 Z"
-                stroke="#FFFFFF"
-                strokeWidth="5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
-              />
-              <path
-                d="M42 43 L42 62"
-                stroke="#FFFFFF"
-                strokeWidth="5"
-                strokeLinecap="round"
-                fill="none"
-              />
-              <path
-                d="M48 55 C48 46, 58 46, 58 55 L48 55"
-                stroke="#FFFFFF"
-                strokeWidth="5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
-              />
-              <path
-                d="M48 55 C48 64, 58 64, 58 55"
-                stroke="#FFFFFF"
-                strokeWidth="5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
-              />
-              <path
-                d="M64 45 L70 62 L76 45"
-                stroke="#FFFFFF"
-                strokeWidth="5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
-              />
-            </svg>
-          </div>
-          <span className="text-[17px] font-medium tracking-tight text-white/80 group-hover:text-white transition-colors">
-           Untra
-          </span>
-        </Link>
+                xmlns="http://www.w3.org/2000/svg"
+                className="drop-shadow-[0_0_10px_rgba(255,255,255,0.18)] transition-transform duration-300 ease-out group-hover:scale-105"
+              >
+                <path
+                  d="M50 10 L85 45 L85 80 L15 80 L15 45 Z"
+                  stroke="#FFFFFF"
+                  strokeWidth="7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+                <path
+                  d="M32 46 C32 40, 42 40, 42 46 L42 62 C42 68, 32 68, 32 62 Z"
+                  stroke="#FFFFFF"
+                  strokeWidth="5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+                <path
+                  d="M42 43 L42 62"
+                  stroke="#FFFFFF"
+                  strokeWidth="5"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+                <path
+                  d="M48 55 C48 46, 58 46, 58 55 L48 55"
+                  stroke="#FFFFFF"
+                  strokeWidth="5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+                <path
+                  d="M48 55 C48 64, 58 64, 58 55"
+                  stroke="#FFFFFF"
+                  strokeWidth="5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+                <path
+                  d="M64 45 L70 62 L76 45"
+                  stroke="#FFFFFF"
+                  strokeWidth="5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+              </svg>
+            </div>
+            <span className="text-[17px] font-medium tracking-tight text-white/80 group-hover:text-white transition-colors duration-300 ease-out">
+              ultron
+            </span>
+          </Link>
 
-        {/* Hamburger */}
-        <button
-          onClick={() => setIsOpen(true)}
-          className="relative p-3 rounded-full border border-white/10 bg-white/0 hover:bg-white/10 hover:border-white/25 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/30"
-          aria-label="Open menu"
-        >
-          <div className="flex flex-col justify-between w-6 h-4">
-            <span className="block h-0.5 w-full bg-white rounded-full transition-all duration-200" />
-            <span className="block h-0.5 w-full bg-white rounded-full transition-all duration-200" />
-            <span className="block h-0.5 w-4/5 bg-white rounded-full transition-all duration-200" />
-          </div>
-        </button>
-      </div>
+          {/* Hamburger / Close toggle */}
+          <button
+            onClick={() => setIsOpen((prev) => !prev)}
+            className="group relative p-3 rounded-full bg-white/0 hover:bg-white/[0.08] active:bg-white/[0.14] active:scale-90 transition-[background-color,transform] duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isOpen}
+          >
+            <div className="relative flex flex-col justify-between w-6 h-4">
+              <motion.span
+                animate={isOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+                transition={{ duration: 0.28, ease: swift }}
+                className="block h-0.5 w-full bg-white/90 group-hover:bg-white rounded-full origin-center transition-colors duration-200"
+              />
+              <motion.span
+                animate={isOpen ? { opacity: 0, x: -8 } : { opacity: 1, x: 0 }}
+                transition={{ duration: 0.16, ease: swift }}
+                className="block h-0.5 w-full bg-white/90 group-hover:bg-white rounded-full transition-colors duration-200"
+              />
+              <motion.span
+                animate={isOpen ? { rotate: -45, y: -7, width: '100%' } : { rotate: 0, y: 0, width: '80%' }}
+                transition={{ duration: 0.28, ease: swift }}
+                className="block h-0.5 bg-white/90 group-hover:bg-white rounded-full origin-center transition-colors duration-200"
+              />
+            </div>
+          </button>
+        </div>
+      </motion.nav>
 
-      {/* Menu */}
+      {/* Dropdown menu — lives outside <nav>, sibling in the tree.
+          No dark full-page backdrop: the click-catcher is fully
+          transparent so nothing behind the panel gets dimmed or blurred. */}
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Backdrop – click to close - REMOVED BACKGROUND */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+            {/* Invisible click-catcher, closes menu on outside click */}
+            <div
               onClick={closeMenu}
               className="fixed inset-0 z-[99]"
+              aria-hidden="true"
             />
 
-            {/* Panel */}
-            <div className="fixed inset-0 z-[100] flex items-start justify-center pt-6 px-4 pointer-events-none">
+            {/* Panel — centered, fixed width, never stretches full-bleed */}
+            <div className="fixed inset-x-0 top-[4.5rem] z-[100] flex justify-center px-4 pointer-events-none">
               <motion.div
                 ref={panelRef}
-                initial={{ y: -16, opacity: 0, scale: 0.98 }}
+                initial={{ y: -12, opacity: 0, scale: 0.97 }}
                 animate={{ y: 0, opacity: 1, scale: 1 }}
-                exit={{ y: -16, opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.25 }}
+                exit={{ y: -8, opacity: 0, scale: 0.98 }}
+                transition={{
+                  duration: 0.22,
+                  ease: swift,
+                  exit: { duration: 0.14, ease: [0.4, 0, 1, 1] },
+                }}
                 onMouseLeave={closeMenu}
-                className="pointer-events-auto w-full max-w-[600px] rounded-[28px] border border-white/20 bg-transparent shadow-2xl shadow-black/30 overflow-hidden"
+                className="pointer-events-auto w-full max-w-[640px] rounded-[28px] border border-white/15 bg-gradient-to-b from-black/70 via-black/50 to-black/20 shadow-[0_20px_60px_rgba(0,0,0,0.35)] backdrop-blur-2xl overflow-hidden"
               >
-                {/* Header + close - TRANSPARENT BACKGROUND */}
-                <div className="flex items-center justify-between px-6 pt-5 pb-4">
-                  <div className="flex flex-col gap-0.5">
-                    <span className="text-xs uppercase tracking-[0.35em] text-white/60">
-                      Menu
-                    </span>
-                    <span className="text-sm text-white/80">
-                      Explore Untra
-                    </span>
-                  </div>
-                  <button
-                    onClick={closeMenu}
-                    className="p-2 rounded-full bg-white/20 hover:bg-white/30 text-white transition-colors backdrop-blur-sm"
-                    aria-label="Close menu"
-                  >
-                    <X size={18} />
-                  </button>
-                </div>
-
-                {/* Links - TRANSPARENT BACKGROUND */}
-                <div className="px-6 py-3">
+                {/* Links */}
+                <div className="px-4 py-4">
                   {navLinks.map((link, idx) => {
                     const IconComponent = link.icon
                     const isActive = pathname === link.href
@@ -181,41 +200,42 @@ export default function Navigation() {
                     return (
                       <motion.div
                         key={link.href}
-                        initial={{ opacity: 0, y: 10 }}
+                        initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: idx * 0.04 }}
+                        transition={{ delay: idx * 0.025, duration: 0.2, ease: swift }}
                       >
                         <Link
                           href={link.href}
                           onClick={closeMenu}
-                          className={`flex items-center gap-4 py-3.5 px-2 rounded-2xl transition-all duration-150 group ${
+                          className={`flex items-center gap-4 py-4 px-5 rounded-2xl transition-all duration-150 ease-out group ${
                             isActive
-                              ? 'bg-white/20 text-white backdrop-blur-sm shadow-lg'
-                              : 'text-white/80 hover:text-white hover:bg-white/10'
+                              ? 'bg-white/25 text-white'
+                              : 'text-white/90 hover:text-white hover:bg-white/15'
                           }`}
                         >
-                          <span className={`flex items-center justify-center w-10 h-10 rounded-xl border backdrop-blur-sm transition-all ${
-                            isActive
-                              ? 'border-white/30 bg-white/20'
-                              : 'border-white/20 bg-white/10 group-hover:bg-white/20 group-hover:border-white/30'
-                          }`}>
-                            <IconComponent size={20} />
-                          </span>
-                          <span className="text-[16px] font-semibold tracking-tight">
+                          <IconComponent
+                            size={22}
+                            strokeWidth={1.75}
+                            className="shrink-0 opacity-90 group-hover:opacity-100 transition-opacity"
+                          />
+                          <span className="text-[17px] font-semibold tracking-tight">
                             {link.label}
                           </span>
+                          {isActive && (
+                            <span className="ml-auto w-1.5 h-1.5 rounded-full bg-white/80" />
+                          )}
                         </Link>
                       </motion.div>
                     )
                   })}
                 </div>
 
-                {/* Footer button - TRANSPARENT BACKGROUND */}
-                <div className="px-6 pb-5 pt-3">
+                {/* Footer button */}
+                <div className="px-4 pb-4 pt-2 border-t border-white/15">
                   <Link
                     href="/contact"
                     onClick={closeMenu}
-                    className="flex items-center justify-center gap-2 w-full rounded-2xl bg-white/20 backdrop-blur-sm text-white py-3.5 text-[15px] font-semibold tracking-tight shadow-lg shadow-black/40 hover:bg-white/30 hover:shadow-xl transition-all duration-150 border border-white/20"
+                    className="flex items-center justify-center gap-2 w-full rounded-2xl bg-white text-black py-3.5 text-[15px] font-semibold tracking-tight shadow-lg shadow-black/30 hover:bg-white/90 hover:shadow-xl active:scale-[0.98] transition-all duration-150 ease-out"
                   >
                     <span>Get Started</span>
                     <ArrowUpDown size={16} className="rotate-90" />
@@ -226,6 +246,6 @@ export default function Navigation() {
           </>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </>
   )
 }

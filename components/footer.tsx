@@ -87,7 +87,7 @@ export default function Footer() {
               </svg>
             </div>
             <span className="text-xl font-bold tracking-tight text-white font-sans">
-              Untra
+              ultron
             </span>
           </Link>
           <p className="text-[#CEDDEA]/70 text-sm leading-relaxed">
@@ -138,7 +138,7 @@ export default function Footer() {
             Working globally with startups, scale-ups, and enterprises to shape the future of learning technology.
           </p>
           <div className="text-xs text-[#CEDDEA]/50">
-            support@untra.com
+            support@ultron.com
           </div>
         </div>
 
@@ -146,7 +146,7 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="max-w-7xl mx-auto border-t border-[#123C6A]/60 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#CEDDEA]/60">
-        <p>© {new Date().getFullYear()} Untra. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} ultron. All rights reserved.</p>
         <div className="flex gap-6">
           <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
           <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
