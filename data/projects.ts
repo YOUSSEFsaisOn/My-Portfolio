@@ -140,7 +140,7 @@ export const PROJECTS: Project[] = [
     category: "Multi-Tenant LMS",
     summary:
       "A full-scale, role-based LMS built to serve multiple education businesses (Centers), independent instructors, and students under one platform — with granular, permission-driven access control at every layer.",
-    liveUrl: "https://u-learn.runasp.net",
+    liveUrl: "https://company-courses-sit.vercel.app/",
     overview:
       "A full-scale, role-based LMS built to serve multiple education businesses (Centers), independent instructors, and students under one platform — with granular, permission-driven access control at every layer.",
     sections: [

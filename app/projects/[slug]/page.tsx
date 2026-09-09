@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, CheckCircle2, ExternalLink, Github } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, ExternalLink } from "lucide-react";
 import Navigation from "@/components/navigation";
 import FloatingContact from "@/components/floating-contact";
 import Footer from "@/components/footer";
-import { TechBadgeGroup } from "@/components/shared/tech-badge";
 import { getProjectBySlug, PROJECTS } from "@/data/projects";
 
 export const dynamicParams = false;
@@ -73,10 +72,6 @@ export default async function ProjectPage({
             {project.summary}
           </p>
 
-          <div className="mb-10">
-            <TechBadgeGroup techs={project.tech} />
-          </div>
-
           <div className="flex flex-wrap gap-4">
             <a
               href={project.liveUrl}
@@ -86,15 +81,6 @@ export default async function ProjectPage({
             >
               <ExternalLink size={16} />
               Live Site
-            </a>
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-white text-[#111827] border border-[#E5E7EB] px-7 py-3.5 rounded-[20px] text-sm font-bold tracking-wide hover:border-[#3B6DFF] hover:text-[#3B6DFF] transition-all duration-300 outline-none focus-visible:ring-2 focus-visible:ring-[#3B6DFF] focus-visible:ring-offset-2"
-            >
-              <Github size={16} />
-              GitHub
             </a>
           </div>
         </div>
